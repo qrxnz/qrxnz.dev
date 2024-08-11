@@ -1,0 +1,12 @@
+
+baseURL = "https://qrxnz.dev"
+defaultContentLanguage = "en"
+title = "DoIt"
+
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+
+
+theme = "DoIt"
+themesDir = "./themes/"
