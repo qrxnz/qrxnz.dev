@@ -42,7 +42,7 @@ animate = true
 
   [params.navbar]
   align = "ms-auto"
-  brandName = "qrxnz's space"
+  brandName = "Hugo Profile"
   disableSearch = false
   enableSeparator = false
 
