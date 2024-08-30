@@ -1,3 +1,6 @@
 [submodule "themes/DoIt"]
 	path = themes/DoIt
 	url = https://github.com/qrxnz/DoIt.git
+[submodule "themes/hugo-profile"]
+	path = themes/hugo-profile
+	url = https://github.com/qrxnz/hugo-profile.git
