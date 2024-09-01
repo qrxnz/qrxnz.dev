@@ -85,10 +85,7 @@ url = "https://odysee.com/@qrxnz:6"
   enable = true
   title = "About Me"
   image = "/images/me.png"
-  content = """
-I am a software developer with a passion for web development. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA.
-
-I am currently working on a project that will be used to help people find the best way to get around the city."""
+  content = """I am a cybersecurity enthusiast, primarily interested in web and hardware. I enjoy developing open source projects, treating it as a fun activity. In my free time, I mainly ride my skateboard and read books."""
 
     [params.about.skills]
     enable = true
