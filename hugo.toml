@@ -93,7 +93,7 @@ I am currently working on a project that will be used to help people find the be
     [params.about.skills]
     enable = true
     title = "Here are a few technologies I've been working with recently:"
-    items = [ "Typescript", "Nix", "Go", "Vue", "Bash", "Playwright" ]
+    items = [ "Typescript", "Go", "Vue", "Nix", "Playwright", "Bash" ]
 
   [params.education]
   enable = true
