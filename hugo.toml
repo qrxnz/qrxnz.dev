@@ -96,54 +96,54 @@ url = "https://odysee.com/@qrxnz:6"
   enable = true
 
     [[params.projects.items]]
-    title = "Hugo Profile"
-    content = "A highly customizable and mobile first Hugo template for personal portfolio and blog."
+    title = "Soon"
+    content = "soon"
     image = "/images/projects/profile.png"
     badges = [ "Hugo", "Bootstrap", "Javascript" ]
 
       [params.projects.items.featured]
       name = "Demo"
-      link = "https://hugo-profile.netlify.app"
+      link = "#"
 
       [[params.projects.items.links]]
       icon = "fa fa-envelope"
-      url = "mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f"
+      url = "w"
 
       [[params.projects.items.links]]
       icon = "fab fa-github"
-      url = "https://github.com/gurusabarish/hugo-profile"
+      url = "#"
 
       [[params.projects.items.links]]
       icon = "fab fa-twitter"
-      url = "https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile"
+      url = "#"
 
     [[params.projects.items]]
-    title = "Image Converter"
-    content = "A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django."
+    title = "Soon"
+    content = "soon"
     image = "/images/projects/converter.jpg"
     badges = [ "Django", "Bootstrap" ]
 
       [params.projects.items.featured]
       name = "Demo"
-      link = "https://django-converter.herokuapp.com"
+      link = "#"
 
       [[params.projects.items.links]]
       icon = "fab fa-github"
-      url = "https://github.com/gurusabarish/converter"
+      url = "#"
 
     [[params.projects.items]]
-    title = "Hugo Profile V2"
-    content = "A clean and simple Hugo template for personal portfolio and blog."
+    title = "Soon"
+    content = "soon"
     image = "/images/projects/profile2.jpg"
     badges = [ "Hugo", "Bootstrap", "Javascript" ]
 
       [params.projects.items.featured]
-      name = "Demo V2"
-      link = "https://hugo-profile-2.netlify.app"
+      name = "Demo"
+      link = "#"
 
       [[params.projects.items.links]]
       icon = "fab fa-github"
-      url = "https://github.com/gurusabarish/HugoProfileV2"
+      url = "#"
 
   [params.contact]
   enable = true
