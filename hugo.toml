@@ -90,7 +90,7 @@ url = "https://odysee.com/@qrxnz:6"
     [params.about.skills]
     enable = true
     title = "Here are a few technologies I've been working with recently:"
-    items = [ "Typescript", "Go", "Vue", "Nix", "Playwright", "Bash" ]
+    items = [ "Typescript", "Go", "Vue", "Nix", "Playwright", "C" ]
 
   [params.projects]
   enable = true
