@@ -29,7 +29,7 @@ weight = 2
 [params]
 title = "qrxnz's space"
 description = "Text about my cool site"
-favicon = "/fav.png"
+favicon = "/favicon.png"
 useBootstrapCDN = false
 mathjax = false
 animate = true
