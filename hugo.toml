@@ -63,7 +63,7 @@ animate = true
   intro = ""
   title = "Hi, I'm qrxnz"
   subtitle = "full time nerd"
-  content = "I am interested in re, hardware, web, lincox blah blah blah."
+  content = "I am interested in re, hardware, lincox blah blah blah."
   image = "/images/hero.svg"
 
     [params.hero.bottomImage]
