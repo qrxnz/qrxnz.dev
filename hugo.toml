@@ -19,16 +19,6 @@ footnoteReturnLinkContents = "^"
     bio = """
     <p> I am a cybersecurity enthusiast, primarily interested in web and hardware. I enjoy developing open source projects, treating it as a fun activity. In my free time, I mainly ride my skateboard and read books… 🛹 ^‿^ 📚 </p>
     <br />
-    <p> In my free time, I also enjoy solving challenges: </p>
-    <br />
-    <p> - HackTheBox </p>
-    <br />
-    <img src="https://www.hackthebox.com/badge/image/1104368" />
-    <br />
-    <br />
-    <p> - TryHackMe </p>
-    <br />
-    <img src="https://tryhackme-badges.s3.amazonaws.com/qrxnz.png" />
     """
     # copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
 
