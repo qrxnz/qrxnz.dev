@@ -48,3 +48,8 @@ series = "series"
     url = "https://github.com/qrxnz/"
     name = "github"
     weight = 1
+
+[[menu.icon]]
+    url = "index.xml"
+    name = "rss"
+    weight = 1
