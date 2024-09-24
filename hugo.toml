@@ -1,0 +1,84 @@
+baseurl = "https://qrxnz.dev"
+title = "qrxnz's blog"
+theme = "hugo-theme-cleanwhite"
+languageCode = "en-us"
+preserveTaxonomyNames = true
+paginate = 5 #frontpage pagination
+hasCJKLanguage = true
+
+[outputs]
+home = ["HTML", "RSS", "Algolia"]
+
+[params]
+  header_image = "img/banner.jpg"
+  SEOTitle = ":(){ :|:& };:"
+  description = "re, hardware, web, lincox blah blah blah"
+  keyword = "linux, hardware, web, android, reverse engineering, hacking, pentesting, itsec, cybersecurity"
+  # slogan = "Hackers gonnna hack"
+  upstreamAttribution = true
+
+  image_404 = "img/404-bg.jpg"
+  title_404 = ":("
+  omit_categories = false
+
+  # Sidebar settings
+  sidebar_about_description = "I am a cybersecurity enthusiast, primarily interested in web and hardware. I enjoy developing open source projects, treating it as a fun activity. In my free time, I mainly ride my skateboard and read books…"
+  sidebar_avatar = "img/avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+  featured_tags = true 
+  featured_condition_size = 1 
+
+  ba_track_id = ""
+
+  reward = true 
+
+  friends = false
+  bookmarks = false
+  about_me = true
+
+  [params.social]
+  rss            = true 
+  email          = "send@qrxnz.dev"
+  github         = "https://github.com/qrxnz"
+  mastodon      = "full profile url in mastodon"
+  
+  [[params.friend_link]]
+  title = "Linda的博客"
+  href =  "https://zhaozhihan.com"
+
+  [[params.bookmark_link]]
+  title =  "Martin Fowler"
+  href =  "https://martinfowler.com"
+  [[params.bookmark_link]]
+  title = "ServiceMesher"
+  href =  "http://www.servicemesher.com"
+  [[params.bookmark_link]]
+  title =  "Pxhere"
+  href = "https://pxhere.com"
+  [[params.bookmark_link]]
+  title = "unsplash"
+  href = "https://unsplash.com"
+  
+  [[params.addtional_menus]]
+  title =  "ARCHIVE"
+  href =  "/archive/"
+  [[params.addtional_menus]]
+  title =  "NOTES"
+  href =  "/notes/"
+
+[outputFormats.Algolia]
+baseName = "algolia"
+isPlainText = true
+mediaType = "application/json"
+notAlternative = true
+
+[params.algolia]
+vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+params = ["categories", "tags"] 
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 1
+  [markup.highlight]
+    style = "dracula"
