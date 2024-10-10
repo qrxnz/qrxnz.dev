@@ -60,9 +60,6 @@ home = ["HTML", "RSS", "Algolia"]
   href = "https://unsplash.com"
   
   [[params.addtional_menus]]
-  title =  "ARCHIVE"
-  href =  "/archive/"
-  [[params.addtional_menus]]
   title =  "NOTES"
   href =  "/notes/"
   [[params.addtional_menus]]
