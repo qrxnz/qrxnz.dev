@@ -14,5 +14,12 @@
       <guid>http://localhost:1313/about/</guid>
       <description>About Me I am a cybersecurity enthusiast, primarily interested in web and hardware. I enjoy developing open source projects, treating it as a fun activity. In my free time, I mainly ride my skateboard and read books…&#xA;I&amp;rsquo;m trying to regularly upload videos on YouTube and Odysee&#xA;Talks Year City Conference Title Slides Video soon &amp;hellip;&#xA;Open Source Projects Project GitHub qrack https://github.com/qrxnz/qrack </description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/</guid>
+      <description>nixos network bridges hardware RP 2040 list of useful firmware nixos network bridges Example:&#xA;networking.interfaces.eno1.useDHCP = true; networking.interfaces.virbr0.useDHCP = true; networking.bridges = { &amp;#34;virbr0&amp;#34; = { interfaces = [ &amp;#34;eno1&amp;#34; ]; }; }; If you use a firewall, also remember to add your interface to a trust group:&#xA;networking.firewall.trustedInterfaces = [ &amp;#34;virbr0&amp;#34; ]; hardware RP 2040 list of useful firmware DragonProbe Adding Bus Pirate/..-style debugging &amp;amp; probing features to regular MCU boards such as the Raspberry Pi Pico</description>
+    </item>
   </channel>
 </rss>

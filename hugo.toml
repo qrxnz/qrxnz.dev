@@ -14,7 +14,7 @@ home = ["HTML", "RSS", "Algolia"]
   SEOTitle = ":(){ :|:& };:"
   description = "re, hardware, web, lincox blah blah blah"
   keyword = "linux, hardware, web, android, reverse engineering, hacking, pentesting, itsec, cybersecurity"
-  # slogan = "Hackers gonnna hack"
+  slogan = "\"😺 Hackers gonnna hack 😺\""
   upstreamAttribution = true
 
   image_404 = "img/404-bg.jpg"
