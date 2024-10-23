@@ -16,7 +16,7 @@ layout: page
 ## nixos
 
 <!-- TOC --><a name="network-bridges"></a>
-### Network bridges
+### network bridges
 
 Example:  
 ```nix
@@ -42,7 +42,7 @@ networking.firewall.trustedInterfaces = [ "virbr0" ];
 ### RP 2040
 
 <!-- TOC --><a name="list-of-useful-firmware"></a>
-#### List of useful firmware
+#### list of useful firmware
 
 - [DragonProbe](https://git.lain.faith/sys64738/DragonProbe)
 > Adding Bus Pirate/..-style debugging & probing features to regular MCU boards such as the Raspberry Pi Pico
