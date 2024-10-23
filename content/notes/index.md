@@ -8,7 +8,7 @@ layout: page
    * [network bridges](#network-bridges)
 - [hardware](#hardware)
    * [RP 2040](#rp-2040)
-      + [List of useful firmware](#list-of-useful-firmware)
+      + [list of useful firmware](#list-of-useful-firmware)
 
 <!-- TOC end -->
 
