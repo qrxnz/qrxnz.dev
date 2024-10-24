@@ -194,6 +194,12 @@
 </li>
 </ul>
 </li>
+<li><a href="#powershell-scripts">powershell scripts</a>
+<ul>
+<li><a href="#decode-base64">decode base64</a></li>
+<li><a href="#open-ports">open ports</a></li>
+</ul>
+</li>
 <li><a href="#hardware">hardware</a>
 <ul>
 <li><a href="#rp-2040">RP 2040</a>
@@ -227,6 +233,23 @@
 <!-- raw HTML omitted -->
 <h4 id="ssh">ssh</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hydra -v -V -u -l <span style="color:#ff79c6">{</span>Username<span style="color:#ff79c6">}</span> -P <span style="color:#ff79c6">{</span>Big_Passwordlist<span style="color:#ff79c6">}</span> -t <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">{</span>IP<span style="color:#ff79c6">}</span> ssh
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h2 id="powershell-scripts">powershell scripts</h2>
+<!-- raw HTML omitted -->
+<h3 id="decode-base64">decode base64</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps1" data-lang="ps1"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">Get-Content</span> base64.txt | %{[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(<span style="color:#8be9fd;font-style:italic">$_</span>))}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="open-ports">open ports</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps1" data-lang="ps1"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">$system_ports</span> = <span style="color:#8be9fd;font-style:italic">Get-NetTCPConnection</span> -State Listen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">$text_port</span> = <span style="color:#8be9fd;font-style:italic">Get-Content</span> -Path C:\Users\Administrator\Desktop\ports.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">foreach</span>(<span style="color:#8be9fd;font-style:italic">$port</span> <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">$text_port</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(<span style="color:#8be9fd;font-style:italic">$port</span> -in <span style="color:#8be9fd;font-style:italic">$system_ports</span>.LocalPort){
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">echo </span><span style="color:#8be9fd;font-style:italic">$port</span>
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>  }
 </span></span></code></pre></div><!-- raw HTML omitted -->
 <h2 id="hardware">hardware</h2>
 <!-- raw HTML omitted -->

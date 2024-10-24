@@ -19,7 +19,7 @@
       <link>http://localhost:1313/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/</guid>
-      <description>Table of contents nixos network bridges tools hydra ssh hardware RP 2040 list of useful firmware nixos network bridges Example:&#xA;networking.interfaces.eno1.useDHCP = true; networking.interfaces.virbr0.useDHCP = true; networking.bridges = { &amp;#34;virbr0&amp;#34; = { interfaces = [ &amp;#34;eno1&amp;#34; ]; }; }; If you use a firewall, also remember to add your interface to a trust group:&#xA;networking.firewall.trustedInterfaces = [ &amp;#34;virbr0&amp;#34; ]; tools hydra ssh hydra -v -V -u -l {Username} -P {Big_Passwordlist} -t 1 {IP} ssh hardware RP 2040 list of useful firmware DragonProbe Adding Bus Pirate/.</description>
+      <description>Table of contents nixos network bridges tools hydra ssh powershell scripts decode base64 open ports hardware RP 2040 list of useful firmware nixos network bridges Example:&#xA;networking.interfaces.eno1.useDHCP = true; networking.interfaces.virbr0.useDHCP = true; networking.bridges = { &amp;#34;virbr0&amp;#34; = { interfaces = [ &amp;#34;eno1&amp;#34; ]; }; }; If you use a firewall, also remember to add your interface to a trust group:&#xA;networking.firewall.trustedInterfaces = [ &amp;#34;virbr0&amp;#34; ]; tools hydra ssh hydra -v -V -u -l {Username} -P {Big_Passwordlist} -t 1 {IP} ssh powershell scripts decode base64 Get-Content base64.</description>
     </item>
   </channel>
 </rss>

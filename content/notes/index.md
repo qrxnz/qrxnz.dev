@@ -10,6 +10,9 @@ layout: page
 - [tools](#tools)
    * [hydra](#hydra)
       + [ssh](#ssh)
+- [powershell scripts](#powershell-scripts)
+   * [decode base64](#decode-base64)
+   * [open ports](#open-ports)
 - [hardware](#hardware)
    * [RP 2040](#rp-2040)
       + [list of useful firmware](#list-of-useful-firmware)
@@ -50,7 +53,29 @@ networking.firewall.trustedInterfaces = [ "virbr0" ];
 ```sh
 hydra -v -V -u -l {Username} -P {Big_Passwordlist} -t 1 {IP} ssh
 ```
+<!-- TOC --><a name="powershell-scripts"></a>
+## powershell scripts
 
+<!-- TOC --><a name="decode-base64"></a>
+### decode base64
+```ps1
+Get-Content base64.txt | %{[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_))}
+```
+
+<!-- TOC --><a name="open-ports"></a>
+### open ports
+```ps1
+$system_ports = Get-NetTCPConnection -State Listen
+
+$text_port = Get-Content -Path C:\Users\Administrator\Desktop\ports.txt
+
+foreach($port in $text_port){
+
+    if($port -in $system_ports.LocalPort){
+        echo $port
+     }
+  }
+```
 
 <!-- TOC --><a name="hardware"></a>
 ## hardware
