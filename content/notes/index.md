@@ -17,6 +17,8 @@ layout: page
       + [ldap](#ldap)
       + [bloodhound](#bloodhound)
       + [mssql](#mssql)
+   * [john the ripper](#john-the-ripper)
+      + [yescrypt](#yescrypt)
 - [powershell scripts](#powershell-scripts)
    * [decode base64](#decode-base64)
    * [open ports](#open-ports)
@@ -255,6 +257,15 @@ netexec mssql target -u username -p password --get-file output_file target_file
 
 source: https://github.com/seriotonctf/cme-nxc-cheat-sheet
 
+<!-- TOC --><a name="john-the-ripper"></a>
+### john the ripper
+
+<!-- TOC --><a name="yescrypt"></a>
+#### yescrypt
+```sh
+sudo unshadow passwd shadow > unshadow.txt && sudo john --format=crypt unshadow.txt -w=/usr/share/wordlists/rockyou.txt
+```
+
 <!-- TOC --><a name="powershell-scripts"></a>
 ## powershell scripts
 
@@ -272,7 +283,6 @@ $system_ports = Get-NetTCPConnection -State Listen
 $text_port = Get-Content -Path C:\Users\Administrator\Desktop\ports.txt
 
 foreach($port in $text_port){
-
     if($port -in $system_ports.LocalPort){
         echo $port
      }
