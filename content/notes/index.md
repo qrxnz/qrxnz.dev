@@ -19,6 +19,8 @@ layout: page
       + [mssql](#mssql)
    * [john the ripper](#john-the-ripper)
       + [yescrypt](#yescrypt)
+- [bash scripts](#bash-scripts)
+   * [tcp server with log](#tcp-server-with-log)
 - [powershell scripts](#powershell-scripts)
    * [decode base64](#decode-base64)
    * [open ports](#open-ports)
@@ -264,6 +266,14 @@ source: https://github.com/seriotonctf/cme-nxc-cheat-sheet
 #### yescrypt
 ```sh
 sudo unshadow passwd shadow > unshadow.txt && sudo john --format=crypt unshadow.txt -w=/usr/share/wordlists/rockyou.txt
+```
+<!-- TOC --><a name="bash-scripts"></a>
+## bash scripts
+
+<!-- TOC --><a name="tcp-server-with-log"></a>
+### tcp server with log
+```sh
+cd /tmp/ && while :; do nc -l -p 4444 | tee  output.log; sleep 1; done
 ```
 
 <!-- TOC --><a name="powershell-scripts"></a>
