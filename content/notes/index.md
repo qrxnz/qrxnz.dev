@@ -8,6 +8,7 @@ layout: page
 - [nixos](#nixos)
    * [network bridges](#network-bridges)
 - [tools](#tools)
+   * [nmap](#nmap)
    * [hydra](#hydra)
       + [ssh](#ssh)
    * [netexec](#netexec)
@@ -49,6 +50,17 @@ networking.firewall.trustedInterfaces = [ "virbr0" ];
 
 <!-- TOC --><a name="tools"></a>
 ## tools
+
+<!-- TOC --><a name="nmap"></a>
+### nmap
+- default
+```sh
+sudo nmap -sCV -T4 --min-rate 10000 {IP} -v -oA tcp_default
+```
+- udp
+```sh
+sudo nmap -sUCV -T4 --min-rate 10000 {IP} -v -oA udp_default
+```
 
 <!-- TOC --><a name="hydra"></a>
 ### hydra
