@@ -187,6 +187,7 @@
 </li>
 <li><a href="#tools">tools</a>
 <ul>
+<li><a href="#nmap">nmap</a></li>
 <li><a href="#hydra">hydra</a>
 <ul>
 <li><a href="#ssh">ssh</a></li>
@@ -201,6 +202,16 @@
 <li><a href="#mssql">mssql</a></li>
 </ul>
 </li>
+<li><a href="#john-the-ripper">john the ripper</a>
+<ul>
+<li><a href="#yescrypt">yescrypt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#bash-scripts">bash scripts</a>
+<ul>
+<li><a href="#tcp-server-with-log">tcp server with log</a></li>
 </ul>
 </li>
 <li><a href="#powershell-scripts">powershell scripts</a>
@@ -238,6 +249,16 @@
 </span></span></code></pre></div><!-- raw HTML omitted -->
 <h2 id="tools">tools</h2>
 <!-- raw HTML omitted -->
+<h3 id="nmap">nmap</h3>
+<ul>
+<li>default</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo nmap -sCV -T4 --min-rate <span style="color:#bd93f9">10000</span> <span style="color:#ff79c6">{</span>IP<span style="color:#ff79c6">}</span> -v -oA tcp_default
+</span></span></code></pre></div><ul>
+<li>udp</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo nmap -sUCV -T4 --min-rate <span style="color:#bd93f9">10000</span> <span style="color:#ff79c6">{</span>IP<span style="color:#ff79c6">}</span> -v -oA udp_default
+</span></span></code></pre></div><!-- raw HTML omitted -->
 <h3 id="hydra">hydra</h3>
 <!-- raw HTML omitted -->
 <h4 id="ssh">ssh</h4>
@@ -407,6 +428,16 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netexec mssql target -u username -p password --get-file output_file target_file
 </span></span></code></pre></div><p>source: <a href="https://github.com/seriotonctf/cme-nxc-cheat-sheet">https://github.com/seriotonctf/cme-nxc-cheat-sheet</a></p>
 <!-- raw HTML omitted -->
+<h3 id="john-the-ripper">john the ripper</h3>
+<!-- raw HTML omitted -->
+<h4 id="yescrypt">yescrypt</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo unshadow passwd shadow &gt; unshadow.txt <span style="color:#ff79c6">&amp;&amp;</span> sudo john --format<span style="color:#ff79c6">=</span>crypt unshadow.txt -w<span style="color:#ff79c6">=</span>/usr/share/wordlists/rockyou.txt
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h2 id="bash-scripts">bash scripts</h2>
+<!-- raw HTML omitted -->
+<h3 id="tcp-server-with-log">tcp server with log</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> /tmp/ <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">while</span> :; <span style="color:#ff79c6">do</span> nc -l -p <span style="color:#bd93f9">4444</span> | tee  output.log; sleep 1; <span style="color:#ff79c6">done</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
 <h2 id="powershell-scripts">powershell scripts</h2>
 <!-- raw HTML omitted -->
 <h3 id="decode-base64">decode base64</h3>
@@ -418,7 +449,6 @@
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">$text_port</span> = <span style="color:#8be9fd;font-style:italic">Get-Content</span> -Path C:\Users\Administrator\Desktop\ports.txt
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">foreach</span>(<span style="color:#8be9fd;font-style:italic">$port</span> <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">$text_port</span>){
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(<span style="color:#8be9fd;font-style:italic">$port</span> -in <span style="color:#8be9fd;font-style:italic">$system_ports</span>.LocalPort){
 </span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">echo </span><span style="color:#8be9fd;font-style:italic">$port</span>
 </span></span><span style="display:flex;"><span>     }
