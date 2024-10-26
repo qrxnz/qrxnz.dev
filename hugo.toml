@@ -13,7 +13,7 @@ home = ["HTML", "RSS", "Algolia"]
   header_image = "img/banner.jpg"
   SEOTitle = ":(){ :|:& };:"
   description = "re, hardware, web, lincox blah blah blah"
-  keyword = "linux, hardware, pentesting,  web, web3, android, reverse engineering, hacking, pentesting, itsec, cybersecurity, crypto"
+  keyword = "linux, nix, nixos, hardware, pentesting,  web, web3, android, reverse engineering, hacking, pentesting, itsec, cybersecurity, crypto"
   slogan = "\"😺 Hackers gonnna hack 😺\""
   upstreamAttribution = true
 
