@@ -41,7 +41,7 @@ home = ["HTML", "RSS", "Algolia"]
   email          = "send@qrxnz.dev"
   github         = "https://github.com/qrxnz"
   mastodon       = "https://mastodon.social/@qrxnz"
-  linkedin       = "www.linkedin.com/in/karol-skoczyk-a0255b335"
+  linkedin       = "karol-skoczyk-a0255b335"
   
   [[params.friend_link]]
   title = "Linda的博客"
