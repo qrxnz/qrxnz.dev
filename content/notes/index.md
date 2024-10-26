@@ -9,6 +9,8 @@ layout: page
    * [network bridges](#network-bridges)
 - [tools](#tools)
    * [nmap](#nmap)
+   * [sliver](#sliver)
+      + [Download the latest version](#download-the-latest-version)
    * [hydra](#hydra)
       + [ssh](#ssh)
    * [netexec](#netexec)
@@ -64,6 +66,20 @@ sudo nmap -sCV -T4 --min-rate 10000 {IP} -v -oA tcp_default
 - udp
 ```sh
 sudo nmap -sUCV -T4 --min-rate 10000 {IP} -v -oA udp_default
+```
+<!-- TOC --><a name="sliver"></a>
+### sliver
+
+<!-- TOC --><a name="download-the-latest-version"></a>
+#### Download the latest version
+
+- server
+```sh
+curl -L https://github.com/BishopFox/sliver/releases/latest/download/sliver-server_linux -s --output sliver
+```
+- client
+```sh
+curl -L https://github.com/BishopFox/sliver/releases/latest/download/sliver-client_linux -s --output sliver
 ```
 
 <!-- TOC --><a name="hydra"></a>
