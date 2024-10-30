@@ -67,6 +67,11 @@ sudo nmap -sCV -T4 --min-rate 10000 {IP} -v -oA tcp_default
 ```sh
 sudo nmap -sUCV -T4 --min-rate 10000 {IP} -v -oA udp_default
 ```
+- slient
+```sh
+sudo nmap -sS -Pn -T1 --scan-delay 500ms --max-retries 1 --max-scan-delay 1000ms -f -p- {IP}
+```
+
 <!-- TOC --><a name="sliver"></a>
 ### sliver
 
