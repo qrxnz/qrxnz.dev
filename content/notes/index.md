@@ -42,7 +42,9 @@ layout: page
 
 <!-- TOC --><a name="dev"></a>
 #### dev
-Example:  
+Examples:  
+
+- Python  
 ```nix
 {
   description = "test";
