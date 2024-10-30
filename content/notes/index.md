@@ -6,6 +6,8 @@ layout: page
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 - [nixos](#nixos)
+   * [flakes](#flakes)
+      + [dev](#dev)
    * [network bridges](#network-bridges)
 - [tools](#tools)
    * [nmap](#nmap)
@@ -34,6 +36,40 @@ layout: page
 
 <!-- TOC --><a name="nixos"></a>
 ## nixos
+
+<!-- TOC --><a name="flakes"></a>
+### flakes
+
+<!-- TOC --><a name="dev"></a>
+#### dev
+Example:  
+```nix
+{
+  description = "test";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  };
+
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    devShells.x86_64-linux.default =
+      pkgs.mkShell
+      {
+        nativeBuildInputs = with pkgs; [
+          python311Full
+          python311Packages.pycryptodomex
+        ];
+      };
+  };
+}
+```
 
 <!-- TOC --><a name="network-bridges"></a>
 ### network bridges
