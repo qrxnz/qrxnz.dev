@@ -18,4 +18,6 @@ soon ...
 |Project      | Description |
 | ----------- |-----------  |
 | [qrack](https://github.com/qrxnz/qrack) | Simple bruteforcer for CrackMe binaries |
-
+| [jsh](https://github.com/qrxnz/jsh) | Simple revshell written in JavaScript (experimental) |
+| [blog](https://github.com/qrxnz/blog) | Personal blog |
+| [nveem](https://github.com/qrxnz/nveem) | Personal neovim configuration with nix flake support |
