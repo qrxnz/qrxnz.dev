@@ -15,7 +15,7 @@ I'm trying to regularly upload videos on [YouTube](https://www.youtube.com/@qrxn
 soon ...
 
 ## Open Source Projects
-|Project      | GitHub     |
-| ----------- |----------- |
-| qrack | https://github.com/qrxnz/qrack |
+|Project      | Description |
+| ----------- |-----------  |
+| [qrack](https://github.com/qrxnz/qrack) | Simple bruteforcer for CrackMe binaries |
 
