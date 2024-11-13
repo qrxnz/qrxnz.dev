@@ -19,5 +19,6 @@ soon ...
 | ----------- |-----------  |
 | [qrack](https://github.com/qrxnz/qrack) | Simple bruteforcer for CrackMe binaries |
 | [jsh](https://github.com/qrxnz/jsh) | Simple revshell written in JavaScript (experimental) |
-| [blog](https://github.com/qrxnz/blog) | Personal blog |
+| [blog](https://github.com/qrxnz/blog) |  Personal blog built with hugo framework |
 | [nveem](https://github.com/qrxnz/nveem) | Personal neovim configuration with nix flake support |
+| [stego-toolkit-nix](https://github.com/qrxnz/stego-toolkit-nix) | The finest collection of steganography tools. - You like Docker? You love Nix ❤️ |
