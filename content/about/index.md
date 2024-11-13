@@ -15,8 +15,9 @@ I'm trying to regularly upload videos on [YouTube](https://www.youtube.com/@qrxn
 soon ...
 
 ## Open Source Projects
-|Project      | Description |
-| ----------- |-----------  |
+| Project      | Description |
+| ----------- | ----------- |
+| [dotfiles](https://github.com/qrxnz/dotfiles) | Linux dotfiles and NixOS configuration built with Snowfall. My setup is tailored for IT security and DevOps tasks |
 | [qrack](https://github.com/qrxnz/qrack) | Simple bruteforcer for CrackMe binaries |
 | [jsh](https://github.com/qrxnz/jsh) | Simple revshell written in JavaScript (experimental) |
 | [blog](https://github.com/qrxnz/blog) |  Personal blog built with hugo framework |
