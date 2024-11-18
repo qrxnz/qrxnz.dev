@@ -17,6 +17,9 @@
           {
             nativeBuildInputs = with pkgs; [
               hugo
+              just
+              watchexec
+              treefmt2
             ];
           };
     };
