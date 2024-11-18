@@ -30,7 +30,7 @@ home = ["HTML", "RSS", "Algolia"]
 
   ba_track_id = ""
 
-  reward = true 
+  reward = false
 
   friends = false
   bookmarks = false
