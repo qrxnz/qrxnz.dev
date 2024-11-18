@@ -1,7 +1,7 @@
 +++
 title = 'Resources for learning Nix and NixOS!'
 date = 2024-11-18T07:07:07+01:00
-draft = true
+draft = false
 
 tags = ["nix", "nixos", "linux", "dev", "devops"]
 +++
