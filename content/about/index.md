@@ -14,12 +14,19 @@ I'm trying to regularly upload videos on [YouTube](https://www.youtube.com/@qrxn
 
 soon ...
 
-## Open Source Projects
-| Project      | Description |
-| ----------- | ----------- |
-| [dotfiles](https://github.com/qrxnz/dotfiles) | Linux dotfiles and NixOS configuration built with Snowfall. My setup is tailored for IT security and DevOps tasks |
-| [qrack](https://github.com/qrxnz/qrack) | Simple bruteforcer for CrackMe binaries |
-| [jsh](https://github.com/qrxnz/jsh) | Simple revshell written in JavaScript (experimental) |
-| [blog](https://github.com/qrxnz/blog) |  Personal blog built with hugo framework |
-| [nveem](https://github.com/qrxnz/nveem) | Personal neovim configuration with nix flake support |
-| [stego-toolkit-nix](https://github.com/qrxnz/stego-toolkit-nix) | The finest collection of steganography tools. - You like Docker? You like Podman? You love Nix ❤️  |
+<details open> 
+  <summary><h2>📘 My Top Open Source Projects</h2></summary>
+
+  <!-- Repo info cards - https://github.com/anuraghazra/github-readme-stats -->
+  <!-- Small repo cards (fork) - https://github.com/DenverCoder1/github-readme-stats -->
+  <p align="left">
+    <a href="https://github.com/qrxnz/dotfiles"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=qrxnz&repo=dotfiles&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&show_icons=false" alt="readme-typing-svg"></a>
+    <a href="https://github.com/qrxnz/nveem"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=qrxnz&repo=nveem&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&show_icons=false" alt="readme-typing-svg"></a>
+     <a href="https://github.com/qrxnz/stego-toolkit-nix"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=qrxnz&repo=stego-toolkit-nix&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&show_icons=false" alt="readme-typing-svg"></a>
+    <a href="https://github.com/qrxnz/blog"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=qrxnz&repo=blog&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&show_icons=false" alt="readme-typing-svg"></a>
+    <a href="https://github.com/qrxnz/qrack"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=qrxnz&repo=qrack&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&show_icons=false" alt="readme-typing-svg"></a>
+    <a href="https://github.com/qrxnz/jsh"><img width="278" src="https://denvercoder1-github-readme-stats.vercel.app/api/pin/?username=qrxnz&repo=jsh&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866&show_icons=false" alt="readme-typing-svg"></a>
+  </p>
+
+  <a href="https://github.com/qrxnz?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.demolab.com/badge/-Click%20Here%20For%20All%20My%20Repos-1F222E?style=for-the-badge&logoColor=white&logo=repo"/></a>
+</details>
