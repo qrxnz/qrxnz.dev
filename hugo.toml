@@ -22,7 +22,7 @@ home = ["HTML", "RSS", "Algolia"]
   omit_categories = false
 
   # algolia site search
-  algolia_search = true
+  algolia_search = false
   algolia_appId = ""
   algolia_indexName = ""
   algolia_apiKey = ""
