@@ -25,7 +25,7 @@ home = ["HTML", "RSS", "Algolia"]
   sidebar_about_description = "I am a cybersecurity enthusiast, primarily interested in web and hardware. I enjoy developing open source projects, treating it as a fun activity. In my free time, I mainly ride my skateboard and read books…"
   sidebar_avatar = "img/avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-  featured_tags = true 
+  featured_tags = false
   featured_condition_size = 1 
 
   ba_track_id = ""
