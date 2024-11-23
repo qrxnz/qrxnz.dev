@@ -1,91 +1,77 @@
-baseurl = "https://qrxnz.dev"
+baseURL = "http://qrxnz.dev"
 title = "qrxnz's blog"
-theme = "hugo-theme-cleanwhite"
-languageCode = "en-us"
-preserveTaxonomyNames = true
-paginate = 5 #frontpage pagination
-hasCJKLanguage = true
+enableRobotsTXT = true
+enableEmoji = true
+theme = "hugo-theme-jane"
 
-[outputs]
-home = ["HTML", "RSS", "Algolia"]
+hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+rssLimit = 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
+copyright = ""            # default: params.author.name ↓ # 默认为下面配置的params.author.name ↓
+
+[pagination]
+  pagerSize = 5           # Number of articles displayed on the homepage  # 首页每页显示的文章数
+
+# language support # en / zh-cn / other... translations present in i18n/
+defaultContentLanguage = "en"           # Default language to use
+[languages.en]
+  languageCode = "en"
+
+[sitemap]                 # essential                     # 必需
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[[menu.main]]             # config your menu              # 配置目录
+  name = "This is Home"
+  weight = 10
+  identifier = "home"
+  pageref = "/"
+[[menu.main]]
+  name = "Archives"
+  weight = 20
+  identifier = "archives"
+  pageref = "/post/"
+[[menu.main]]
+  name = "About me"
+  weight = 20
+  identifier = "about"
+  pageref = "/about"
+[[menu.main]]
+  name = "Tags"
+  weight = 30
+  identifier = "tags"
+  pageref = "/tags/"
 
 [params]
-  header_image = "img/banner.jpg"
-  SEOTitle = ":(){ :|:& };:"
-  description = "re, hardware, web, lincox blah blah blah"
-  keyword = "linux, foss, nix, floss, nixos, hardware, pentesting, web, web3, android, vulnlab, hackthebox, reverse engineering, hacking, pentesting, itsec, cybersecurity, crypto"
-  slogan = "first step to not being a noob is to not think like a noob ~ geohot"
-  upstreamAttribution = true
+  since = "2024"            # Site creation time          # 站点建立时间
+  homeFullContent = false   # if false, show post summaries on home page. Otherwise show full content.
+  rssFullContent = true     # if false, Rss feed instead of the summary
 
-  image_404 = "img/404-bg.jpg"
-  title_404 = ":("
-  omit_categories = false
+  author.name = "qrxnz"      # essential                     # 必需
+  author.email = "send@qrxnz.dev" # optional, for RSS             # 可选
 
-  # algolia site search
-  algolia_search = false
-  algolia_appId = ""
-  algolia_indexName = ""
-  algolia_apiKey = ""
+  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
+  logoTitle = "qrxnz.dev"        # default: the title value    # 默认值: 上面设置的title值
+  keywords = ["Hugo", "theme","jane"]
+  description = "qrxnz's blog"
 
-  # Sidebar settings
-  sidebar_about_description = "I am a cybersecurity enthusiast, primarily interested in web and hardware. I enjoy developing open source projects, treating it as a fun activity. In my free time, I mainly ride my skateboard and read books…"
-  sidebar_avatar = "img/avatar.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006-01-02"
 
-  featured_tags = false
-  featured_condition_size = 1 
+  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+  toc = true                                                                            # 是否开启目录
+  photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe            # 是否启用PhotoSwipe（图片可点击）
+  contentCopyright = false
 
-  ba_track_id = ""
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
+  customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
 
-  reward = false
-
-  friends = false
-  bookmarks = false
-  about_me = true
-
-  [params.social]
-  rss            = true 
-  email          = "send@qrxnz.dev"
-  github         = "https://github.com/qrxnz"
-  mastodon       = "https://mastodon.social/@qrxnz"
-  linkedin       = "https://linkedin.com/in/karol-skoczyk-a0255b335"
-  
-  [[params.friend_link]]
-  title = "Linda的博客"
-  href =  "https://zhaozhihan.com"
-
-  [[params.bookmark_link]]
-  title =  "Martin Fowler"
-  href =  "https://martinfowler.com"
-  [[params.bookmark_link]]
-  title = "ServiceMesher"
-  href =  "http://www.servicemesher.com"
-  [[params.bookmark_link]]
-  title =  "Pxhere"
-  href = "https://pxhere.com"
-  [[params.bookmark_link]]
-  title = "unsplash"
-  href = "https://unsplash.com"
-  
-  [[params.addtional_menus]]
-  title =  "NOTES"
-  href =  "/notes/"
-  [[params.addtional_menus]]
-  title =  "ABOUT"
-  href =  "/about/"
-
-[outputFormats.Algolia]
-baseName = "algolia"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
-
-[params.algolia]
-vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
-params = ["categories", "tags"] 
-
-[markup]
-  [markup.tableOfContents]
-    endLevel = 2
-    startLevel = 1
-  [markup.highlight]
-    style = "dracula"
+  [params.social]                                         # 社交链接
+    a-email = "mailto:send@qrxnz.dev"
+    g-github = "https://github.com/qrxnz"
+    e-linkedin = "https://www.linkedin.com/in/karol-skoczyk-a0255b335"
+    s-mastodon = "https://mastodon.social/@qrxnz"
+    t-youtube = "https://www.youtube.com/@qrxnz9209"

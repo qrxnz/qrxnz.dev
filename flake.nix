@@ -17,6 +17,7 @@
           {
             nativeBuildInputs = with pkgs; [
               hugo
+              dart-sass
               just
               watchexec
               treefmt2
