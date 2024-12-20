@@ -2,57 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/dev/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/development/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/devops/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/devops/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/flakes/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/home-manager/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/nix/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/nix/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nix-env/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nix-sops/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/nixos/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/nixos/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nixos-impermanence/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/nix-resources/</loc>
+    <loc>http://localhost:1313/p/resources-for-learning-nix-and-nixos/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/snowfall/</loc>
+    <lastmod>2024-11-18T07:07:07+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-11-18T07:07:07+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/about/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>

@@ -1,72 +1,167 @@
-baseURL = "http://qrxnz.dev"
+baseurl = "https://qrxnz.dev"
+languageCode = "en-us"
+theme = "hugo-theme-stack"
 title = "qrxnz's blog"
-enableRobotsTXT = true
-enableEmoji = true
-theme = "hugo-theme-jane"
+copyright = "Example Person"
+DefaultContentLanguage = "en"
+hasCJKLanguage = false
 
-hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-rssLimit = 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
-copyright = ""            # default: params.author.name ↓ # 默认为下面配置的params.author.name ↓
+[languages.en]
+languageName = "English"
+title = "qrxnz's blog"
+weight = 1
+
+[services.disqus]
+shortname = "hugo-theme-stack"
+
+[services.googleAnalytics]
 
 [pagination]
-  pagerSize = 5           # Number of articles displayed on the homepage  # 首页每页显示的文章数
+pagerSize = 3
 
-# language support # en / zh-cn / other... translations present in i18n/
-defaultContentLanguage = "en"           # Default language to use
-[languages.en]
-  languageCode = "en"
-
-[sitemap]                 # essential                     # 必需
-  changefreq = "weekly"
-  priority = 0.5
-  filename = "sitemap.xml"
-
-[[menu.main]]             # config your menu              # 配置目录
-  name = "This is Home"
-  weight = 10
-  identifier = "home"
-  pageref = "/"
-[[menu.main]]
-  name = "Archives"
-  weight = 20
-  identifier = "archives"
-  pageref = "/post/"
-[[menu.main]]
-  name = "Tags"
-  weight = 30
-  identifier = "tags"
-  pageref = "/tags/"
+[permalinks]
+post = "/p/:slug/"
+page = "/:slug/"
 
 [params]
-  since = "2024"            # Site creation time          # 站点建立时间
-  homeFullContent = false   # if false, show post summaries on home page. Otherwise show full content.
-  rssFullContent = true     # if false, Rss feed instead of the summary
+mainSections = [ "post" ]
+featuredImageField = "image"
+rssFullContent = true
 
-  author.name = "qrxnz"      # essential                     # 必需
-  author.email = "send@qrxnz.dev" # optional, for RSS             # 可选
+  [params.footer]
+  since = 2_020
 
-  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "qrxnz.dev"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["Hugo", "theme","jane"]
-  description = "qrxnz's blog"
+  [params.dateFormat]
+  published = "Jan 02, 2006"
+  lastUpdated = "Jan 02, 2006 15:04 MST"
 
-  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2006-01-02"
+  [params.sidebar]
+  emoji = "😺"
+  subtitle = "~ Hackers gonna hack xD"
 
-  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
-  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
-  toc = true                                                                            # 是否开启目录
-  photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe            # 是否启用PhotoSwipe（图片可点击）
-  contentCopyright = false
+    [params.sidebar.avatar]
+    enabled = true
+    local = true
+    src = "img/avatar.jpg"
 
-  # Link custom CSS and JS assets
-  #   (relative to /static/css and /static/js respectively)
-  customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
-  customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
+  [params.article]
+  math = false
+  toc = true
+  readingTime = true
 
-  [params.social]                                         # 社交链接
-    a-email = "mailto:send@qrxnz.dev"
-    g-github = "https://github.com/qrxnz"
-    e-linkedin = "https://www.linkedin.com/in/karol-skoczyk-a0255b335"
-    s-mastodon = "https://mastodon.social/@qrxnz"
-    t-youtube = "https://www.youtube.com/@qrxnz9209"
+    [params.article.license]
+    enabled = true
+    default = "Licensed under CC BY-NC-SA 4.0"
+
+[[params.widgets.homepage]]
+type = "search"
+
+[[params.widgets.homepage]]
+type = "archives"
+
+  [params.widgets.homepage.params]
+  limit = 5
+
+[[params.widgets.homepage]]
+type = "categories"
+
+  [params.widgets.homepage.params]
+  limit = 10
+
+[[params.widgets.homepage]]
+type = "tag-cloud"
+
+  [params.widgets.homepage.params]
+  limit = 10
+
+[[params.widgets.page]]
+type = "toc"
+
+[params.opengraph.twitter]
+card = "summary_large_image"
+
+[params.defaultImage.opengraph]
+enabled = false
+local = false
+
+  [params.colorScheme]
+  toggle = true
+  default = "auto"
+
+[params.imageProcessing.cover]
+enabled = true
+
+[params.imageProcessing.content]
+enabled = true
+
+[menu]
+main = [ ]
+
+  [[menu.social]]
+  identifier = "github"
+  name = "GitHub"
+  url = "https://github.com/qrxnz"
+
+    [menu.social.params]
+    icon = "brand-github"
+
+  [[menu.social]]
+  identifier = "mastodon"
+  name = "Mastodon"
+  url = "https://mastodon.social/@qrxnz"
+
+    [menu.social.params]
+    icon = "brand-mastodon"
+
+  [[menu.social]]
+  identifier = "linkedin"
+  name = "Linkedin"
+  url = "https://www.linkedin.com/in/karol-skoczyk17"
+
+    [menu.social.params]
+    icon = "brand-linkedin"
+
+  [[menu.social]]
+  identifier = "youtube"
+  name = "Youtube"
+  url = "https://www.youtube.com/@qrxnz9209/"
+
+    [menu.social.params]
+    icon = "brand-youtube"
+  
+[related]
+includeNewer = true
+threshold = 60
+toLower = false
+
+  [[related.indices]]
+  name = "tags"
+  weight = 100
+
+  [[related.indices]]
+  name = "categories"
+  weight = 200
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+  [markup.goldmark.extensions.passthrough.delimiters]
+  block = [ [ "\\[", "\\]" ], [ "$$", "$$" ] ]
+  inline = [ [ "\\(", "\\)" ] ]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+endLevel = 4
+ordered = true
+startLevel = 2
+
+[markup.highlight]
+noClasses = false
+codeFences = true
+guessSyntax = true
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = true
+tabWidth = 4

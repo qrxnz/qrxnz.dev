@@ -1,21 +1,72 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Dev on qrxnz&#39;s blog</title>
-    <link>http://localhost:1313/tags/dev/</link>
-    <description>Recent content in Dev on qrxnz&#39;s blog</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>send@qrxnz.dev (qrxnz)</managingEditor>
-    <webMaster>send@qrxnz.dev (qrxnz)</webMaster>
-    <lastBuildDate>Mon, 18 Nov 2024 07:07:07 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dev/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Resources for learning Nix and NixOS!</title>
-      <link>http://localhost:1313/post/nix-resources/</link>
-      <pubDate>Mon, 18 Nov 2024 07:07:07 +0100</pubDate><author>send@qrxnz.dev (qrxnz)</author>
-      <guid>http://localhost:1313/post/nix-resources/</guid>
-      <description>&lt;h2 id=&#34;nix-is-difficult&#34;&gt;Nix is difficult&amp;hellip;&lt;/h2&gt;&#xA;&lt;p&gt;Nix is difficult&amp;hellip; the documentation is poor, and you may encounter many concepts for the first time. While learning Nix and NixOS, YouTube videos can be very helpful, so I have prepared a list of videos that greatly assisted me during my learning.&lt;/p&gt;&#xA;&lt;p&gt;List of usefull videos:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Jake Hamilton&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/Atn565V7tt8?si=3FJfgV0GbW5_Sfc9&#34;&gt;What is Nix?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/cw4wJjjQYMU?si=GUyIrX3svknWr01G&#34;&gt;Nix Flakes - An Overview&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/ARjAsEJ9WVY?si=gES1FUphCNaY-FPd&#34;&gt;NixOS Flake Tour&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;IogaMaster&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/ua3bjgrcOg8?si=mlNDOKD3b8sYaWdr&#34;&gt;Intro to Nix&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/ylL6CFEw0Ck?si=9ixZ0ovIC4xS_NlM&#34;&gt;Nix: Flakes&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/1ED9b7ERTzI?si=hXwHTY--Lk0EqbFX&#34;&gt;HOW to REALLY learn NixOS&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/C4_P2wVbdFU?si=CD5AuUiHJKUX-YSC&#34;&gt;Snowfall | Flakes made EASY&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Vimjoyer&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/bjTxiFLSNFA?si=KVUZICc45O3qx5-3&#34;&gt;NixOS beginner guide&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/S3VBi6kHw5c?si=fuBQ82LEKozUDXqN&#34;&gt;Nix flakes explained&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/rEovNpg7J0M?si=F5tpV6bxNnmvE8hs&#34;&gt;Move your NixOS into a Flake!&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/FcC2dzecovw?si=1MC0Hf2xmKm2NJau&#34;&gt;Nix home-manager tutorial: Declare your entire home directory&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/diIh0P12arA?si=q6W0vLKbSu_MEidW&#34;&gt;Best NixOS Way to Write Your Scripts&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/yQwW8dkuHqw?si=PcXos65_tsZR8pm-&#34;&gt;Nix Dev Environments | Declare Your Coding Projects&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/G5f6GC7SnhU?si=ITlTAsHtHw7_MQz6&#34;&gt;NixOS Secrets Management | SOPS-NIX&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/F5L8e6WGEF0?si=EEdEeHfpJHTplPWL&#34;&gt;Ultimate NixOS Guide | Flakes | Home-manager&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://youtu.be/YPKwkWtK7l0?si=PPjA35yA0dqncpVH&#34;&gt;Perfect NixOS | Impermanence Setup&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I also recommend the text guide &lt;a href=&#34;https://nix-community.github.io/awesome-nix/&#34;&gt;awesome-nix&lt;/a&gt; created by the Nix community.&lt;/p&gt;</description>
-    </item>
-  </channel>
+    <channel>
+        <title>Dev on qrxnz&#39;s blog</title>
+        <link>http://localhost:1313/tags/dev/</link>
+        <description>Recent content in Dev on qrxnz&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 18 Nov 2024 07:07:07 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/dev/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resources for learning Nix and NixOS!</title>
+        <link>http://localhost:1313/p/resources-for-learning-nix-and-nixos/</link>
+        <pubDate>Mon, 18 Nov 2024 07:07:07 +0100</pubDate>
+        
+        <guid>http://localhost:1313/p/resources-for-learning-nix-and-nixos/</guid>
+        <description>&lt;h2 id=&#34;nix-is-difficult&#34;&gt;Nix is difficult&amp;hellip;
+&lt;/h2&gt;&lt;p&gt;Nix is difficult&amp;hellip; the documentation is poor, and you may encounter many concepts for the first time. While learning Nix and NixOS, YouTube videos can be very helpful, so I have prepared a list of videos that greatly assisted me during my learning.&lt;/p&gt;
+&lt;p&gt;List of usefull videos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jake Hamilton
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/Atn565V7tt8?si=3FJfgV0GbW5_Sfc9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;What is Nix?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/cw4wJjjQYMU?si=GUyIrX3svknWr01G&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nix Flakes - An Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/ARjAsEJ9WVY?si=gES1FUphCNaY-FPd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NixOS Flake Tour&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;IogaMaster
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/ua3bjgrcOg8?si=mlNDOKD3b8sYaWdr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Intro to Nix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/ylL6CFEw0Ck?si=9ixZ0ovIC4xS_NlM&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nix: Flakes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/1ED9b7ERTzI?si=hXwHTY--Lk0EqbFX&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HOW to REALLY learn NixOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/C4_P2wVbdFU?si=CD5AuUiHJKUX-YSC&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Snowfall | Flakes made EASY&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Vimjoyer
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/bjTxiFLSNFA?si=KVUZICc45O3qx5-3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NixOS beginner guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/S3VBi6kHw5c?si=fuBQ82LEKozUDXqN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nix flakes explained&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/rEovNpg7J0M?si=F5tpV6bxNnmvE8hs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Move your NixOS into a Flake!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/FcC2dzecovw?si=1MC0Hf2xmKm2NJau&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nix home-manager tutorial: Declare your entire home directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/diIh0P12arA?si=q6W0vLKbSu_MEidW&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Best NixOS Way to Write Your Scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/yQwW8dkuHqw?si=PcXos65_tsZR8pm-&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nix Dev Environments | Declare Your Coding Projects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/G5f6GC7SnhU?si=ITlTAsHtHw7_MQz6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NixOS Secrets Management | SOPS-NIX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/F5L8e6WGEF0?si=EEdEeHfpJHTplPWL&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ultimate NixOS Guide | Flakes | Home-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/YPKwkWtK7l0?si=PPjA35yA0dqncpVH&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Perfect NixOS | Impermanence Setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also recommend the text guide &lt;a class=&#34;link&#34; href=&#34;https://nix-community.github.io/awesome-nix/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;awesome-nix&lt;/a&gt; created by the Nix community.&lt;/p&gt;
+&lt;p&gt;I hope this list helps someone in their Nix journey.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

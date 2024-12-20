@@ -3,7 +3,9 @@ title = 'Resources for learning Nix and NixOS!'
 date = 2024-11-18T07:07:07+01:00
 draft = false
 
-tags = ["nix", "nixos", "linux", "dev", "devops"]
+categories = ["nix", "nixos", "development", "devops"]
+
+tags = ["nix", "flakes", "nixos", "linux", "dev", "devops", "snowfall", "nix-env", "nix-sops", "home-manager", "nixos-impermanence"]
 +++
 
 ## Nix is difficult...
