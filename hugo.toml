@@ -128,6 +128,14 @@ main = [ ]
 
     [menu.social.params]
     icon = "brand-youtube"
+
+  [[menu.social]]
+  identifier = "linktree"
+  name = "Linktree"
+  url = "https://linktr.ee/qrxnz"
+
+    [menu.social.params]
+    icon = "brand-linktree"
   
 [related]
 includeNewer = true
