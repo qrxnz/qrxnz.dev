@@ -6,7 +6,7 @@
         <description>Recent content in Proxychains on qrxnz&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>Example Person</copyright>
+        <copyright>qrxnz</copyright>
         <lastBuildDate>Sat, 04 Jan 2025 19:54:32 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/proxychains/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Vulnlab :: Build Writeup</title>
         <link>http://localhost:1313/p/vulnlab-build-writeup/</link>
@@ -482,7 +482,8 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;powerdns&#34;&gt;PowerDNS
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-build-writeup/mariadb2.png&#34;
+&lt;/h3&gt;&lt;p&gt;From the PowerDNS database, we can obtain the administrator password using hashcat&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-build-writeup/mariadb2.png&#34;
 	width=&#34;1417&#34;
 	height=&#34;144&#34;
 	srcset=&#34;http://localhost:1313/p/vulnlab-build-writeup/mariadb2_hu1691056650174286294.png 480w, http://localhost:1313/p/vulnlab-build-writeup/mariadb2_hu15818015990071679121.png 1024w&#34;
@@ -529,6 +530,7 @@
 		data-flex-basis=&#34;1909px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;In the database, in the &lt;code&gt;history&lt;/code&gt; table, I found several IP addresses, and under one of them is the PowerDNS admin panel&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;172.18.0.6&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-build-writeup/powerdns1.png&#34;
 	width=&#34;1176&#34;
@@ -581,7 +583,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsh 10.10.104.46
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;root access&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;After setting my own IP address for the &lt;code&gt;intern&lt;/code&gt; record in the DNS zone and using the &lt;code&gt;rsh&lt;/code&gt; client, I gain access as &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
 </description>
         </item>
         

@@ -2,7 +2,7 @@ baseurl = "https://qrxnz.dev"
 languageCode = "en-us"
 theme = "hugo-theme-stack"
 title = "qrxnz's blog"
-copyright = "Example Person"
+copyright = "qrxnz"
 DefaultContentLanguage = "en"
 hasCJKLanguage = false
 
