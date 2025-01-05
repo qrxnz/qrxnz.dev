@@ -7,7 +7,111 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Mon, 18 Nov 2024 07:07:07 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 04 Jan 2025 19:54:32 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Ctf</title>
+        <link>http://localhost:1313/tags/ctf/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/ctf/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Exegol</title>
+        <link>http://localhost:1313/tags/exegol/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/exegol/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Gitea</title>
+        <link>http://localhost:1313/tags/gitea/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/gitea/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Hashcat</title>
+        <link>http://localhost:1313/tags/hashcat/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/hashcat/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Jenkins</title>
+        <link>http://localhost:1313/tags/jenkins/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/jenkins/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linux</title>
+        <link>http://localhost:1313/tags/linux/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Mariadb</title>
+        <link>http://localhost:1313/tags/mariadb/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/mariadb/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Misconfigurations</title>
+        <link>http://localhost:1313/tags/misconfigurations/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/misconfigurations/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Nmap</title>
+        <link>http://localhost:1313/tags/nmap/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/nmap/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Powerdns</title>
+        <link>http://localhost:1313/tags/powerdns/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/powerdns/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Rsync</title>
+        <link>http://localhost:1313/tags/rsync/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/rsync/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Sliver</title>
+        <link>http://localhost:1313/tags/sliver/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/sliver/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Socks5</title>
+        <link>http://localhost:1313/tags/socks5/</link>
+        <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>
+        
+        <guid>http://localhost:1313/tags/socks5/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Dev</title>
         <link>http://localhost:1313/tags/dev/</link>
         <pubDate>Mon, 18 Nov 2024 07:07:07 +0100</pubDate>
@@ -37,14 +141,6 @@
         <pubDate>Mon, 18 Nov 2024 07:07:07 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/home-manager/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>http://localhost:1313/tags/linux/</link>
-        <pubDate>Mon, 18 Nov 2024 07:07:07 +0100</pubDate>
-        
-        <guid>http://localhost:1313/tags/linux/</guid>
         <description></description>
         </item>
         <item>

