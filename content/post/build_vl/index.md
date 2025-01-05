@@ -3,6 +3,8 @@ title = 'Vulnlab :: Build Writeup'
 date = 2025-01-04T19:54:32+01:00
 draft = false
 
+summary = 'Vulnlab :: Build Writeup'
+
 categories = ["vulnlab", "ctf", "misconfigurations"]
 
 tags = ["jenkins", "gitea", "exegol", "sliver", "proxychains", "nmap", "linux", "ctf", "hashcat", "socks5", "misconfigurations", "rsync", "Mariadb", "powerdns"]
