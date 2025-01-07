@@ -37,7 +37,7 @@ rssFullContent = true
 
   [params.sidebar]
   emoji = "😺"
-  subtitle = "~ Dear diary, dear diary I've been searching for a higher me"
+  subtitle = "I use keyboard BTW"
 
     [params.sidebar.avatar]
     enabled = true
