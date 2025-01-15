@@ -7,7 +7,410 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>qrxnz</copyright>
-        <lastBuildDate>Sat, 04 Jan 2025 19:54:32 +0100</lastBuildDate><atom:link href="http://localhost:1313/categories/ctf/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 13 Jan 2025 14:02:13 +0100</lastBuildDate><atom:link href="http://localhost:1313/categories/ctf/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Vulnlab :: Sync Writeup</title>
+        <link>http://localhost:1313/p/vulnlab-sync-writeup/</link>
+        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        
+        <guid>http://localhost:1313/p/vulnlab-sync-writeup/</guid>
+        <description>&lt;h2 id=&#34;enumeration&#34;&gt;Enumeration
+&lt;/h2&gt;&lt;h3 id=&#34;nmap-scan&#34;&gt;Nmap scan
+&lt;/h3&gt;&lt;p&gt;I start with a standard scan using nmap&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Starting Nmap 7.93 ( https://nmap.org ) at 2025-01-02 18:11 CET
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Nmap scan report for 10.10.95.205
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host is up (0.036s latency).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Not shown: 65531 closed tcp ports (reset)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT    STATE SERVICE VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;21/tcp  open  ftp     vsftpd 3.0.5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22/tcp  open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| ssh-hostkey:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   256 5840f1968f678e470e7ee41c1128949c (ECDSA)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  256 4b59e4b26397e5142d4df8d8c913ca2c (ED25519)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp  open  http    Apache httpd 2.4.52 ((Ubuntu))
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| http-cookie-flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   /:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     PHPSESSID:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_      httponly flag not set
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Login
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.52 (Ubuntu)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;873/tcp open  rsync   (protocol version 31)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;rsync&#34;&gt;Rsync
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsync -av --list-only rsync://10.10.95.205/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsync -av --list-only rsync://10.10.95.205/httpd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image.png&#34;
+	width=&#34;1054&#34;
+	height=&#34;255&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image_hu11791243061777677801.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image_hu7407030714204118597.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;rsync&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;413&#34;
+		data-flex-basis=&#34;992px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The machine has an exposed rsync, which contains a application backup&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsync -av rsync://10.10.95.205/httpd ./httpd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;app&#34;&gt;App
+&lt;/h2&gt;&lt;h3 id=&#34;php&#34;&gt;PHP
+&lt;/h3&gt;&lt;p&gt;In the PHP code, there is a secret and the logic that creates the hashes&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-1.png&#34;
+	width=&#34;1192&#34;
+	height=&#34;693&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-1_hu11431606914057566263.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-1_hu12210071686083584311.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;index-php&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;172&#34;
+		data-flex-basis=&#34;412px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;database&#34;&gt;Database
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-2.png&#34;
+	width=&#34;930&#34;
+	height=&#34;309&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-2_hu8790594832348450017.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-2_hu14948347741116375176.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;db&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;300&#34;
+		data-flex-basis=&#34;722px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In the database, there are the hashes of 2 users&lt;/p&gt;
+&lt;h3 id=&#34;hashcat&#34;&gt;hashcat
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-3.png&#34;
+	width=&#34;890&#34;
+	height=&#34;140&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-3_hu13917173351043722109.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-3_hu9096936573705163152.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;hashes&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;635&#34;
+		data-flex-basis=&#34;1525px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Using Hashcat, I managed to crack the hash of the password for the user &lt;code&gt;triss&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-4.png&#34;
+	width=&#34;1198&#34;
+	height=&#34;591&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-4_hu15830187995212166538.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-4_hu1240722426259942689.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;hascat modes&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;202&#34;
+		data-flex-basis=&#34;486px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-5.png&#34;
+	width=&#34;880&#34;
+	height=&#34;65&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-5_hu11086106851397724580.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-5_hu5465249206720539620.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cracked&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1353&#34;
+		data-flex-basis=&#34;3249px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ftp&#34;&gt;FTP
+&lt;/h2&gt;&lt;h3 id=&#34;ftp-access&#34;&gt;FTP access
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-6.png&#34;
+	width=&#34;1018&#34;
+	height=&#34;175&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-6_hu16361458940035524846.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-6_hu7882297006897746156.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ssh triss&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;581&#34;
+		data-flex-basis=&#34;1396px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We cannot log in to SSH with the obtained password because key-based login is set, but we can log in to the FTP server&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-7.png&#34;
+	width=&#34;798&#34;
+	height=&#34;236&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-7_hu324890101834407202.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-7_hu5158482932222418019.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ftp&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;338&#34;
+		data-flex-basis=&#34;811px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ssh-key-upload&#34;&gt;SSH key upload
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-16.png&#34;
+	width=&#34;923&#34;
+	height=&#34;376&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-16_hu17839421364927544549.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-16_hu1897161405859399833.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;home&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;589px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The FTP server&amp;rsquo;s directory is the home directory of the user &lt;code&gt;triss&lt;/code&gt;, which in this case allows for the upload of our public key&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp ./.ssh/id_rsa.pub /workspace/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat id_rsa.pub &amp;gt; authorized_keys
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-8.png&#34;
+	width=&#34;1872&#34;
+	height=&#34;430&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-8_hu10036061796586939777.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-8_hu118460826732705661.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ftp1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;435&#34;
+		data-flex-basis=&#34;1044px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-9.png&#34;
+	width=&#34;1875&#34;
+	height=&#34;216&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-9_hu16157079860813345646.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-9_hu17266027739561210612.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ftp2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;868&#34;
+		data-flex-basis=&#34;2083px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh triss@10.10.95.205 -i id_rsa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Logging in using the public key is now possible&lt;/p&gt;
+&lt;h2 id=&#34;privilege-escalation&#34;&gt;Privilege escalation
+&lt;/h2&gt;&lt;h3 id=&#34;guessing&#34;&gt;Guessing
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-10.png&#34;
+	width=&#34;854&#34;
+	height=&#34;59&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-10_hu2171427677064081750.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-10_hu1023850624694067846.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;home-diretory&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1447&#34;
+		data-flex-basis=&#34;3473px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In the user&amp;rsquo;s directory, we do not find the user flag, but there is a small reference to &amp;ldquo;The Witcher&amp;rdquo; by Andrzej Sapkowski in the task, which makes it easy to guess that the password for the user &lt;code&gt;jennifer&lt;/code&gt; is the same as for &lt;code&gt;triss&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;At this point, we have obtained the user flag!&lt;/p&gt;
+&lt;h3 id=&#34;backup&#34;&gt;/backup
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-11.png&#34;
+	width=&#34;1079&#34;
+	height=&#34;104&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-11_hu11953695636346845475.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-11_hu7183186107208297304.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;backups&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1037&#34;
+		data-flex-basis=&#34;2490px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;After using LinPEAS, I went to the /backup directory&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-12.png&#34;
+	width=&#34;657&#34;
+	height=&#34;402&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-12_hu3017313864783419670.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-12_hu6450246386021494453.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;backup&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;163&#34;
+		data-flex-basis=&#34;392px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;john-the-ripper&#34;&gt;John The Ripper
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;unshadow passwd shadow &amp;gt; hash.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;john --wordlist&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/share/wordlists/rockyou.txt hash.txt --format&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;crypt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;sakura&lt;/p&gt;
+&lt;h3 id=&#34;backupsh&#34;&gt;backup.sh
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-14.png&#34;
+	width=&#34;828&#34;
+	height=&#34;109&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-14_hu6128281775844092545.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-14_hu15287347215115847073.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;linpeas&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;759&#34;
+		data-flex-basis=&#34;1823px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp -r /opt/httpd /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp /etc/passwd /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp /etc/shadow /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp /etc/rsyncd.conf /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zip -r /backup/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;date +%s&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;.zip /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm -rf /tmp/backup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-15.png&#34;
+	width=&#34;348&#34;
+	height=&#34;89&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-15_hu14626828572233971180.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-15_hu10465474941121319362.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;new backup.sh&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;391&#34;
+		data-flex-basis=&#34;938px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/bin/bash -p
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Vulnlab :: Build Writeup</title>
         <link>http://localhost:1313/p/vulnlab-build-writeup/</link>
         <pubDate>Sat, 04 Jan 2025 19:54:32 +0100</pubDate>

