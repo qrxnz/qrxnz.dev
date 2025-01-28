@@ -7,10 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>qrxnz</copyright>
-        <lastBuildDate>Mon, 13 Jan 2025 14:02:13 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 15 Jan 2025 12:02:13 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Ctf</title>
         <link>http://localhost:1313/tags/ctf/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/ctf/</guid>
         <description></description>
@@ -18,7 +18,7 @@
         <item>
         <title>Exegol</title>
         <link>http://localhost:1313/tags/exegol/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/exegol/</guid>
         <description></description>
@@ -26,7 +26,7 @@
         <item>
         <title>Ftp</title>
         <link>http://localhost:1313/tags/ftp/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/ftp/</guid>
         <description></description>
@@ -34,7 +34,7 @@
         <item>
         <title>Hashcat</title>
         <link>http://localhost:1313/tags/hashcat/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/hashcat/</guid>
         <description></description>
@@ -42,7 +42,7 @@
         <item>
         <title>John-the-Ripper</title>
         <link>http://localhost:1313/tags/john-the-ripper/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/john-the-ripper/</guid>
         <description></description>
@@ -50,7 +50,7 @@
         <item>
         <title>Linux</title>
         <link>http://localhost:1313/tags/linux/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/linux/</guid>
         <description></description>
@@ -58,7 +58,7 @@
         <item>
         <title>Misconfigurations</title>
         <link>http://localhost:1313/tags/misconfigurations/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/misconfigurations/</guid>
         <description></description>
@@ -66,7 +66,7 @@
         <item>
         <title>Nmap</title>
         <link>http://localhost:1313/tags/nmap/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/nmap/</guid>
         <description></description>
@@ -74,7 +74,7 @@
         <item>
         <title>Php</title>
         <link>http://localhost:1313/tags/php/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/php/</guid>
         <description></description>
@@ -82,7 +82,7 @@
         <item>
         <title>Pwncat-Cs</title>
         <link>http://localhost:1313/tags/pwncat-cs/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/pwncat-cs/</guid>
         <description></description>
@@ -90,7 +90,7 @@
         <item>
         <title>Rsync</title>
         <link>http://localhost:1313/tags/rsync/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/rsync/</guid>
         <description></description>
@@ -98,7 +98,7 @@
         <item>
         <title>Sqlite</title>
         <link>http://localhost:1313/tags/sqlite/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/sqlite/</guid>
         <description></description>
@@ -106,7 +106,7 @@
         <item>
         <title>Ssh</title>
         <link>http://localhost:1313/tags/ssh/</link>
-        <pubDate>Mon, 13 Jan 2025 14:02:13 +0100</pubDate>
+        <pubDate>Wed, 15 Jan 2025 12:02:13 +0100</pubDate>
         
         <guid>http://localhost:1313/tags/ssh/</guid>
         <description></description>
