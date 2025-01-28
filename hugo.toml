@@ -128,14 +128,14 @@ main = [ ]
 
     [menu.social.params]
     icon = "brand-youtube"
-
+ 
   [[menu.social]]
-  identifier = "linktree"
-  name = "Linktree"
-  url = "https://linktr.ee/qrxnz"
+  identifier = "rss"
+  name = "rss"
+  url = "https://qrxnz.dev/index.xml"
 
     [menu.social.params]
-    icon = "brand-linktree"
+    icon = "rss"
   
 [related]
 includeNewer = true
