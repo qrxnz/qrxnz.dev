@@ -114,14 +114,6 @@ main = [ ]
     icon = "brand-mastodon"
 
   [[menu.social]]
-  identifier = "linkedin"
-  name = "Linkedin"
-  url = "https://www.linkedin.com/in/karol-skoczyk17"
-
-    [menu.social.params]
-    icon = "brand-linkedin"
-
-  [[menu.social]]
   identifier = "youtube"
   name = "Youtube"
   url = "https://www.youtube.com/@qrxnz9209/"
