@@ -1,6 +1,6 @@
 ---
 title: About
-description: "To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał"
+description: \"To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał\"
 aliases:
   - about-us
   - about-hugo
