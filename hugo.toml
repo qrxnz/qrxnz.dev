@@ -114,9 +114,9 @@ main = [ ]
     icon = "brand-mastodon"
 
   [[menu.social]]
-  identifier = "youtube"
-  name = "Youtube"
-  url = "https://www.youtube.com/@qrxnz9209/"
+  identifier = "linktree"
+  name = "LinkTree"
+  url = "https://linktr.ee/qrxnz"
 
     [menu.social.params]
     icon = "brand-youtube"
