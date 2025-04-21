@@ -119,7 +119,7 @@ main = [ ]
   url = "https://linktr.ee/qrxnz"
 
     [menu.social.params]
-    icon = "brand-youtube"
+    icon = "brand-linktree"
  
   [[menu.social]]
   identifier = "rss"
