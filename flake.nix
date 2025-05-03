@@ -1,29 +1,35 @@
 {
-  description = "blog development";
-
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  };
+  inputs.utils.url = "github:numtide/flake-utils";
 
   outputs = {
     self,
     nixpkgs,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    devShells.x86_64-linux.default =
-      pkgs.mkShell
-      {
-        nativeBuildInputs = with pkgs; [
-          hugo
-          dart-sass
-          just
-          watchexec
-          treefmt2
-          alejandra
-        ];
+    utils,
+  }:
+    utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+      in {
+        devShells.default = pkgs.mkShell rec {
+          buildInputs = with pkgs; [
+            # Blog things
+            hugo
+            dart-sass
+
+            # Formatters
+            treefmt2
+            alejandra
+
+            # Others
+            just
+            watchexec
+          ];
+        };
+      }
+    )
+    // {
+      overlays.default = self: pkgs: {
+        hello = self.packages."${pkgs.system}".hello;
       };
-  };
+    };
 }
