@@ -106,14 +106,6 @@ main = [ ]
     icon = "brand-github"
 
   [[menu.social]]
-  identifier = "mastodon"
-  name = "Mastodon"
-  url = "https://mastodon.social/@qrxnz"
-
-    [menu.social.params]
-    icon = "brand-mastodon"
-
-  [[menu.social]]
   identifier = "linktree"
   name = "LinkTree"
   url = "https://linktr.ee/qrxnz"
