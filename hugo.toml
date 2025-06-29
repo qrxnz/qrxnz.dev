@@ -47,7 +47,7 @@ rssFullContent = true
   [params.article]
   math = false
   toc = true
-  readingTime = true
+  readingTime = false
 
     [params.article.license]
     enabled = true

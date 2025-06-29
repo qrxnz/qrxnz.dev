@@ -16,7 +16,7 @@
         <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-17.png&#34;
 	width=&#34;537&#34;
 	height=&#34;621&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-17_hu13579974232266791855.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-17_hu10523741402024455397.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-17_hu_ec4a522779edf7c2.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-17_hu_47d045d36d8f82b0.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;pwned-sync&#34;
@@ -98,7 +98,7 @@
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image.png&#34;
 	width=&#34;1054&#34;
 	height=&#34;255&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image_hu11791243061777677801.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image_hu7407030714204118597.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image_hu_dd03bec4734245d6.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image_hu_ed3c0cee83c04130.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;rsync&#34;
@@ -124,7 +124,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-1.png&#34;
 	width=&#34;1192&#34;
 	height=&#34;693&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-1_hu11431606914057566263.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-1_hu12210071686083584311.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-1_hu_ed1959e3c419b02d.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-1_hu_44b60a029f9bd9a6.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;index-php&#34;
@@ -139,7 +139,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-2.png&#34;
 	width=&#34;930&#34;
 	height=&#34;309&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-2_hu8790594832348450017.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-2_hu14948347741116375176.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-2_hu_728fab75e7874bed.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-2_hu_342121d8da16700a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;db&#34;
@@ -155,7 +155,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-3.png&#34;
 	width=&#34;890&#34;
 	height=&#34;140&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-3_hu13917173351043722109.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-3_hu9096936573705163152.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-3_hu_e99ea29189980bc4.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-3_hu_1be269854c11d6c3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;hashes&#34;
@@ -170,7 +170,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-4.png&#34;
 	width=&#34;1198&#34;
 	height=&#34;591&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-4_hu15830187995212166538.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-4_hu1240722426259942689.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-4_hu_26b0c79deaad1a6a.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-4_hu_fe8683f41402160e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;hascat modes&#34;
@@ -184,7 +184,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-5.png&#34;
 	width=&#34;880&#34;
 	height=&#34;65&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-5_hu11086106851397724580.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-5_hu5465249206720539620.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-5_hu_2feb34660cc4007f.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-5_hu_5b38fe9267923a54.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;cracked&#34;
@@ -200,7 +200,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-6.png&#34;
 	width=&#34;1018&#34;
 	height=&#34;175&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-6_hu16361458940035524846.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-6_hu7882297006897746156.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-6_hu_87a70f65cf02bff3.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-6_hu_bdcef66577337bcf.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ssh triss&#34;
@@ -215,7 +215,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-7.png&#34;
 	width=&#34;798&#34;
 	height=&#34;236&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-7_hu324890101834407202.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-7_hu5158482932222418019.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-7_hu_af37fa73d80e08cf.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-7_hu_93be17b7cf8895f2.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ftp&#34;
@@ -230,7 +230,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-16.png&#34;
 	width=&#34;923&#34;
 	height=&#34;376&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-16_hu17839421364927544549.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-16_hu1897161405859399833.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-16_hu_c7b6aa613e215209.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-16_hu_f8633f06fb411ae9.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;home&#34;
@@ -261,7 +261,7 @@
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-8.png&#34;
 	width=&#34;1872&#34;
 	height=&#34;430&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-8_hu10036061796586939777.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-8_hu118460826732705661.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-8_hu_5c3ac940a18eb77f.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-8_hu_a7a74e5d4d5380e6.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ftp1&#34;
@@ -275,7 +275,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-9.png&#34;
 	width=&#34;1875&#34;
 	height=&#34;216&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-9_hu16157079860813345646.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-9_hu17266027739561210612.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-9_hu_99bd7e1ea68593ab.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-9_hu_cc37165d7f8bb1b7.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ftp2&#34;
@@ -300,7 +300,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-10.png&#34;
 	width=&#34;854&#34;
 	height=&#34;59&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-10_hu2171427677064081750.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-10_hu1023850624694067846.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-10_hu_6a437129db480ecc.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-10_hu_38ef4b74147a9b67.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;home-diretory&#34;
@@ -317,7 +317,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-11.png&#34;
 	width=&#34;1079&#34;
 	height=&#34;104&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-11_hu11953695636346845475.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-11_hu7183186107208297304.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-11_hu_de370dc6e46d516.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-11_hu_f33fee6eccdebfb4.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;backups&#34;
@@ -332,7 +332,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-12.png&#34;
 	width=&#34;657&#34;
 	height=&#34;402&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-12_hu3017313864783419670.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-12_hu6450246386021494453.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-12_hu_395709c7088f4516.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-12_hu_2c3f284a677bce37.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;backup&#34;
@@ -365,7 +365,7 @@
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-14.png&#34;
 	width=&#34;828&#34;
 	height=&#34;109&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-14_hu6128281775844092545.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-14_hu15287347215115847073.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-14_hu_78e13b50bd028f5.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-14_hu_9026b44bbd097c7a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;linpeas&#34;
@@ -404,7 +404,7 @@
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-15.png&#34;
 	width=&#34;348&#34;
 	height=&#34;89&#34;
-	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-15_hu14626828572233971180.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-15_hu10465474941121319362.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/vulnlab-sync-writeup/image-15_hu_add0c50347f74a3c.png 480w, http://localhost:1313/p/vulnlab-sync-writeup/image-15_hu_41ad643401dff3bb.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;new backup.sh&#34;
