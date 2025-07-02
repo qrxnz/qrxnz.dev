@@ -39,4 +39,4 @@ I'm trying to regularly upload videos on -\-> <a href="https://www.youtube.com/@
          `--{__________)        \/   "Berkeley Unix Daemon"
 ```
 
-"To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał" ~ Zero89
+"To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał" ~Zero89
