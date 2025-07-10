@@ -1,6 +1,6 @@
 ---
 title: About
-description: ''
+description: 'About me'
 aliases:
   - about-us
   - about-hugo
@@ -13,7 +13,7 @@ menu:
             icon: user
 ---
 
-I am a cybersecurity researcher, interested in web and hardware. I enjoy developing FOSS projects and treat it as a fun activity. In my free time, I mainly practice aggressive inline skating and read books...
+I am a cybersecurity researcher, mainly interested in hardware. I enjoy developing FOSS projects and treat it as a fun activity. In my free time, I mainly practice aggressive inline skating and read books...
 
 I'm trying to regularly upload videos on -\-> <a href="https://www.youtube.com/@qrxnz9209">YouTube</a> <-\-
 
