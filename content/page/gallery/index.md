@@ -1,6 +1,6 @@
 ---
 title: Gallery
-description: ''
+description: 'IMGs...'
 aliases:
   - gallery
 license: CC BY-NC-ND
