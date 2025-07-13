@@ -11,6 +11,8 @@ categories = ["vulnlab", "ctf", "misconfigurations"]
 tags = ["exegol", "nmap", "linux", "ctf", "hashcat", "john-the-ripper", "pwncat-cs", "misconfigurations", "rsync", "php", "sqlite", "ftp", "ssh"]
 +++
 
+![pwned-sync](image-17.png)
+
 ## Enumeration
 
 ### Nmap Scan
@@ -49,6 +51,7 @@ I noticed that the machine exposes an rsync service. I enumerated available modu
 ```sh
 rsync -av --list-only rsync://10.10.95.205/
 ```
+![rsync](image.png)
 
 I found a module named `httpd`:
 
@@ -67,15 +70,25 @@ rsync -av rsync://10.10.95.205/httpd ./httpd
 
 ### PHP
 
+![index-php](image-1.png)
+
 Reviewing the PHP code, I found a secret and the logic used to generate password hashes.
 
 ### Database
+
+![db](image-2.png)
 
 The database contains password hashes for two users.
 
 ### Hashcat
 
+![hashes](image-3.png)
+
 Using Hashcat, I managed to crack the password hash for the user `triss`.
+
+![hascat modes](image-4.png)
+
+![cracked](image-5.png)
 
 ## FTP
 
@@ -83,9 +96,13 @@ Using Hashcat, I managed to crack the password hash for the user `triss`.
 
 SSH login is not possible with the cracked password, as key-based authentication is enforced. However, I was able to log in to the FTP server.
 
+![ftp](image-7.png)
+
 ### SSH Key Upload
 
 The FTP server's root directory is the home directory of the user `triss`, which allows me to upload my public SSH key.
+
+![home](image-16.png)
 
 ```sh
 cp ./.ssh/id_rsa.pub /workspace/
@@ -109,6 +126,8 @@ There is no user flag in `triss`'s home directory. However, due to a reference t
 
 After running LinPEAS, I discovered the `/backup` directory.
 
+![backups](image-11.png)
+
 ### John the Ripper
 
 I found backup copies of `/etc/passwd` and `/etc/shadow`. I used John the Ripper to crack the password for the user `sa`:
@@ -118,10 +137,11 @@ unshadow passwd shadow > hash.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt --format=crypt
 ```
 
-
 ### backup.sh
 
-I discovered a backup script owned by the user `sa`:
+I discovered a backup script owned by the user `sa`
+
+![linpeas](image-14.png)
 
 ```sh
 #!/bin/bash
