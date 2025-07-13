@@ -12,7 +12,7 @@ menu:
             readingTime: false
 ---
 
-> "gram w cut-up, życie to walka na noże" ~Zero89
+> "Gram w cut-up, życie to walka na noże" ~Zero89
 
 ## 2024
 [<img src="image4.jpg" width="250"/>](image4.jpg)
