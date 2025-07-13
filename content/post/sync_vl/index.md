@@ -11,13 +11,11 @@ categories = ["vulnlab", "ctf", "misconfigurations"]
 tags = ["exegol", "nmap", "linux", "ctf", "hashcat", "john-the-ripper", "pwncat-cs", "misconfigurations", "rsync", "php", "sqlite", "ftp", "ssh"]
 +++
 
-![pwned-sync](image-17.png)
-
 ## Enumeration
 
-### Nmap scan
+### Nmap Scan
 
-I start with a standard scan using nmap
+I started with a standard scan using Nmap:
 
 ```
 Starting Nmap 7.93 ( https://nmap.org ) at 2025-01-02 18:11 CET
@@ -43,116 +41,87 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 ```
 
+
 ## Rsync
+
+I noticed that the machine exposes an rsync service. I enumerated available modules:
 
 ```sh
 rsync -av --list-only rsync://10.10.95.205/
 ```
 
+I found a module named `httpd`:
+
 ```sh
 rsync -av --list-only rsync://10.10.95.205/httpd
 ```
 
-![rsync](image.png)
-
-The machine has an exposed rsync, which contains a application backup
+The rsync service contains an application backup. I downloaded it with:
 
 ```sh
 rsync -av rsync://10.10.95.205/httpd ./httpd
 ```
 
-## App
+
+## Application Analysis
 
 ### PHP
 
-In the PHP code, there is a secret and the logic that creates the hashes
-
-![index-php](image-1.png)
+Reviewing the PHP code, I found a secret and the logic used to generate password hashes.
 
 ### Database
 
-![db](image-2.png)
+The database contains password hashes for two users.
 
-In the database, there are the hashes of 2 users
+### Hashcat
 
-### hashcat
-
-![hashes](image-3.png)
-
-Using Hashcat, I managed to crack the hash of the password for the user `triss`
-
-![hascat modes](image-4.png)
-
-![cracked](image-5.png)
+Using Hashcat, I managed to crack the password hash for the user `triss`.
 
 ## FTP
 
-### FTP access
+### FTP Access
 
-![ssh triss](image-6.png)
+SSH login is not possible with the cracked password, as key-based authentication is enforced. However, I was able to log in to the FTP server.
 
+### SSH Key Upload
 
-We cannot log in to SSH with the obtained password because key-based login is set, but we can log in to the FTP server
-
-![ftp](image-7.png)
-
-### SSH key upload
-
-![home](image-16.png)
-
-The FTP server's directory is the home directory of the user `triss`, which in this case allows for the upload of our public key
+The FTP server's root directory is the home directory of the user `triss`, which allows me to upload my public SSH key.
 
 ```sh
 cp ./.ssh/id_rsa.pub /workspace/
-```
-
-```sh
 cat id_rsa.pub > authorized_keys
 ```
 
-![ftp1](image-8.png)
-
-![ftp2](image-9.png)
+Now I can log in via SSH using my private key:
 
 ```sh
 ssh triss@10.10.95.205 -i id_rsa
 ```
 
-Logging in using the public key is now possible
 
-## Privilege escalation
+## Privilege Escalation
 
-### Guessing
+### User Flag
 
-![home-diretory](image-10.png)
+There is no user flag in `triss`'s home directory. However, due to a reference to "The Witcher" by Andrzej Sapkowski in the challenge, I guessed that the password for the user `jennifer` is the same as for `triss`. This allowed me to obtain the user flag.
 
-In the user's directory, we do not find the user flag, but there is a small reference to "The Witcher" by Andrzej Sapkowski in the task, which makes it easy to guess that the password for the user `jennifer` is the same as for `triss`
+### /backup Directory
 
-At this point, we have obtained the user flag!
+After running LinPEAS, I discovered the `/backup` directory.
 
-### /backup
+### John the Ripper
 
-![backups](image-11.png)
-
-After using LinPEAS, I went to the /backup directory
-
-![backup](image-12.png)
-
-### John The Ripper
+I found backup copies of `/etc/passwd` and `/etc/shadow`. I used John the Ripper to crack the password for the user `sa`:
 
 ```sh
 unshadow passwd shadow > hash.txt
-```
-
-```sh
 john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt --format=crypt
 ```
 
-From the backup, we manage to obtain the password for the user `sa`
 
 ### backup.sh
 
-![linpeas](image-14.png)
+I discovered a backup script owned by the user `sa`:
 
 ```sh
 #!/bin/bash
@@ -166,12 +135,8 @@ zip -r /backup/$(date +%s).zip /tmp/backup
 rm -rf /tmp/backup
 ```
 
-After using LinPEAS again, we discover a backup script that is owned by the user `sa`
-
-![new backup.sh](image-15.png)
+After modifying the script and executing it, I was able to escalate privileges and gain root access.
 
 ```sh
 /bin/bash -p
 ```
-
-After modifying the content of the script and executing it, I can gain access as `root`
