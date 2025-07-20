@@ -37,4 +37,4 @@ I am a nerd, mainly interested in hardware. I enjoy developing FOSS projects and
          `--{__________)        \/   "Berkeley Unix Daemon"
 ```
 
-"To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał" ~Zero89
+> "To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał" ~Zero89
