@@ -15,6 +15,11 @@ menu:
 
 I am a nerd, mainly interested in hardware. I enjoy developing FOSS projects and treat it as a fun activity. In my free time, I mainly practice aggressive inline skating and read books...
 
+> "Awalokiteśwara? - ze mnie żaden bodhisattwa 
+> Zawsze marzyłem o miastach z ochry i światła; nadal
+> Marzę o dada i czarnych maskach innego świata
+> O opium w fajkach i złotych tacach na otomanach" ~Zero89
+
 ```
                ,        ,
               /(        )`
@@ -36,5 +41,3 @@ I am a nerd, mainly interested in hardware. I enjoy developing FOSS projects and
   (FL)   ,'  ,-----'   |        \
          `--{__________)        \/   "Berkeley Unix Daemon"
 ```
-
-> "To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał" ~Zero89
