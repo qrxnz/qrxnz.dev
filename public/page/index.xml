@@ -21,8 +21,12 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/about/</guid>
-        <description>&lt;p&gt;I am a cybersecurity researcher, interested in web and hardware. I enjoy developing FOSS projects and treat it as a fun activity. In my free time, I mainly practice aggressive inline skating and read books&amp;hellip;&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m trying to regularly upload videos on --&amp;gt; &lt;a href=&#34;https://www.youtube.com/@qrxnz9209&#34;&gt;YouTube&lt;/a&gt; &amp;lt;--&lt;/p&gt;
+        <description>&lt;p&gt;I am a nerd, mainly interested in hardware. I enjoy developing FOSS projects and treat it as a fun activity. In my free time, I mainly practice aggressive inline skating and read books&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Awalokiteśwara? - ze mnie żaden bodhisattwa &lt;br&gt;
+Zawsze marzyłem o miastach z ochry i światła; nadal &lt;br&gt;
+Marzę o dada i czarnych maskach innego świata &lt;br&gt;
+O opium w fajkach i złotych tacach na otomanach&amp;rdquo; ~Zero89&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -67,8 +71,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         `--{__________)        \/   &amp;#34;Berkeley Unix Daemon&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&amp;ldquo;To dla chłopaków którzy zamieszkali na orbitach I tańczą na świecznikach chyba ze ich wita przypał&amp;rdquo; ~Zero89&lt;/p&gt;
-</description>
+&lt;/div&gt;</description>
         </item>
         <item>
         <title>Gallery</title>
@@ -77,7 +80,7 @@
         
         <guid>http://localhost:1313/gallery/</guid>
         <description>&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;gram w cut-up, życie to walka na noże&amp;rdquo; ~Zero89&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&amp;ldquo;Gram w cut-up, życie to walka na noże&amp;rdquo; ~Zero89&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;2024&#34;&gt;2024
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;image4.jpg&#34; &gt;&lt;img src=&#34;image4.jpg&#34; width=&#34;250&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;2023&#34;&gt;2023

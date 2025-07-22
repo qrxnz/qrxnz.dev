@@ -56,7 +56,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_f491bb7661f0c8f2.jpg" width="300"
+                        <img src="/img/avatar_hu_650cea9343ba20cc.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -264,28 +264,28 @@
   <ol>
     <li><a href="#enumeration">Enumeration</a>
       <ol>
-        <li><a href="#nmap-scan">Nmap scan</a></li>
+        <li><a href="#nmap-scan">Nmap Scan</a></li>
       </ol>
     </li>
     <li><a href="#rsync">Rsync</a></li>
-    <li><a href="#app">App</a>
+    <li><a href="#application-analysis">Application Analysis</a>
       <ol>
         <li><a href="#php">PHP</a></li>
         <li><a href="#database">Database</a></li>
-        <li><a href="#hashcat">hashcat</a></li>
+        <li><a href="#hashcat">Hashcat</a></li>
       </ol>
     </li>
     <li><a href="#ftp">FTP</a>
       <ol>
-        <li><a href="#ftp-access">FTP access</a></li>
-        <li><a href="#ssh-key-upload">SSH key upload</a></li>
+        <li><a href="#ftp-access">FTP Access</a></li>
+        <li><a href="#ssh-key-upload">SSH Key Upload</a></li>
       </ol>
     </li>
-    <li><a href="#privilege-escalation">Privilege escalation</a>
+    <li><a href="#privilege-escalation">Privilege Escalation</a>
       <ol>
-        <li><a href="#guessing">Guessing</a></li>
-        <li><a href="#backup">/backup</a></li>
-        <li><a href="#john-the-ripper">John The Ripper</a></li>
+        <li><a href="#user-flag">User Flag</a></li>
+        <li><a href="#backup-directory">/backup Directory</a></li>
+        <li><a href="#john-the-ripper">John the Ripper</a></li>
         <li><a href="#backupsh">backup.sh</a></li>
       </ol>
     </li>
@@ -377,8 +377,8 @@
 	
 ></p>
 <h2 id="enumeration">Enumeration
-</h2><h3 id="nmap-scan">Nmap scan
-</h3><p>I start with a standard scan using nmap</p>
+</h2><h3 id="nmap-scan">Nmap Scan
+</h3><p>I started with a standard scan using Nmap:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -428,20 +428,13 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="rsync">Rsync
-</h2><div class="highlight"><div class="chroma">
+</h2><p>I noticed that the machine exposes an rsync service. I enumerated available modules:</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.95.205/
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.95.205/httpd
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="/p/vulnlab-sync-writeup/image.png"
@@ -458,7 +451,16 @@
 		data-flex-basis="992px"
 	
 ></p>
-<p>The machine has an exposed rsync, which contains a application backup</p>
+<p>I found a module named <code>httpd</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av --list-only rsync://10.10.95.205/httpd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The rsync service contains an application backup. I downloaded it with:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -467,10 +469,9 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av rsync://10.10.95.205/httpd ./httpd
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="app">App
+</div><h2 id="application-analysis">Application Analysis
 </h2><h3 id="php">PHP
-</h3><p>In the PHP code, there is a secret and the logic that creates the hashes</p>
-<p><img src="/p/vulnlab-sync-writeup/image-1.png"
+</h3><p><img src="/p/vulnlab-sync-writeup/image-1.png"
 	width="1192"
 	height="693"
 	srcset="/p/vulnlab-sync-writeup/image-1_hu_ed1959e3c419b02d.png 480w, /p/vulnlab-sync-writeup/image-1_hu_44b60a029f9bd9a6.png 1024w"
@@ -484,6 +485,7 @@
 		data-flex-basis="412px"
 	
 ></p>
+<p>Reviewing the PHP code, I found a secret and the logic used to generate password hashes.</p>
 <h3 id="database">Database
 </h3><p><img src="/p/vulnlab-sync-writeup/image-2.png"
 	width="930"
@@ -499,8 +501,8 @@
 		data-flex-basis="722px"
 	
 ></p>
-<p>In the database, there are the hashes of 2 users</p>
-<h3 id="hashcat">hashcat
+<p>The database contains password hashes for two users.</p>
+<h3 id="hashcat">Hashcat
 </h3><p><img src="/p/vulnlab-sync-writeup/image-3.png"
 	width="890"
 	height="140"
@@ -515,7 +517,7 @@
 		data-flex-basis="1525px"
 	
 ></p>
-<p>Using Hashcat, I managed to crack the hash of the password for the user <code>triss</code></p>
+<p>Using Hashcat, I managed to crack the password hash for the user <code>triss</code>.</p>
 <p><img src="/p/vulnlab-sync-writeup/image-4.png"
 	width="1198"
 	height="591"
@@ -545,22 +547,8 @@
 	
 ></p>
 <h2 id="ftp">FTP
-</h2><h3 id="ftp-access">FTP access
-</h3><p><img src="/p/vulnlab-sync-writeup/image-6.png"
-	width="1018"
-	height="175"
-	srcset="/p/vulnlab-sync-writeup/image-6_hu_87a70f65cf02bff3.png 480w, /p/vulnlab-sync-writeup/image-6_hu_bdcef66577337bcf.png 1024w"
-	loading="lazy"
-	
-		alt="ssh triss"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="581"
-		data-flex-basis="1396px"
-	
-></p>
-<p>We cannot log in to SSH with the obtained password because key-based login is set, but we can log in to the FTP server</p>
+</h2><h3 id="ftp-access">FTP Access
+</h3><p>SSH login is not possible with the cracked password, as key-based authentication is enforced. However, I was able to log in to the FTP server.</p>
 <p><img src="/p/vulnlab-sync-writeup/image-7.png"
 	width="798"
 	height="236"
@@ -575,8 +563,9 @@
 		data-flex-basis="811px"
 	
 ></p>
-<h3 id="ssh-key-upload">SSH key upload
-</h3><p><img src="/p/vulnlab-sync-writeup/image-16.png"
+<h3 id="ssh-key-upload">SSH Key Upload
+</h3><p>The FTP server&rsquo;s root directory is the home directory of the user <code>triss</code>, which allows me to upload my public SSH key.</p>
+<p><img src="/p/vulnlab-sync-writeup/image-16.png"
 	width="923"
 	height="376"
 	srcset="/p/vulnlab-sync-writeup/image-16_hu_c7b6aa613e215209.png 480w, /p/vulnlab-sync-writeup/image-16_hu_f8633f06fb411ae9.png 1024w"
@@ -590,51 +579,17 @@
 		data-flex-basis="589px"
 	
 ></p>
-<p>The FTP server&rsquo;s directory is the home directory of the user <code>triss</code>, which in this case allows for the upload of our public key</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp ./.ssh/id_rsa.pub /workspace/
+</span></span><span class="line"><span class="cl">cat id_rsa.pub &gt; authorized_keys
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat id_rsa.pub &gt; authorized_keys
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/p/vulnlab-sync-writeup/image-8.png"
-	width="1872"
-	height="430"
-	srcset="/p/vulnlab-sync-writeup/image-8_hu_5c3ac940a18eb77f.png 480w, /p/vulnlab-sync-writeup/image-8_hu_a7a74e5d4d5380e6.png 1024w"
-	loading="lazy"
-	
-		alt="ftp1"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="435"
-		data-flex-basis="1044px"
-	
-></p>
-<p><img src="/p/vulnlab-sync-writeup/image-9.png"
-	width="1875"
-	height="216"
-	srcset="/p/vulnlab-sync-writeup/image-9_hu_99bd7e1ea68593ab.png 480w, /p/vulnlab-sync-writeup/image-9_hu_cc37165d7f8bb1b7.png 1024w"
-	loading="lazy"
-	
-		alt="ftp2"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="868"
-		data-flex-basis="2083px"
-	
-></p>
+</div><p>Now I can log in via SSH using my private key:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -643,27 +598,12 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh triss@10.10.95.205 -i id_rsa
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Logging in using the public key is now possible</p>
-<h2 id="privilege-escalation">Privilege escalation
-</h2><h3 id="guessing">Guessing
-</h3><p><img src="/p/vulnlab-sync-writeup/image-10.png"
-	width="854"
-	height="59"
-	srcset="/p/vulnlab-sync-writeup/image-10_hu_6a437129db480ecc.png 480w, /p/vulnlab-sync-writeup/image-10_hu_38ef4b74147a9b67.png 1024w"
-	loading="lazy"
-	
-		alt="home-diretory"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="1447"
-		data-flex-basis="3473px"
-	
-></p>
-<p>In the user&rsquo;s directory, we do not find the user flag, but there is a small reference to &ldquo;The Witcher&rdquo; by Andrzej Sapkowski in the task, which makes it easy to guess that the password for the user <code>jennifer</code> is the same as for <code>triss</code></p>
-<p>At this point, we have obtained the user flag!</p>
-<h3 id="backup">/backup
-</h3><p><img src="/p/vulnlab-sync-writeup/image-11.png"
+</div><h2 id="privilege-escalation">Privilege Escalation
+</h2><h3 id="user-flag">User Flag
+</h3><p>There is no user flag in <code>triss</code>&rsquo;s home directory. However, due to a reference to &ldquo;The Witcher&rdquo; by Andrzej Sapkowski in the challenge, I guessed that the password for the user <code>jennifer</code> is the same as for <code>triss</code>. This allowed me to obtain the user flag.</p>
+<h3 id="backup-directory">/backup Directory
+</h3><p>After running LinPEAS, I discovered the <code>/backup</code> directory.</p>
+<p><img src="/p/vulnlab-sync-writeup/image-11.png"
 	width="1079"
 	height="104"
 	srcset="/p/vulnlab-sync-writeup/image-11_hu_de370dc6e46d516.png 480w, /p/vulnlab-sync-writeup/image-11_hu_f33fee6eccdebfb4.png 1024w"
@@ -677,41 +617,21 @@
 		data-flex-basis="2490px"
 	
 ></p>
-<p>After using LinPEAS, I went to the /backup directory</p>
-<p><img src="/p/vulnlab-sync-writeup/image-12.png"
-	width="657"
-	height="402"
-	srcset="/p/vulnlab-sync-writeup/image-12_hu_395709c7088f4516.png 480w, /p/vulnlab-sync-writeup/image-12_hu_2c3f284a677bce37.png 1024w"
-	loading="lazy"
-	
-		alt="backup"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="163"
-		data-flex-basis="392px"
-	
-></p>
-<h3 id="john-the-ripper">John The Ripper
-</h3><div class="highlight"><div class="chroma">
+<h3 id="john-the-ripper">John the Ripper
+</h3><p>I found backup copies of <code>/etc/passwd</code> and <code>/etc/shadow</code>. I used John the Ripper to crack the password for the user <code>sa</code>:</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">unshadow passwd shadow &gt; hash.txt
+</span></span><span class="line"><span class="cl">john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt hash.txt --format<span class="o">=</span>crypt
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt hash.txt --format<span class="o">=</span>crypt
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>From the backup, we manage to obtain the password for the user <code>sa</code></p>
-<h3 id="backupsh">backup.sh
-</h3><p><img src="/p/vulnlab-sync-writeup/image-14.png"
+</div><h3 id="backupsh">backup.sh
+</h3><p>I discovered a backup script owned by the user <code>sa</code></p>
+<p><img src="/p/vulnlab-sync-writeup/image-14.png"
 	width="828"
 	height="109"
 	srcset="/p/vulnlab-sync-writeup/image-14_hu_78e13b50bd028f5.png 480w, /p/vulnlab-sync-writeup/image-14_hu_9026b44bbd097c7a.png 1024w"
@@ -749,21 +669,7 @@
 </span></span><span class="line"><span class="cl">rm -rf /tmp/backup
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>After using LinPEAS again, we discover a backup script that is owned by the user <code>sa</code></p>
-<p><img src="/p/vulnlab-sync-writeup/image-15.png"
-	width="348"
-	height="89"
-	srcset="/p/vulnlab-sync-writeup/image-15_hu_add0c50347f74a3c.png 480w, /p/vulnlab-sync-writeup/image-15_hu_41ad643401dff3bb.png 1024w"
-	loading="lazy"
-	
-		alt="new backup.sh"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="391"
-		data-flex-basis="938px"
-	
-></p>
+</div><p>After modifying the script and executing it, I was able to escalate privileges and gain root access.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -772,8 +678,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/bin/bash -p
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>After modifying the content of the script and executing it, I can gain access as <code>root</code></p>
-
+</div>
 </section>
 
 
