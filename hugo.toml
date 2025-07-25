@@ -106,14 +106,6 @@ main = [ ]
     icon = "brand-github"
 
   [[menu.social]]
-  identifier = "youtube"
-  name = "YouTube"
-  url = "https://www.youtube.com/@qrxnz9209"
-
-    [menu.social.params]
-    icon = "brand-youtube"
-
-  [[menu.social]]
   identifier = "linktree"
   name = "LinkTree"
   url = "https://linktr.ee/qrxnz"
