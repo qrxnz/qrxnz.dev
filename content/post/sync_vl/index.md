@@ -1,5 +1,8 @@
 +++
 title = 'Vulnlab :: Sync Writeup'
+
+image = 'cover.jpg'
+
 date = 2025-01-15T12:02:13+01:00
 
 draft = false

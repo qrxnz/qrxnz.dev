@@ -1,6 +1,10 @@
 +++
 title = 'Vulnlab :: Build Writeup'
+
+image = 'cover.jpg'
+
 date = 2025-01-04T19:54:32+01:00
+
 draft = false
 
 summary = 'Vulnlab :: Build Writeup'

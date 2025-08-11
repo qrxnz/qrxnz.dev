@@ -1,5 +1,6 @@
 +++
 title = 'Resources for learning Nix and NixOS!'
+image = 'nix.jpg'
 date = 2024-11-18T07:07:07+01:00
 draft = false
 
