@@ -1,0 +1,21 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default (.Get "title") -}}
+{{- $width := .Get "width" -}}
+
+{{- with .Page.Resources.GetMatch $src -}}
+    {{- $original := . -}}
+    {{- $scaled := .Resize (printf "%sx" $width) -}}
+    {{- $webp_thumb := $scaled.Process "webp" -}}
+
+    <img 
+        src="{{ $original.Permalink }}"
+        srcset="{{ $webp_thumb.Permalink }} {{ $scaled.Width }}w, {{ $scaled.Permalink }} {{ $scaled.Width }}w"
+        sizes="{{ $scaled.Width }}px"
+        width="{{ $scaled.Width }}" 
+        height="{{ $scaled.Height }}" 
+        alt="{{ $alt }}"
+        class="gallery-image"
+        loading="lazy">
+{{- else -}}
+    <p style="color: red;">Image not found: {{ $src }}</p>
+{{- end -}}

@@ -15,11 +15,14 @@ menu:
 > "Gram w cut-up, życie to walka na noże" ~Zero89
 
 ## 2024
-[<img src="image4.jpg" width="250"/>](image4.jpg)
+{{< img src="image4.jpg" width="250" alt="Image 4" >}}
 
 ## 2023
-[<img src="image1.jpg" width="250"/>](image1.jpg) [<img src="image2.jpg" width="250"/>](image2.jpg) \
-[<img src="image3.jpg" width="750"/>](image3.jpg)
+{{< img src="image1.jpg" width="250" alt="Image 1" >}}
+
+{{< img src="image2.jpg" width="250" alt="Image 2" >}}
+
+{{< img src="image3.jpg" width="750" alt="Image 3" >}}
 
 ```
 openbsd blowfish
