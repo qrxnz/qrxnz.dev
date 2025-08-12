@@ -12,8 +12,6 @@ menu:
             readingTime: false
 ---
 
-> "Gram w cut-up, życie to walka na noże" ~Zero89
-
 ## 2024
 {{< img src="image4.jpg" width="250" alt="Image 4" >}}
 
@@ -57,3 +55,7 @@ openbsd blowfish
         ~|~(_)|   (_|||   | | |(/_  |_)(_|_\_\VV(_)| (_|_\
                                     |
 ```
+
+---
+
+> "Gram w cut-up, życie to walka na noże" ~Zero89
