@@ -38,3 +38,14 @@ List of usefull videos:
 I also recommend the text guide [awesome-nix](https://nix-community.github.io/awesome-nix/) created by the Nix community.  
 
 I hope this list helps someone in their Nix journey.
+
+---
+
+> "David Foster Wallace umarł, ja gonię pieniądze \
+Choć dla mnie tylko on żyć umiał, i to co, że w książce \
+Kurzy się klawiatura, wszystko co piszę jest gorsze \
+Więc od niechcenia rzucam wersy możliwie najprostsze \
+Niech się wyłania z nich struktura, rozwija i rośnie \
+Gdy przez codzienność tułam się, jak zbędne ciało obce \
+Zanim mnie kolejna chałtura rozmieni na drobne \
+Zobaczysz we mnie tyle ducha, że narobisz w spodnie " ~Bisz

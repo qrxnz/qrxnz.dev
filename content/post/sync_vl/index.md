@@ -163,3 +163,9 @@ After modifying the script and executing it, I was able to escalate privileges a
 ```sh
 /bin/bash -p
 ```
+---
+
+> "Wiem, za rzadko się modlę, może kiedyś dorosnę \
+> Gorzkie słowa jak ogień rzucają na twarzy cień \
+> Proszę, daj mi melodię, niech zapełni sto wspomnień \
+> Moje wersy jak fobie będą zawsze obok mnie..." ~Inee

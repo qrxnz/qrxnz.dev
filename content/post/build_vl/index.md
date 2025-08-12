@@ -251,3 +251,14 @@ rsh 10.10.104.46
 ```
 
 After setting my own IP address as the `intern` DNS record and using the `rsh` client, I gained root access.
+
+---
+
+> "Jeszcze \
+A jak żyłem byłem zły \
+Wszyscy mi wieszali psy \
+Pilot leciał jakby nisko \
+Śmierć tańczyła przed lotniskiem \
+Teraz wszyscy leją łzy \
+Jakiż święty byłem, jakiż święty byłem \
+Jakiż święty byłem im" ~Deys
