@@ -128,9 +128,6 @@ enabled = true
     [menu.social.params]
     icon = "rss"
   
-    [menu.social.params]
-    icon = "brand-notion"
-  
 [related]
 includeNewer = true
 threshold = 60
