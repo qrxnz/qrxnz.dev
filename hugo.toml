@@ -95,7 +95,14 @@ enabled = true
 enabled = true
 
 [menu]
-main = [ ]
+
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = -100
+    [menu.main.params]
+      icon = "home"
 
   [[menu.social]]
   identifier = "github"
