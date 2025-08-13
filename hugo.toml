@@ -128,11 +128,6 @@ enabled = true
     [menu.social.params]
     icon = "rss"
   
-  [[menu.social]]
-  identifier = "notion"
-  name = "notion"
-  url = "https://carnation-income-c78.notion.site/Notes-23dcd133647780a39528edeef94deb6d"
-
     [menu.social.params]
     icon = "brand-notion"
   
