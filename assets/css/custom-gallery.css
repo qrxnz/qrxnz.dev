@@ -1,0 +1,9 @@
+.pswp__button {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.pswp__icn {
+    fill: white !important;
+}

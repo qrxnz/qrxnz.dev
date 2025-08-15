@@ -7,15 +7,22 @@
     {{- $scaled := .Resize (printf "%sx" $width) -}}
     {{- $webp_thumb := $scaled.Process "webp" -}}
 
-    <img 
-        src="{{ $original.Permalink }}"
-        srcset="{{ $webp_thumb.Permalink }} {{ $scaled.Width }}w, {{ $scaled.Permalink }} {{ $scaled.Width }}w"
-        sizes="{{ $scaled.Width }}px"
-        width="{{ $scaled.Width }}" 
-        height="{{ $scaled.Height }}" 
-        alt="{{ $alt }}"
-        class="gallery-image"
-        loading="lazy">
+    <a href="{{ $original.Permalink }}"
+        data-pswp-width="{{ $original.Width }}"
+        data-pswp-height="{{ $original.Height }}"
+        class="gallery-image-link"
+        target="_blank"
+        rel="noreferrer">
+        <img
+            src="{{ $scaled.Permalink }}"
+            srcset="{{ $webp_thumb.Permalink }} {{ $scaled.Width }}w, {{ $scaled.Permalink }} {{ $scaled.Width }}w"
+            sizes="{{ $scaled.Width }}px"
+            width="{{ $scaled.Width }}"
+            height="{{ $scaled.Height }}"
+            alt="{{ $alt }}"
+            class="gallery-image"
+            loading="lazy">
+    </a>
 {{- else -}}
     <p style="color: red;">Image not found: {{ $src }}</p>
 {{- end -}}
