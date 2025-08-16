@@ -12,6 +12,11 @@ menu:
             readingTime: false
 ---
 
+## 2025
+{{< img src="image5.jpg" width="250" alt="Image 5" >}}
+
+{{< img src="image6.jpg" width="250" alt="Image 6" >}}
+
 ## 2024
 {{< img src="image4.jpg" width="250" alt="Image 4" >}}
 
