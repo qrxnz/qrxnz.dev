@@ -7,3 +7,13 @@
 .pswp__icn {
     fill: white !important;
 }
+
+.pswp__button--arrow--left {
+    right: 10px;
+    left: auto;
+}
+
+.pswp__button--arrow--right {
+    left: 10px;
+    right: auto;
+}
