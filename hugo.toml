@@ -9,9 +9,9 @@ disableKinds = ["taxonomy", "term"]
   headline = "Breaker of things, computer enthusiast, and a fan of math rock and progressive metal. In my free time, I write blog posts, read books, and practice aggressive inline skating 😺"
   image = "img/avatar.jpg"
   links = [
-    { link = { href = "https://qrxnz.dev", text = "My Blog", target = "_self" } },
+    { link = { href = "https://blog.qrxnz.dev", text = "My Blog", target = "_self" } },
     { link = { href = "https://luzeed.org/qrxnz", text = "Pixelfed", target = "_self" } },
-    { github = "https://github.com/jpanther/lynx" },
+    { github = "https://github.com/qrxnz" },
   ]
 
 [markup.highlight]
