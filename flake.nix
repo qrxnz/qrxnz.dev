@@ -22,7 +22,6 @@
 
             # Others
             go-task
-            watchexec
           ];
         };
       }
