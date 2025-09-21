@@ -10,6 +10,7 @@ disableKinds = ["taxonomy", "term"]
   image = "img/avatar.jpg"
   links = [
     { link = { href = "https://blog.qrxnz.dev", text = "My Blog", target = "_self" } },
+    { email = "mailto:send@qrxnz.dev" },
     { link = { href = "https://luzeed.org/qrxnz", text = "Pixelfed", target = "_self" } },
     { github = "https://github.com/qrxnz" },
   ]
