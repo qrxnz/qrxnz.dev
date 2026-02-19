@@ -12,7 +12,7 @@ disableKinds = ["taxonomy", "term"]
     { link = { href = "https://blog.qrxnz.dev", text = "My Blog", target = "_self" } },
     { email = "mailto:send@qrxnz.dev" },
     { github = "https://github.com/qrxnz" },
-    { link = { href = "https://luzeed.org/qrxnz", text = "Pixelfed", target = "_self" } },
+    { link = { href = "https://linktr.ee/qrxnz", text = "Other Links...", target = "_self" } },
   ]
 
 [markup.highlight]
