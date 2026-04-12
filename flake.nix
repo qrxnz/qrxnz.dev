@@ -17,7 +17,7 @@
             dart-sass
 
             # Formatters
-            treefmt2
+            treefmt
             alejandra
 
             # Others
@@ -32,3 +32,4 @@
       };
     };
 }
+
