@@ -13,4 +13,5 @@ I’m a computer enthusiast driven by a curiosity for how things work—which of
 
 ### Contact 🕊️
 
+x: [@0xqrxnz](https://x.com/0xqrxnz)  
 email: send@qrxnz.dev
