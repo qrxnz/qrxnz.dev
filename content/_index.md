@@ -9,6 +9,8 @@ I’m a computer enthusiast driven by a curiosity for how things work—which of
 
 **Also [making music](https://open.spotify.com/intl-es/artist/3Ep80PnA5oAEHD7NjlCiTy?si=LmSJgvhFQYy_zGTpgqLdsw) since December 2025...**
 
+> "Education is the most powerful weapon which you can use to change the world." ~Nelson Mandela
+
 ---
 
 ### Contact 🕊️
