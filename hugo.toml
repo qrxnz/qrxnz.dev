@@ -34,6 +34,10 @@ weight = 1
 name = "Music"
 url = "https://open.spotify.com/intl-es/artist/3Ep80PnA5oAEHD7NjlCiTy?si=4HdJzXleTQulhI0GLp6Tyw"
 weight = 2
+[[menu.main]]
+name = "Other Links"
+url = "https://linktr.ee/qrxnz"
+weight = 2
 [[menu.feed]]
 name = "RSS"
 url = "https://blog.qrxnz.dev/index.xml"
