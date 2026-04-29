@@ -5,7 +5,7 @@ googleAnalytics = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 languageCode = "en-us"
 theme = "hugo-classic"
-title = "qrxnz's space"
+# title = "qrxnz's space"
 
 [markup.goldmark.renderer]
 unsafe = true
