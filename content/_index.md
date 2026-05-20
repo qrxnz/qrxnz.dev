@@ -13,7 +13,7 @@ I’m a computer enthusiast driven by a curiosity for how things work—which of
 
 ---
 
-### Contact 🕊️
+### You can reach me at 🕊️
 
-x: [@0xqrxnz](https://x.com/0xqrxnz)  
+mastodon: [@qrxnz@101010.pl](https://101010.pl/@qrxnz)  
 email: send@qrxnz.dev
