@@ -16,4 +16,3 @@ I’m a computer enthusiast driven by a curiosity for how things work—which of
 ### You can reach me at 🕊️
 
 email: send@qrxnz.dev
-mastodon: [@qrxnz@101010.pl](https://101010.pl/@qrxnz)
