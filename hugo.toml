@@ -31,9 +31,13 @@ name = "Blog"
 url = "https://blog.qrxnz.dev"
 weight = 1
 [[menu.main]]
+name = "Projects"
+url = "/projects/"
+weight = 2
+[[menu.main]]
 name = "Other Links"
 url = "https://linktr.ee/qrxnz"
-weight = 2
+weight = 3
 [[menu.feed]]
 name = "RSS"
 url = "https://blog.qrxnz.dev/index.xml"
