@@ -19,10 +19,6 @@ description: "Projects by qrxnz."
   \\\_\_\_[ Simple bruteforcer for CrackMe binaries / CTF challegne solver<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `go`
 
-- 📝 **[nveem](https://github.com/qrxnz/nveem)**<br>
-  \\\_\_\_[ Neovim configuration buit with nixvim<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `nix`, `nixvim`
-
 - ℹ️ **[ipl](https://github.com/qrxnz/ipl)**<br>
   \\\_\_\_[ A simple cli tool for displaying local network interface information<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `go`
