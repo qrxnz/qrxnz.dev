@@ -38,9 +38,6 @@ weight = 2
 name = "Other Links"
 url = "https://linktr.ee/qrxnz"
 weight = 3
-[[menu.feed]]
-name = "RSS"
-url = "https://blog.qrxnz.dev/index.xml"
 
 [params]
 custom_css = ["css/theme-override.css"]
