@@ -16,6 +16,9 @@
             hugo
             dart-sass
 
+            # Lsp
+            nixd
+
             # Formatters
             treefmt
             alejandra
@@ -32,4 +35,3 @@
       };
     };
 }
-
