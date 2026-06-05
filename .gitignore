@@ -1,4 +1,5 @@
 .direnv/
+.devenv/
 .DS_Store
 public
 resources/
