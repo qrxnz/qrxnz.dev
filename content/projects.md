@@ -7,11 +7,11 @@ description: "Projects by qrxnz."
   \\\_\_\_[ A simple tool to decrypt mRemoteNG connection files (.xml)<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `go`
 
-- 🕵️ **[stego-toolkit-nix](https://github.com/qrxnz/stego-toolkit-nix)**<br>
+- 🕵️ **[stego-toolkit-nix](https://github.com/qrxnz/stego-toolkit-nix)** *(archived)*<br>
   \\\_\_\_[ The finest collection of steganography tools!<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `nix`, `sh`
 
-- 🏗️ **[nxt](https://github.com/qrxnz/nxt)**<br>
+- 🏗️ **[nxt](https://github.com/qrxnz/nxt)** *(archived)*<br>
   \\\_\_\_[ Simple wrapper for nix-templates created using nix & gum!<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `nix`, `sh`
 
