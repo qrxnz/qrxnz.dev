@@ -3,6 +3,10 @@ title: Projects
 description: "Projects by qrxnz."
 ---
 
+- 📋 **[gk](https://github.com/qrxnz/gk)**<br>
+  \\\_\_\_[ A terminal-based task and habit manager<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `go`
+
 - 🔐 **[mremotedec](https://github.com/qrxnz/mremotedec)**<br>
   \\\_\_\_[ A simple tool to decrypt mRemoteNG connection files (.xml)<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\\_ `go`
