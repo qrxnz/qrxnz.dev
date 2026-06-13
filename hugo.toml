@@ -34,10 +34,6 @@ weight = 1
 name = "Projects"
 url = "/projects/"
 weight = 2
-[[menu.main]]
-name = "Other Links"
-url = "https://linktr.ee/qrxnz"
-weight = 3
 
 [params]
 custom_css = ["css/theme-override.css"]
