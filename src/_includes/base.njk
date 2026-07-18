@@ -27,7 +27,7 @@
           <ul>
             <li class="{% if page.url == '/' %}current{% endif %}"><a href="/">~/home</a></li>
             <li class="{% if page.url == '/projects/' %}current{% endif %}"><a href="/projects/">~/projects</a></li>
-            <li><a href="https://blog.qrxnz.dev">~/blog</a></li>
+            <li class="{% if page.url == '/blog/' or page.url.startsWith('/blog/') %}current{% endif %}"><a href="/blog/">~/blog</a></li>
           </ul>
         </nav>
       </header>

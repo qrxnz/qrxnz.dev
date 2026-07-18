@@ -5,6 +5,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("robots.txt");
 
+  eleventyConfig.addFilter("readableDate", (date) => {
+    return new Date(date).toISOString().split("T")[0];
+  });
+
   return {
     dir: {
       input: "src",

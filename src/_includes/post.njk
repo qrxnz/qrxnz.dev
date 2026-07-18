@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <p><a href="/blog/">&larr; ~/blog</a></p>
+  <header class="post-header">
+    <h2>{{ title }}</h2>
+    <p class="post-meta">
+      {{ date | readableDate }}
+      {% for tag in tags %}{% if tag != "posts" %}<code>{{ tag }}</code>{% endif %}{% endfor %}
+    </p>
+  </header>
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+  <p><a href="/blog/">&larr; ~/blog</a></p>
+</article>

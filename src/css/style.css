@@ -238,6 +238,60 @@ ul.tree .proj-tags code {
   font-size: 0.8em;
 }
 
+/* --- blog posts --- */
+.post-header h2 {
+  margin-bottom: 0.25rem;
+}
+.post-meta {
+  text-align: center;
+  color: #888;
+  font-size: 0.85em;
+}
+.post-meta code {
+  background: #1a1a1a;
+  color: #7CFC00;
+  border: 1px solid #333;
+  border-radius: 2px;
+  padding: 0.05rem 0.35rem;
+  margin: 0 0.2rem;
+  font-size: 0.9em;
+}
+.post-body {
+  margin-top: 1.5rem;
+}
+.post-body h2,
+.post-body h3 {
+  color: #ff2fa0;
+}
+.post-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border: 2px solid #444;
+}
+.post-body pre {
+  background: #000;
+  color: #7CFC00;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 0.85rem;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+.post-body code {
+  font-family: "Courier New", Courier, monospace;
+}
+.post-body p code,
+.post-body li code {
+  background: #1a1a1a;
+  color: #7CFC00;
+  border: 1px solid #333;
+  border-radius: 2px;
+  padding: 0.05rem 0.3rem;
+}
+
 /* --- badge row --- */
 .badges {
   display: flex;

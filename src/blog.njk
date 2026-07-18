@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: ~/blog
+description: "Writeups, notes and other things."
+permalink: /blog/
+---
+<h2>blog</h2>
+<ul class="tree">
+{% for post in collections.posts | reverse %}
+  <li>
+    <span class="proj-name"><a href="{{ post.url }}">{{ post.data.title }}</a></span>
+    <span class="proj-desc">{{ post.data.summary }}</span>
+    <span class="proj-tags">
+      {{ post.data.date | readableDate }}
+      {% for tag in post.data.tags %}{% if tag != "posts" %}<code>{{ tag }}</code>{% endif %}{% endfor %}
+    </span>
+  </li>
+{% endfor %}
+</ul>
