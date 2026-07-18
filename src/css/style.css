@@ -179,6 +179,13 @@ main h2 {
   text-align: center;
 }
 
+main h3 {
+  color: #a020f0;
+  border-bottom: 1px dashed #333;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
 main .bigger-text {
   font-size: 1.15rem;
   text-align: center;

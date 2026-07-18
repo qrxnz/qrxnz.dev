@@ -7,6 +7,8 @@ permalink: /projects/
 
 ## projects
 
+### ~/qrxnz
+
 <ul class="tree">
   <li>
     <span class="proj-name">📋 <a href="https://github.com/qrxnz/gk">gk</a></span>
@@ -37,5 +39,15 @@ permalink: /projects/
     <span class="proj-name">ℹ️ <a href="https://github.com/qrxnz/ipl">ipl</a></span>
     <span class="proj-desc">A simple cli tool for displaying local network interface information</span>
     <span class="proj-tags"><code>go</code></span>
+  </li>
+</ul>
+
+### ~/KryptoKuznia
+
+<ul class="tree">
+  <li>
+    <span class="proj-name">📈 <a href="https://github.com/KryptoKuznia/kryptokuznia.pl">kryptokuznia.pl</a></span>
+    <span class="proj-desc">Live BTC dashboard — price, dominance, and Fear & Greed Index</span>
+    <span class="proj-tags"><code>next.js</code><code>typescript</code></span>
   </li>
 </ul>
