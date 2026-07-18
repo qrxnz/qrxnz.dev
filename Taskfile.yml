@@ -3,7 +3,10 @@ version: '3'
 tasks:
   serve:
     cmds:
-      - hugo server
+      - npm run serve
+  build:
+    cmds:
+      - npm run build
   run:
     cmds:
       - task: serve

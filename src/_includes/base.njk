@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description or "The personal writings, expressions and more..." }}">
+    <title>{{ title }}{% if title != "qrxnz.dev" %} | qrxnz.dev{% endif %}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="tape"><span>under construction</span></div>
+
+    <div class="container">
+      <header>
+        <img class="logo" src="/img/logo.svg" alt="" width="72" height="72">
+        <h1 class="site-title">~/qrxnz<span class="cursor">_</span></h1>
+        <p class="tagline">reverse engineer-adjacent tinkerer &middot; ctf enjoyer &middot; nix user</p>
+
+        <nav>
+          <ul>
+            <li class="{% if page.url == '/' %}current{% endif %}"><a href="/">~/home</a></li>
+            <li class="{% if page.url == '/projects/' %}current{% endif %}"><a href="/projects/">~/projects</a></li>
+            <li><a href="https://blog.qrxnz.dev">~/blog</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        {{ content | safe }}
+      </main>
+
+      <div class="badges">
+        <a class="badge violet" href="https://nixos.org" target="_blank" rel="noopener">POWERED<br>BY NIX ❄</a>
+        <a class="badge green" href="https://go.dev" target="_blank" rel="noopener">GO GOPHER<br>INSIDE</a>
+        <a class="badge blue" href="https://www.vim.org" target="_blank" rel="noopener">BUILT WITH<br>VIM</a>
+        <span class="badge pink">BEST VIEWED<br>IN ANY BROWSER</span>
+        <span class="badge">NO JS<br>TRACKERS</span>
+        <a class="badge" href="https://github.com/qrxnz" target="_blank" rel="noopener">CTF<br>ENJOYER</a>
+      </div>
+
+      <footer>
+        <p>Open-Source | <a href="https://github.com/qrxnz">Github</a> | <a href="https://codeberg.org/qrxnz">Codeberg</a></p>
+        <p class="updated">est. 2026 &middot; hand-crafted HTML, no frameworks harmed</p>
+      </footer>
+    </div>
+
+    <div class="tape"><span>under construction</span></div>
+  </body>
+</html>

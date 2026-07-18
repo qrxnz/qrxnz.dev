@@ -6,8 +6,7 @@
 }: {
   # https://devenv.sh/packages/
   packages = [
-    pkgs.hugo
-    pkgs.dart-sass
+    pkgs.nodejs
     pkgs.nixd
     pkgs.treefmt
     pkgs.alejandra
